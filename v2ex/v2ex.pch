@@ -1,0 +1,58 @@
+//
+//  v2ex.pch
+//  v2ex
+//
+//  Created by 无头骑士 GJ on 16/1/14.
+//  Copyright © 2016年 无头骑士 GJ. All rights reserved.
+//
+
+#ifdef __OBJC__
+
+// 屏幕的宽度
+#define WTScreenWidth [UIScreen mainScreen].bounds.size.width
+#define WTScreenHeight [UIScreen mainScreen].bounds.size.height
+
+//#define WTColor(r , g ,b) [UIColor colorWithRed:(r)  green:(g)  blue:(b) alpha:1]
+#define WTColor(r, g, b) [UIColor colorWithRed: (r)/255.0 green: (g)/255.0 blue: (b)/255.0 alpha: 1.0]
+// 获取随机色
+#define WTRandomColor [UIColor colorWithRed: arc4random()%256/256.0 green: arc4random()%256/256.0 blue: arc4random()%256/256.0 alpha: 1.0]
+
+// 日志打印
+#ifdef DEBUG
+#define WTString [NSString stringWithFormat:@"%s", __FILE__].lastPathComponent
+#define WTLog(...) printf("%s 第%d行: %s\n\n",[WTString UTF8String] ,__LINE__, [[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
+
+#else
+
+#define WTLog(...) 
+
+#endif
+
+// 代码执行时间
+#define TICK   NSDate *startTime = [NSDate date];
+#define TOCK   WTLog(@"Time: %f", -[startTime timeIntervalSinceNow])
+
+//
+#define WTIndexTitle @[@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"J",@"K", @"L", @"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T", @"U",@"V",@"W",@"X",@"Y",@"Z",@"#"]
+
+#endif
+
+
+#import "UIView+Frame.h"
+#import "WTConst.h"
+#import "UIColor+Extension.h"
+#import "UIView+init.h"
+#import "DKNightVersion.h"
+
+#define WTIconPlaceholderImage [UIImage imageNamed: @"topic_avatar_normal"]
+#define WTPrettyColor WTColor(135, 146, 177)
+#define WTPrettyGreenColor WTColor(42, 183, 103)
+#define WTLightColor [UIColor colorWithHexString: WTAppLightColor]
+#define WTLightColor_3 WTColor(53, 153, 247)
+#define WTTableViewBackgroundColor [UIColor colorWithHexString: @"F2F3F5"]
+
+#define WTSelectedColor WTColor(53, 153, 247)
+
+#define Test   1
+
+#define iOS9Later [[UIDevice currentDevice].systemVersion floatValue] >= 9.0f

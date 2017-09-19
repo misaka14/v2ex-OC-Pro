@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WTWebViewController">
+            <connections>
+                <outlet property="contentView" destination="39b-5a-0rq" id="Mwo-dv-R9P"/>
+                <outlet property="nextBtn" destination="LrV-AP-iyF" id="la0-lr-VTa"/>
+                <outlet property="prevBtn" destination="cSK-CR-hGD" id="NM2-dF-JxV"/>
+                <outlet property="progressView" destination="SKW-UQ-8lW" id="82x-Ib-cXg"/>
+                <outlet property="refreshBtn" destination="hYf-Uy-Rjo" id="bFF-Rg-6II"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="39b-5a-0rq">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCI-D2-0xi">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="eTm-Zk-17b"/>
+                    </constraints>
+                    <items>
+                        <barButtonItem style="plain" id="fEi-hR-aUW">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cSK-CR-hGD">
+                                <rect key="frame" x="16" y="6" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="webView_return"/>
+                                <state key="disabled" image="webView_return_disabled"/>
+                                <connections>
+                                    <action selector="prevBtnClick" destination="-1" eventType="touchUpInside" id="kdr-7B-wNV"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="KuC-FZ-A2S"/>
+                        <barButtonItem style="plain" id="oHT-1K-90B">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hYf-Uy-Rjo">
+                                <rect key="frame" x="171" y="6" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="webView_refresh"/>
+                                <state key="disabled" image="webView_refresh_disabled"/>
+                                <connections>
+                                    <action selector="refreshBtnClick" destination="-1" eventType="touchUpInside" id="YL1-Uw-wkm"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="R4u-Ue-OJ6"/>
+                        <barButtonItem style="plain" id="u2s-dS-oNr">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LrV-AP-iyF">
+                                <rect key="frame" x="327" y="6" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="webView_next"/>
+                                <state key="disabled" image="webView_next_disabled"/>
+                                <connections>
+                                    <action selector="nextBtnClick" destination="-1" eventType="touchUpInside" id="Ka4-jy-zPl"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SKW-UQ-8lW">
+                    <rect key="frame" x="0.0" y="64" width="375" height="2"/>
+                </progressView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="39b-5a-0rq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0zR-H2-JbM"/>
+                <constraint firstAttribute="trailing" secondItem="DCI-D2-0xi" secondAttribute="trailing" id="DfT-qO-9y9"/>
+                <constraint firstAttribute="trailing" secondItem="39b-5a-0rq" secondAttribute="trailing" id="F9q-V6-DkC"/>
+                <constraint firstAttribute="trailing" secondItem="SKW-UQ-8lW" secondAttribute="trailing" id="ISW-Pz-Tdl"/>
+                <constraint firstItem="SKW-UQ-8lW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="O5Q-it-EQY"/>
+                <constraint firstItem="DCI-D2-0xi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="bMV-ak-BJA"/>
+                <constraint firstAttribute="bottom" secondItem="DCI-D2-0xi" secondAttribute="bottom" id="nxE-0j-TVw"/>
+                <constraint firstItem="DCI-D2-0xi" firstAttribute="top" secondItem="39b-5a-0rq" secondAttribute="bottom" id="pdJ-Hp-N9X"/>
+                <constraint firstItem="SKW-UQ-8lW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="tTU-5F-q6w"/>
+                <constraint firstItem="39b-5a-0rq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tXN-Pk-EPI"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="webView_next" width="32" height="32"/>
+        <image name="webView_next_disabled" width="64" height="64"/>
+        <image name="webView_refresh" width="32" height="32"/>
+        <image name="webView_refresh_disabled" width="64" height="64"/>
+        <image name="webView_return" width="32" height="32"/>
+        <image name="webView_return_disabled" width="64" height="64"/>
+    </resources>
+</document>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XJL-Y4-mkA">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Member Info View Controller-->
+        <scene sceneID="FHe-sy-mrM">
+            <objects>
+                <viewController id="XJL-Y4-mkA" customClass="WTMemberInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iq8-NQ-e9P"/>
+                        <viewControllerLayoutGuide type="bottom" id="3dp-ba-Q91"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jPq-UJ-kOM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLq-p3-05I">
+                                <rect key="frame" x="20" y="523" width="335" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="mNY-9J-UhK"/>
+                                </constraints>
+                                <state key="normal" title="发送消息">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendBtnClick" destination="XJL-Y4-mkA" eventType="touchUpInside" id="LPw-PG-h6J"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cLq-p3-05I" secondAttribute="trailing" constant="20" id="6Uj-Hj-mgu"/>
+                            <constraint firstItem="3dp-ba-Q91" firstAttribute="top" secondItem="cLq-p3-05I" secondAttribute="bottom" constant="100" id="eXK-tj-yPF"/>
+                            <constraint firstItem="cLq-p3-05I" firstAttribute="leading" secondItem="jPq-UJ-kOM" secondAttribute="leading" constant="20" id="sy5-Vt-2bT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sendBtn" destination="cLq-p3-05I" id="wKW-lq-bgH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hj7-HJ-gQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1178" y="-161"/>
+        </scene>
+    </scenes>
+</document>

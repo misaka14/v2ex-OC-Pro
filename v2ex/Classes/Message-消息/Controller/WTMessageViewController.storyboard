@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WYq-lU-pi3">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Message View Controller-->
+        <scene sceneID="QVf-Wi-p0h">
+            <objects>
+                <viewController id="WYq-lU-pi3" customClass="WTMessageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wdy-ud-SXn"/>
+                        <viewControllerLayoutGuide type="bottom" id="jde-PN-6xZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sz7-Ck-AwI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3k-dl-egY">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUw-nc-hwB">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fP6-Si-cRD">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="G56-wb-Q5z"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="loginBtnClick:" destination="WYq-lU-pi3" eventType="touchUpInside" id="gLP-Bz-mgI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="fP6-Si-cRD" firstAttribute="leading" secondItem="NUw-nc-hwB" secondAttribute="leading" constant="20" id="21m-xU-KSe"/>
+                                    <constraint firstAttribute="trailing" secondItem="fP6-Si-cRD" secondAttribute="trailing" constant="20" id="OA4-OY-QRo"/>
+                                    <constraint firstItem="fP6-Si-cRD" firstAttribute="centerY" secondItem="NUw-nc-hwB" secondAttribute="centerY" id="OAX-wH-99z"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="k3k-dl-egY" firstAttribute="top" secondItem="Sz7-Ck-AwI" secondAttribute="top" id="9JL-W0-Z2Y"/>
+                            <constraint firstAttribute="trailing" secondItem="NUw-nc-hwB" secondAttribute="trailing" id="GKs-li-hMU"/>
+                            <constraint firstItem="k3k-dl-egY" firstAttribute="leading" secondItem="Sz7-Ck-AwI" secondAttribute="leading" id="KHF-4Y-YGP"/>
+                            <constraint firstItem="NUw-nc-hwB" firstAttribute="top" secondItem="Sz7-Ck-AwI" secondAttribute="top" id="Otq-Ib-nb9"/>
+                            <constraint firstAttribute="trailing" secondItem="k3k-dl-egY" secondAttribute="trailing" id="Riw-Ow-XoS"/>
+                            <constraint firstAttribute="bottom" secondItem="k3k-dl-egY" secondAttribute="bottom" id="RlW-Dl-LFu"/>
+                            <constraint firstAttribute="bottom" secondItem="NUw-nc-hwB" secondAttribute="bottom" id="ZyJ-Lt-kOF"/>
+                            <constraint firstItem="NUw-nc-hwB" firstAttribute="leading" secondItem="Sz7-Ck-AwI" secondAttribute="leading" id="baQ-TJ-T8S"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="k3k-dl-egY" id="8wj-vN-3yh"/>
+                        <outlet property="emptyView" destination="NUw-nc-hwB" id="x4D-8a-csY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xw7-qh-IoS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="300" y="96"/>
+        </scene>
+    </scenes>
+</document>

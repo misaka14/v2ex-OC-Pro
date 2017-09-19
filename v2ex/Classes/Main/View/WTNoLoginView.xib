@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="te8-OX-vcU" customClass="WTNoLoginView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WWt-mY-i6f">
+                    <rect key="frame" x="204.5" y="414.5" width="126" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="Hbu-bH-vqI"/>
+                        <constraint firstAttribute="width" constant="126" id="qNb-IH-ziD"/>
+                    </constraints>
+                    <state key="normal" title="登录"/>
+                    <connections>
+                        <action selector="loginBtnClick" destination="te8-OX-vcU" eventType="touchUpInside" id="8yU-Uy-Qqk"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmz-Pa-Zce">
+                    <rect key="frame" x="44.5" y="414.5" width="126" height="38"/>
+                    <state key="normal" title="注册"/>
+                    <connections>
+                        <action selector="registerBtnClick" destination="te8-OX-vcU" eventType="touchUpInside" id="Ukh-cw-B7w"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录后，可以使用搜索功能，并查看全部的v2ex的帖子" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIL-mL-zkr">
+                    <rect key="frame" x="44.5" y="373.5" width="286" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="xmz-Pa-Zce" firstAttribute="centerY" secondItem="te8-OX-vcU" secondAttribute="centerY" constant="100" id="N0a-Xk-zkf"/>
+                <constraint firstItem="xmz-Pa-Zce" firstAttribute="centerY" secondItem="WWt-mY-i6f" secondAttribute="centerY" id="NKZ-rs-LXd"/>
+                <constraint firstItem="WWt-mY-i6f" firstAttribute="width" secondItem="xmz-Pa-Zce" secondAttribute="width" id="UhR-RD-cqX"/>
+                <constraint firstItem="WWt-mY-i6f" firstAttribute="height" secondItem="xmz-Pa-Zce" secondAttribute="height" id="XHQ-t2-m9U"/>
+                <constraint firstItem="BIL-mL-zkr" firstAttribute="leading" secondItem="xmz-Pa-Zce" secondAttribute="leading" id="jPU-48-WkN"/>
+                <constraint firstItem="WWt-mY-i6f" firstAttribute="width" secondItem="xmz-Pa-Zce" secondAttribute="width" id="kfD-Nd-7hu"/>
+                <constraint firstItem="xmz-Pa-Zce" firstAttribute="centerX" secondItem="te8-OX-vcU" secondAttribute="centerX" constant="-80" id="law-DY-hex"/>
+                <constraint firstItem="WWt-mY-i6f" firstAttribute="centerX" secondItem="te8-OX-vcU" secondAttribute="centerX" constant="80" id="pW0-Rv-TQq"/>
+                <constraint firstItem="xmz-Pa-Zce" firstAttribute="top" secondItem="BIL-mL-zkr" secondAttribute="bottom" constant="20" id="vQj-zO-4UK"/>
+                <constraint firstItem="BIL-mL-zkr" firstAttribute="trailing" secondItem="WWt-mY-i6f" secondAttribute="trailing" id="xln-cz-Ptz"/>
+                <constraint firstItem="BIL-mL-zkr" firstAttribute="centerX" secondItem="te8-OX-vcU" secondAttribute="centerX" id="xt5-5L-hc2"/>
+            </constraints>
+            <connections>
+                <outlet property="loginBtn" destination="WWt-mY-i6f" id="J6G-Db-39j"/>
+                <outlet property="registerBtn" destination="xmz-Pa-Zce" id="h2Y-MF-r8r"/>
+                <outlet property="titleLabel" destination="BIL-mL-zkr" id="tNm-YD-6YE"/>
+            </connections>
+        </view>
+    </objects>
+</document>

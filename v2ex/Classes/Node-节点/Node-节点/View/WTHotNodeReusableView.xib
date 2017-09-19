@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="WTHotNodeReusableView">
+            <rect key="frame" x="0.0" y="0.0" width="354" height="47"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppP-zx-tIb">
+                    <rect key="frame" x="15" y="0.0" width="339" height="47"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ppP-zx-tIb" secondAttribute="trailing" id="7qC-5V-nQZ"/>
+                <constraint firstItem="ppP-zx-tIb" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="15" id="KdC-DI-oLF"/>
+                <constraint firstAttribute="bottom" secondItem="ppP-zx-tIb" secondAttribute="bottom" id="oOc-Jb-QcQ"/>
+                <constraint firstItem="ppP-zx-tIb" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="t6R-fK-tJ8"/>
+            </constraints>
+            <connections>
+                <outlet property="titleLabel" destination="ppP-zx-tIb" id="BNs-BS-cEN"/>
+            </connections>
+            <point key="canvasLocation" x="376" y="305.5"/>
+        </collectionReusableView>
+    </objects>
+</document>
