@@ -66,8 +66,8 @@
         
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem backItemWithImage: [UIImage imageNamed:@"nav_back_normal"] highImage: nil target: self action: @selector(back) title: nil];
     }
+    viewController.edgesForExtendedLayout = UIRectEdgeNone;
     viewController.extendedLayoutIncludesOpaqueBars = YES;
-    viewController.navigationController.navigationBar.hidden = YES;
     [super pushViewController: viewController animated: animated];
 }
 

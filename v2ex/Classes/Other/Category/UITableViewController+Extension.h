@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UITableViewController (Extension)
-/** 设置导航栏的imageView */
-- (void)setTempNavImageView;
+
 @end

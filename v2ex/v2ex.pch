@@ -12,6 +12,14 @@
 #define WTScreenWidth [UIScreen mainScreen].bounds.size.width
 #define WTScreenHeight [UIScreen mainScreen].bounds.size.height
 
+// iOS11适配
+#define ISIPHONEX ([UIScreen mainScreen].bounds.size.height == 812)
+#define WTTitleViewHeight (ISIPHONEX  ? 84 : 64)
+#define WTNavigationBarMaxY (ISIPHONEX  ? 84 : 64)
+#define WTNavigationBarCenterY (ISIPHONEX ? 20 : 10)
+#define WTTabBarCenterY (ISIPHONEX ? 20 : 0)
+
+
 //#define WTColor(r , g ,b) [UIColor colorWithRed:(r)  green:(g)  blue:(b) alpha:1]
 #define WTColor(r, g, b) [UIColor colorWithRed: (r)/255.0 green: (g)/255.0 blue: (b)/255.0 alpha: 1.0]
 // 获取随机色
@@ -52,6 +60,8 @@
 #define WTTableViewBackgroundColor [UIColor colorWithHexString: @"F2F3F5"]
 
 #define WTSelectedColor WTColor(53, 153, 247)
+
+#define WTDefaultVersionManager [[DKNightVersionManager sharedManager].themeVersion isEqualToString: DKThemeVersionNormal] ? UIStatusBarStyleDefault : UIStatusBarStyleLightContent;
 
 #define Test   1
 

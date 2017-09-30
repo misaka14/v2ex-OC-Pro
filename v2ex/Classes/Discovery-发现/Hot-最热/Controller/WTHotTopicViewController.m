@@ -33,6 +33,7 @@ static CGFloat const WTSearchBarNormalMargin = 10;
 
 @interface WTHotTopicViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
+
 /************************* 控件 *************************/
 /** 最近话题tableView的ContentView */
 @property (weak, nonatomic) IBOutlet UIView *topicContentView;
@@ -40,7 +41,8 @@ static CGFloat const WTSearchBarNormalMargin = 10;
 @property (weak, nonatomic) IBOutlet UIView *loadingView;
 /** 没有登陆的提示页面 */
 @property (nonatomic, weak) WTNoLoginView *noLoginView;
-
+/** 菊花 */
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView;
 /** 搜索话题的tableView */
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 /** 搜索栏 */
@@ -96,6 +98,7 @@ static CGFloat const WTSearchBarNormalMargin = 10;
     // 2、添加搜索导航栏
     {
         UISearchBar *searchBar = [[UISearchBar alloc] init];
+        searchBar.tintColor = WTSelectedColor;
         searchBar.placeholder = @"搜索";
         searchBar.delegate = self;
         self.searchBar = searchBar;
@@ -109,7 +112,12 @@ static CGFloat const WTSearchBarNormalMargin = 10;
             
         }];
         
+        // 添加searchBar换肤功能
+        UITextField *searchField = [searchBar valueForKey:@"_searchField"];
+        searchField.dk_textColorPicker = DKColorPickerWithKey(WTSearchbarTextColor);
+        
         UIButton *cancelBtn = [UIButton buttonWithType: UIButtonTypeCustom];
+        cancelBtn.titleLabel.font = [UIFont systemFontOfSize: 15];
         [cancelBtn setTitle: @"取消" forState: UIControlStateNormal];
         [cancelBtn setTitleColor: WTSelectedColor forState: UIControlStateNormal];
         [cancelBtn addTarget: self action: @selector(cancelBtnClick) forControlEvents: UIControlEventTouchUpInside];
@@ -145,6 +153,9 @@ static CGFloat const WTSearchBarNormalMargin = 10;
     
     self.currentPage = 0;
     
+    self.loadingView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
+    
+    self.activityView.dk_tintColorPicker = DKColorPickerWithKey(WTActivityIndicatorViewColor);
 }
 
 

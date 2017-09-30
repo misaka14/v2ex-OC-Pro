@@ -34,8 +34,13 @@
     self.timeLabel.textColor = WTColor(140, 140, 140);
     
     self.contentView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
-    
+    self.bgView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewCellBgViewBackgroundColor);
+    self.titleLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicTitleColor);
+    self.detailLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
+    self.timeLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
     self.bgView.layer.cornerRadius = 3;
+    
+    
 }
 
 - (void)setSearchTopic:(WTSearchTopic *)searchTopic
@@ -60,12 +65,12 @@
 //    NSRange keywordsRange = [contentTemp rangeOfString: keywordsTemp];
     NSArray *keywordsRanges = [self rangeOfSubString: keywordsTemp inString: contentTemp];
     
-    NSMutableAttributedString *newContent = [[NSMutableAttributedString alloc] initWithString: content attributes: @{NSForegroundColorAttributeName: normalColor}];
+    NSMutableAttributedString *newContent = [[NSMutableAttributedString alloc] initWithString: content attributes: nil];
     
     for (NSString *keywordsRange in keywordsRanges)
     {
         NSRange range = NSRangeFromString(keywordsRange);
-        [newContent addAttributes: @{NSForegroundColorAttributeName: [UIColor orangeColor]} range: range];
+        [newContent addAttributes: @{NSForegroundColorAttributeName: WTSelectedColor} range: range];
     }
     
     return newContent;

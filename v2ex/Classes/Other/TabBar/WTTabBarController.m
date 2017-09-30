@@ -31,10 +31,9 @@
     [self addChildViewControllers];
     
     self.tabBar.dk_barTintColorPicker = DKColorPickerWithKey(UINavbarBackgroundColor);
-
-    self.tabBar.dk_tintColorPicker =  DKColorPickerWithKey(UITabbarTintColor);
     
-    self.tabBar.translucent = NO;
+    self.tabBar.dk_tintColorPicker = DKColorPickerWithKey(WTTabbarTintColor);
+    
     
 }
 

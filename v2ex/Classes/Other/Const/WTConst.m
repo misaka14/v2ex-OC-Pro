@@ -9,10 +9,7 @@
 
 
 
-/** 标题View的高度 */
-CGFloat const WTTitleViewHeight = 64;
-/** 导航栏的Y的最大值  */
-CGFloat const WTNavigationBarMaxY = 64;
+
 /** TabBar的高度*/
 CGFloat const WTTabBarHeight = 49;
 /** 通用边距*/

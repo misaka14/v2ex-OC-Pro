@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -81,7 +81,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BH-f1-nxz">
-                    <rect key="frame" x="567" y="11.5" width="25" height="25"/>
+                    <rect key="frame" x="567" y="9.5" width="25" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="hvt-Ni-101"/>
                         <constraint firstAttribute="width" constant="25" id="vhh-sg-Tly"/>
@@ -99,18 +99,18 @@
                 <constraint firstItem="b6n-AM-3QB" firstAttribute="leading" secondItem="ig7-Pv-8hJ" secondAttribute="trailing" constant="8" id="3VZ-5P-ctg"/>
                 <constraint firstItem="OMZ-k8-BJC" firstAttribute="leading" secondItem="b6n-AM-3QB" secondAttribute="trailing" constant="8" id="4m3-nP-bnZ"/>
                 <constraint firstItem="6AV-yn-dsp" firstAttribute="baseline" secondItem="OMZ-k8-BJC" secondAttribute="baseline" id="6dX-Bh-xS7"/>
-                <constraint firstItem="7BH-f1-nxz" firstAttribute="centerY" secondItem="OMZ-k8-BJC" secondAttribute="centerY" constant="2" id="ALU-nl-fLO"/>
+                <constraint firstItem="OMZ-k8-BJC" firstAttribute="centerY" secondItem="MQo-fn-Wms" secondAttribute="centerY" id="A73-IX-waX"/>
                 <constraint firstItem="MQo-fn-Wms" firstAttribute="leading" secondItem="pSV-hh-sFe" secondAttribute="trailing" constant="8" id="CIq-UU-Glo"/>
-                <constraint firstItem="ig7-Pv-8hJ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Cdc-DE-58q"/>
+                <constraint firstItem="pSV-hh-sFe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9.5" id="CXU-F5-72r"/>
                 <constraint firstAttribute="trailing" secondItem="7BH-f1-nxz" secondAttribute="trailing" constant="8" id="El2-Wq-TPV"/>
                 <constraint firstItem="b6n-AM-3QB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="LLW-cA-T71"/>
-                <constraint firstItem="6AV-yn-dsp" firstAttribute="centerY" secondItem="OMZ-k8-BJC" secondAttribute="centerY" id="Oa1-ez-hYN"/>
-                <constraint firstItem="pSV-hh-sFe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="aSI-iB-P3H"/>
+                <constraint firstItem="6AV-yn-dsp" firstAttribute="centerY" secondItem="MQo-fn-Wms" secondAttribute="centerY" id="Ota-Bz-o7A"/>
                 <constraint firstItem="7BH-f1-nxz" firstAttribute="baseline" secondItem="OMZ-k8-BJC" secondAttribute="baseline" id="f8d-jI-v1b"/>
+                <constraint firstItem="ig7-Pv-8hJ" firstAttribute="centerY" secondItem="MQo-fn-Wms" secondAttribute="centerY" id="gU0-5V-4T5"/>
+                <constraint firstItem="7BH-f1-nxz" firstAttribute="centerY" secondItem="MQo-fn-Wms" secondAttribute="centerY" id="h2v-7i-GBr"/>
                 <constraint firstItem="7BH-f1-nxz" firstAttribute="leading" secondItem="6AV-yn-dsp" secondAttribute="trailing" constant="8" id="ota-Er-RkM"/>
+                <constraint firstItem="b6n-AM-3QB" firstAttribute="centerY" secondItem="MQo-fn-Wms" secondAttribute="centerY" id="sTZ-uC-tJH"/>
                 <constraint firstItem="pSV-hh-sFe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="tO0-vw-T96"/>
-                <constraint firstItem="OMZ-k8-BJC" firstAttribute="centerY" secondItem="ig7-Pv-8hJ" secondAttribute="centerY" id="ugJ-Fz-6xd"/>
-                <constraint firstItem="b6n-AM-3QB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="umm-27-s1L"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

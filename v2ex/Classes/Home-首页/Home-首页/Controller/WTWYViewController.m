@@ -7,6 +7,7 @@
 //  网易新闻架构 控制器
 
 #import "WTWYViewController.h"
+#import "Masonry.h"
 NS_ASSUME_NONNULL_BEGIN
 
 #define WTColorButton(r , g ,b) [UIColor colorWithRed:(r)  green:(g)  blue:(b) alpha:1]
@@ -96,7 +97,9 @@ NS_ASSUME_NONNULL_BEGIN
     self.contentScrollView = contentScrollView;
     
     // 2、设置尺寸
-    contentScrollView.frame = CGRectMake(0, 0, WTScreenWidth, WTScreenHeight);
+    [contentScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.offset(0);
+    }];
     
     // 3、设置代理
     contentScrollView.delegate = self;
@@ -107,7 +110,7 @@ NS_ASSUME_NONNULL_BEGIN
 {
     UIView *lineView = [UIView new];
     lineView.dk_backgroundColorPicker = DKColorPickerWithKey(UINavbarLineViewBackgroundColor);
-    lineView.alpha = 0.3;
+    lineView.alpha = 1;
     lineView.frame = CGRectMake(0, CGRectGetMaxY(self.titleScrollView.frame), WTScreenWidth, 1);
     [self.view addSubview: lineView];
     self.lineView = lineView;
@@ -161,7 +164,8 @@ NS_ASSUME_NONNULL_BEGIN
             btn.width += 25;
             btn.x = (w - btn.width) * 0.5;
             btn.height = btnH;
-            btn.y = (self.titleScrollView.height - btnH) * 0.5 + 10;
+            btn.y = (self.titleScrollView.height - btnH) * 0.5 + WTNavigationBarCenterY;
+
         }
         
         // 默认点击第一个按钮

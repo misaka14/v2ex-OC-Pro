@@ -88,9 +88,7 @@ static WTAppDelegateTool *_appDelegateTool;
     
     // 7、初始化友盟
     [self initMobClick];
-    
-    // 8、主题文件
-    [DKColorTable sharedColorTable].file = @"themes.txt";
+
     
 }
 

@@ -56,16 +56,6 @@ static NSString *const ID = @"topicCell";
 - (void)setUpView
 {
     // 1、设置tableView一些属性
-//    self.tableView.emptyDataSetSource = self;
-//    self.tableView.emptyDataSetDelegate = self;
-    // 1、headerView
-    {
-        UIView *headerView = [UIView new];
-        headerView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
-        headerView.width = WTScreenWidth;
-        headerView.height = 10;
-        self.tableView.tableHeaderView = headerView;
-    }
     
     // 2、自动计算
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -73,16 +63,13 @@ static NSString *const ID = @"topicCell";
     
     // 3、其他属性
     self.tableView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
-    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    // 设置内边距
-    self.tableView.contentInset = UIEdgeInsetsMake(WTTitleViewHeight, 0, WTTabBarHeight, 0);
-    // 设置滚动条的内边距
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+
     
     // 4、注册cell
     [self.tableView registerNib: [UINib nibWithNibName: NSStringFromClass([WTTopicCell class]) bundle: nil] forCellReuseIdentifier: ID];
     
+
     
     // 1.2只有'最近',　全部节点需要上拉刷新
     if ([WTTopicViewModel isNeedNextPage: self.urlString])

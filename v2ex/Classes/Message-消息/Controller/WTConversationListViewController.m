@@ -21,8 +21,6 @@
     [super viewDidLoad];
     self.title = @"消息";
     
-    // 设置导航栏的View
-    [self setTempNavImageView];
     
     //设置需要显示哪些类型的会话
 //    [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE)]];

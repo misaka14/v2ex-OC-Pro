@@ -13,20 +13,6 @@
 
 @implementation UIViewController (Extension)
 
-- (void)setTempNavImageView
-{
-    UIImageView *greeenView = [[UIImageView alloc] init];
-    greeenView.image = [UIImage imageWithColor: [UIColor colorWithHexString: WTAppLightColor]];
-    [self.view addSubview: greeenView];
-    greeenView.frame = CGRectMake(0, 0, WTScreenWidth, 64);
-}
-
-/** 设置导航栏的背景图片 */
-- (void)setNavBackgroundImage
-{
-    [self.navigationController.navigationBar setBackgroundImage: [UIImage imageWithColor: [UIColor colorWithHexString: WTAppLightColor]] forBarMetrics:UIBarMetricsDefault];
-}
-
 + (void)load
 {
     Method wt_viewWillAppear = class_getInstanceMethod(self, @selector(wt_viewWillAppear:));
@@ -74,7 +60,7 @@
     navView.dk_backgroundColorPicker = DKColorPickerWithKey(UINavbarBackgroundColor);
     [self.view addSubview: navView];
     [navView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.offset(64);
+        make.height.offset(WTNavigationBarMaxY);
         make.top.left.right.offset(0);
     }];
     
@@ -96,7 +82,7 @@
         [titleLabel sizeToFit];
         [navView addSubview: titleLabel];
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.offset(10);
+            make.centerY.offset(WTNavigationBarCenterY);
             make.centerX.offset(0);
         }];
     }
@@ -111,7 +97,7 @@
         [navView addSubview: backBtn];
         [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.offset(8);
-            make.centerY.offset(10);
+            make.centerY.offset(WTNavigationBarCenterY);
         }];
         [backBtn addTarget: self action: @selector(backBtnClick) forControlEvents: UIControlEventTouchUpInside];
     }

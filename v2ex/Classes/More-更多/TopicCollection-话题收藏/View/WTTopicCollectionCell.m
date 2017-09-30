@@ -42,6 +42,19 @@
     self.nodeBtn.layer.cornerRadius = 1.5;
     self.iconImageV.layer.cornerRadius = 5;
     self.iconImageV.layer.masksToBounds = YES;
+    
+    self.contentView.dk_backgroundColorPicker =  DKColorPickerWithKey(UITableViewBackgroundColor);
+
+    
+    self.titleLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicTitleColor);
+    
+    self.authorLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
+    
+    self.lastReplyTimeLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
+    
+    [self.nodeBtn dk_setTitleColorPicker: DKColorPickerWithKey(WTTopicCellLabelColor) forState: UIControlStateNormal];
+    
+    self.commentCountLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicTitleColor);
 }
 
 - (void)setTopicCollectionItem:(WTTopicCollectionItem *)topicCollectionItem

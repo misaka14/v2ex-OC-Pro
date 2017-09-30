@@ -37,29 +37,11 @@
     self.view.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     
 }
-
-
-#pragma mark - Lazy method
-#pragma mark nodes
-- (NSArray<WTNode *> *)nodes
-{
-    if (_nodes == nil)
-    {
-        _nodes = [WTNode mj_objectArrayWithFilename: @"nodes.plist"];
-    }
-    return _nodes;
-}
-
 #pragma mark - 初始化导航栏
 - (void)setupNav
 {
-    
     [self.navigationController setNavigationBarHidden: YES animated: NO];
-//    self.navigationItem.title = @"v2ex";
-
-    //self.navigationItem.leftBarButtonItem = [UIBarButtonItem setupBarButtonItemWithImage: [UIImage imageNamed: @"nav_search"] frame: CGRectMake(0, 0, 20, 20) addTarget: self action: @selector(leftBarButtonItemClick)];
     
-    //self.navigationItem.rightBarButtonItem = [UIBarButtonItem setupBarButtonItemWithImage: [UIImage imageNamed: @"nav_write"] frame: CGRectMake(0, 0, 20, 20) addTarget: self action: @selector(rightBarButtonItemClick)];
 }
 
 #pragma mark 添加子控制器
@@ -74,15 +56,16 @@
     }
 }
 
-#pragma mark - 事件
-- (void)leftBarButtonItemClick
-{
-//    [self presentViewController: [WTGoogleSearchController new] animated: YES completion: nil];
-}
 
-- (void)rightBarButtonItemClick
+#pragma mark - Lazy method
+#pragma mark nodes
+- (NSArray<WTNode *> *)nodes
 {
-    [self presentViewController: [WTPublishTopicViewController new] animated: YES completion: nil];
+    if (_nodes == nil)
+    {
+        _nodes = [WTNode mj_objectArrayWithFilename: @"nodes.plist"];
+    }
+    return _nodes;
 }
 
 @end

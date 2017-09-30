@@ -28,10 +28,12 @@ static CGFloat const WTNavViewHeight = 64;
 @property (weak, nonatomic) IBOutlet UIView             *navView;
 /** 导航栏用户信息ContentView */
 @property (weak, nonatomic) IBOutlet UIView             *navUserInfoContentView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *navContetnViewHeightLayoutCons;
+
 
 /** 用户名　*/
 @property (weak, nonatomic) IBOutlet UILabel            *titleLabel;
-@property (weak, nonatomic) IBOutlet UIView *navLineView;
+@property (weak, nonatomic) IBOutlet UIView             *navLineView;
 
 /** 已经登陆过的View */
 @property (weak, nonatomic) IBOutlet UIView             *normalView;
@@ -50,7 +52,7 @@ static CGFloat const WTNavViewHeight = 64;
 
 + (instancetype)topicDetailViewController
 {
-    return [UIStoryboard storyboardWithName: NSStringFromClass([self class]) bundle: nil].instantiateInitialViewController;
+    return [UIStoryboard storyboardWithName: @"WTTopicDetailViewController" bundle: nil].instantiateInitialViewController;
 }
 
 #pragma mark - Life Cycle
@@ -75,6 +77,8 @@ static CGFloat const WTNavViewHeight = 64;
 #pragma mark - 初始化View
 - (void)initView
 {
+    self.navContetnViewHeightLayoutCons.constant = WTNavigationBarMaxY;
+    
     self.navView.dk_backgroundColorPicker = DKColorPickerWithKey(UINavbarBackgroundColor);
     
     self.navUserInfoContentView.dk_backgroundColorPicker = DKColorPickerWithKey(UINavbarBackgroundColor);
@@ -190,7 +194,7 @@ static CGFloat const WTNavViewHeight = 64;
         // 3、布局
         [toolBarView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.bottom.equalTo(self.normalView);
-            make.height.equalTo(@(WTToolBarHeight));
+            make.height.equalTo(@(WTToolBarHeight + WTTabBarCenterY));
         }];
     }
     return _toolBarView;

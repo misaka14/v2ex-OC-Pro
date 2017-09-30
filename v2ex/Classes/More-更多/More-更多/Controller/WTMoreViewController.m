@@ -6,27 +6,27 @@
 //  Copyright © 2016年 无头骑士 GJ. All rights reserved.
 //  更多控制器
 
-#import "WTMoreViewController.h"
-#import "WTPrivacyStatementViewController.h"
-#import "WTLoginViewController.h"
-#import "WTConst.h"
-#import "WTRegisterViewController.h"
-#import "WTAdvertiseViewController.h"
-#import "WTMyReplyViewController.h"
-#import "WTMyFollowingViewController.h"
-#import "WTTopicViewController.h"
-#import "WTTopicCollectionViewController.h"
 #import "WTWebViewController.h"
-#import "WTNodeCollectionViewController.h"
+#import "WTMoreViewController.h"
+#import "WTLoginViewController.h"
+#import "WTThemeViewController.h"
+#import "WTTopicViewController.h"
 #import "WTMyTopicViewController.h"
+#import "WTMyReplyViewController.h"
 #import "WTV2GroupViewController.h"
+#import "WTRegisterViewController.h"
+#import "WTMyFollowingViewController.h"
+#import "WTNodeCollectionViewController.h"
+#import "WTTopicCollectionViewController.h"
+#import "WTPrivacyStatementViewController.h"
 
-#import "WTMoreNotLoginHeaderView.h"
-#import "WTMoreLoginHeaderView.h"
 #import "WTMoreCell.h"
+#import "WTMoreLoginHeaderView.h"
+#import "WTMoreNotLoginHeaderView.h"
 
-#import "WTAccountViewModel.h"
+#import "WTConst.h"
 #import "WTSettingItem.h"
+#import "WTAccountViewModel.h"
 
 
 NSString * const moreCellIdentifier = @"moreCellIdentifier";
@@ -245,11 +245,10 @@ CGFloat const moreHeaderViewH = 150;
                             ]];
         
         [_datas addObject: @[
-                                [WTSettingItem settingItemWithTitle: @"广告中心" image: [UIImage imageNamed: @"more_ad"] operationBlock: ^{
-            
-                                    [weakSelf.navigationController pushViewController: [WTAdvertiseViewController new] animated: YES];
+                             [WTSettingItem settingItemWithTitle: @"主题" image: [UIImage imageNamed: @"mine_theme"] operationBlock:^{
+                                    [weakSelf.navigationController pushViewController: [[WTThemeViewController alloc] initWithCollectionViewLayout: [UICollectionViewFlowLayout new]] animated: YES];
                                 }],
-                                
+                             
                                 [WTSettingItem settingItemWithTitle: @"隐私声明" image: [UIImage imageNamed: @"more_privacystatement"] operationBlock: ^{
             
                                     [weakSelf.navigationController pushViewController: [WTPrivacyStatementViewController new] animated: YES];

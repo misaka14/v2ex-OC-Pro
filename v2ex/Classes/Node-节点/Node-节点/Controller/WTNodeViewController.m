@@ -7,8 +7,9 @@
 //  节点控制器
 
 #import "WTNodeViewController.h"
-#import "WTNodeViewModel.h"
 #import "WTHotNodeViewController.h"
+#import "UIViewController+Extension.h"
+#import "WTNodeViewModel.h"
 #import "WTHotNodeFlowLayout.h"
 #import "WTAllNodeViewController.h"
 #import "WTConst.h"
@@ -19,21 +20,12 @@
 @property (nonatomic, weak) UICollectionView *hotNodeCollectionView;
 /** 所有节点View */
 @property (nonatomic, weak) UITableView *allNodeTableView;
-/** 导航栏 */
-@property (weak, nonatomic) IBOutlet UIView *navView;
-/** 导航栏线条 */
-@property (weak, nonatomic) IBOutlet UIView *navLineView;
+
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
 @implementation WTNodeViewController
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear: animated];
-    //self.navigationController.navigationBar.hidden = YES;
-}
 
 - (void)viewDidLoad
 {
@@ -42,8 +34,6 @@
     // 设置View
     [self setupView];
     
-    // 加载数据
-    [self setupData];
 }
 
 /**
@@ -51,22 +41,12 @@
  */
 - (void)setupView
 {
-    self.navView.dk_backgroundColorPicker = DKColorPickerWithKey(UINavbarBackgroundColor);
-    
-    self.navLineView.dk_backgroundColorPicker = DKColorPickerWithKey(UINavbarLineViewBackgroundColor);
-    
-    
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    
     // 0、设置nav的titleView
     UISegmentedControl *control = [[UISegmentedControl alloc] initWithItems: @[@"最热", @"全部"]];
     control.selectedSegmentIndex = 0;
     control.width = 150;
     control.x = (WTScreenWidth - control.width) * 0.5;
-    control.y = (WTTitleViewHeight - control.height) * 0.5 + 10;
+    control.y = (WTTitleViewHeight - control.height) * 0.5 + WTNavigationBarCenterY;
     control.tintColor = WTSelectedColor;
     
     [control setTitleTextAttributes: @{NSForegroundColorAttributeName : WTSelectedColor} forState: UIControlStateNormal];
@@ -74,8 +54,9 @@
     
     [control addTarget: self action: @selector(segmentedControlValueChanged:) forControlEvents: UIControlEventValueChanged];
     
+    [self navView];
+    [self.nav_View addSubview: control];
     
-    [self.navView addSubview: control];
     
     // 1、添加热点节点控制器
     WTHotNodeViewController *hotNodeVC = [[WTHotNodeViewController alloc] initWithCollectionViewLayout: [WTHotNodeFlowLayout new]];
@@ -83,14 +64,6 @@
     self.hotNodeCollectionView = hotNodeVC.collectionView;
     [self.contentView addSubview: self.hotNodeCollectionView];
     self.hotNodeCollectionView.frame = self.contentView.bounds;
-}
-
-/**
- *  加载数据
- */
-- (void)setupData
-{
-    
 }
 
 #pragma mark - 事件

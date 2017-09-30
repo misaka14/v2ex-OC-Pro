@@ -29,7 +29,9 @@ static WTAppDelegateTool *_appDelegateTool;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    // 0、初始化主题文件
+    [self initTheme];
+    
     // 0、自动登录
     [[WTAccountViewModel shareInstance] autoLogin];
     
@@ -48,12 +50,12 @@ static WTAppDelegateTool *_appDelegateTool;
     application.applicationIconBadgeNumber = 0;
     
     // 6、界面 FPS 代码
-#if DEBUG
-    WTFPSLabel *fpsLabel = [[WTFPSLabel alloc] initWithFrame: CGRectMake(15, WTScreenHeight - 80, 55, 50)];
-    [self.window addSubview: fpsLabel];
-#else
-    
-#endif
+//#if DEBUG
+//    WTFPSLabel *fpsLabel = [[WTFPSLabel alloc] initWithFrame: CGRectMake(15, WTScreenHeight - 80, 55, 50)];
+//    [self.window addSubview: fpsLabel];
+//#else
+//    
+//#endif
 
 //    // 7、显示顶层window
 //    [WTTopWindow showWithStatusBarClickBlock:^{
@@ -124,6 +126,13 @@ static WTAppDelegateTool *_appDelegateTool;
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     [_appDelegateTool didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+}
+
+#pragma mark 初始化主题
+- (void)initTheme
+{
+    // 0、主题文件
+    [DKColorTable sharedColorTable].file = @"themes.txt";
 }
 
 @end

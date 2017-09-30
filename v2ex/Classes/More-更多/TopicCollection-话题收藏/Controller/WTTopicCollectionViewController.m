@@ -76,6 +76,8 @@ NSString * const WTTopicCollectionCellIdentifier = @"WTTopicCollectionCellIdenti
         // 空白tableView
         self.tableView.emptyDataSetSource = self;
         self.tableView.emptyDataSetDelegate = self;
+        
+        self.tableView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     }
     
     [self.tableView.mj_header beginRefreshing];

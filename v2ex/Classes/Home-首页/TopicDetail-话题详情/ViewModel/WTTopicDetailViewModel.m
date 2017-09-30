@@ -196,8 +196,18 @@
     
     
     // 3、加载JS、CSS
-    NSString *cssPath = [[NSBundle mainBundle] pathForResource: @"light.css" ofType: nil];
+    NSString *cssPath;
+    if ([[DKNightVersionManager sharedManager].themeVersion isEqualToString: DKThemeVersionNormal])
+    {
+        cssPath = [[NSBundle mainBundle] pathForResource: @"light.css" ofType: nil];
+        
+    }
+    else
+    {
+        cssPath = [[NSBundle mainBundle] pathForResource: @"night.css" ofType: nil];
+    }
     NSString *css = [NSString stringWithContentsOfFile: cssPath encoding: NSUTF8StringEncoding error: nil];
+    
     
     NSString *jsPath = [[NSBundle mainBundle] pathForResource: @"v2ex.js" ofType: nil];
     NSString *js = [NSString stringWithContentsOfFile: jsPath encoding: NSUTF8StringEncoding error: nil];

@@ -28,14 +28,11 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-  //  self.contentView.backgroundColor = [UIColor colorWithHexString: WTAppLightColor];
-    
-    self.authorLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicTitleColor);
-    
+  
+    self.contentView.dk_backgroundColorPicker =  DKColorPickerWithKey(UITableViewBackgroundColor);
+    self.authorLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
     self.createTimeLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
-    
-//    self.authorLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicTitleColor);
-    
+    self.titleLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicTitleColor);
     // 圆角
 //    self.nodeLabel.layer.cornerRadius = 3;
 //    self.nodeLabel.layer.masksToBounds = YES;

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="WTThemeCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HpL-b5-m5H">
+                        <rect key="frame" x="50" y="84" width="275" height="489"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="HpL-b5-m5H" secondAttribute="height" multiplier="750:1334" id="NQC-Cx-s3j"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zk-Ec-KaH">
+                        <rect key="frame" x="171" y="603" width="32" height="32"/>
+                        <state key="normal" image="more_theme_normal"/>
+                        <state key="selected" image="more_theme_selected"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="2Zk-Ec-KaH" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="0WD-HR-qAD"/>
+                <constraint firstItem="2Zk-Ec-KaH" firstAttribute="top" secondItem="HpL-b5-m5H" secondAttribute="bottom" constant="30" id="18d-VZ-WIa"/>
+                <constraint firstAttribute="trailing" secondItem="HpL-b5-m5H" secondAttribute="trailing" constant="50" id="HdG-MP-6Uu"/>
+                <constraint firstItem="HpL-b5-m5H" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="X56-cl-lhM"/>
+                <constraint firstItem="HpL-b5-m5H" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="84" id="XR8-nN-cdX"/>
+                <constraint firstItem="HpL-b5-m5H" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="50" id="o4U-wW-n2K"/>
+            </constraints>
+            <size key="customSize" width="274" height="396"/>
+            <connections>
+                <outlet property="iconImageV" destination="HpL-b5-m5H" id="X3T-2T-08T"/>
+                <outlet property="selectedBtn" destination="2Zk-Ec-KaH" id="JjH-Je-Z4U"/>
+            </connections>
+            <point key="canvasLocation" x="145.5" y="309.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="more_theme_normal" width="32" height="32"/>
+        <image name="more_theme_selected" width="32" height="32"/>
+    </resources>
+</document>
