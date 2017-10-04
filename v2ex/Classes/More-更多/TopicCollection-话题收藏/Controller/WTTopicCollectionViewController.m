@@ -66,6 +66,8 @@ NSString * const WTTopicCollectionCellIdentifier = @"WTTopicCollectionCellIdenti
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.tableView.estimatedRowHeight = 128.5;
         
+        self.tableView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
+        
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.tableView registerNib: [UINib nibWithNibName: NSStringFromClass([WTTopicCollectionCell class]) bundle: nil] forCellReuseIdentifier: WTTopicCollectionCellIdentifier];
         

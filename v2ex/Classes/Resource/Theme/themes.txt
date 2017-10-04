@@ -1,16 +1,26 @@
 NORMAL   NIGHT    RED
-#F2F3F5  #201F23  #dedede UITableViewBackgroundColor
-#FFFFFF  #222125  #dedede UITableViewCellBgViewBackgroundColor
-#494949  #9B9B9A  #dedede WTTopicTitleColor
-#AAAAAA  #7E7E7E  #dedede WTTopicCellLabelColor
+#F2F3F5  #1B1B1B  #dedede UITableViewBackgroundColor
+#FFFFFF  #282828  #dedede UITableViewCellBgViewBackgroundColor
+#494949  #8E8E8E  #dedede WTTopicTitleColor
+#AAAAAA  #686868  #dedede WTTopicCellLabelColor
 #DCDDDE  #18181B  #dedede UINavbarLineViewBackgroundColor
-#3599F7  #3599F7  #dedede WTNodeSelectedColor
-#EFEFEF  #1D1D1F  #dedede UINavbarBackgroundColor
-#3599F7  #3599F7  #dedede WTTabbarTintColor
+#0A77FF  #0A77FF  #dedede WTNodeSelectedColor
+#EFEFEF  #2D2D2D  #dedede UINavbarBackgroundColor
+#0A77FF  #3599F7  #dedede WTTabbarTintColor
 #333333  #FFFFFF  #dedede WTThemeCellTitleColor
 #000000  #FFFFFF  #dedede WTSearchbarTextColor
 #CCCCCC  #FFFFFF  #dedede WTActivityIndicatorViewColor
-
-
+#CCCCCC  #6C6C6C  #dedede WTNavigationBarTitleColor
+#28AD54  #1B1B1B  #dedede WTMoreBackgroundColor
+#FFFFFF  #282828  #dedede WTMoreTableViewBackgroundColor
+#212121  #696969  #dedede WTMoreHeaderViewLabelTextColor
+#28AD54  #1B1B1B  #dedede WTMoreHeaderViewBackgroundColor
+#666666  #313131  #dedede WTMoreLineViewBackgroundColor
+#FAFAFA  #2D2D2D  #dedede WTMoreRegisterBackgroundColor
+#FFFFFF  #2D2D2D  #dedede WTMoreRegisterTextColor
+#FFFFFF  #4D4D4D  #dedede WTMoreLoginBackgroundColor
+#28AD54  #2D2D2D  #dedede WTMoreLoginTextColor
+#000000  #696969  #dedede WTMoreBtnTitleTextColor
+#F3F3F5  #2D2D2D  #dedede WTNotificationBgContentViewBackgroundColor
 
   

@@ -40,7 +40,7 @@ CGFloat const WTHeaderViewH = 44;
             headerView.frame = CGRectMake(0, 0, WTScreenWidth, WTHeaderViewH);
             [self.contentView addSubview: headerView];
             
-            headerView.backgroundColor = [UIColor whiteColor];
+            headerView.dk_backgroundColorPicker = DKColorPickerWithKey(WTMoreTableViewBackgroundColor);
         }
         
         // 2、标题Label
@@ -52,8 +52,7 @@ CGFloat const WTHeaderViewH = 44;
             
             
             titleLabel.font = [UIFont QiHeiforSize: 16];
-            titleLabel.textColor = [UIColor colorWithHexString: @"#212121"];
-            
+            titleLabel.dk_textColorPicker = DKColorPickerWithKey(WTMoreHeaderViewLabelTextColor);
         }
         
         // 3、分隔线
@@ -63,7 +62,8 @@ CGFloat const WTHeaderViewH = 44;
             [headerView addSubview: lineView];
             self.lineView = lineView;
             
-            lineView.backgroundColor = [UIColor colorWithHexString: @"#666666" alpha: 0.1];
+            lineView.alpha = 0.1;
+            lineView.dk_backgroundColorPicker = DKColorPickerWithKey(WTMoreLineViewBackgroundColor);
         }
     }
     return self;
@@ -103,12 +103,14 @@ CGFloat const WTHeaderViewH = 44;
         WTMoreButton *moreBtn = [WTMoreButton buttonWithType: UIButtonTypeCustom];
         x = (i % WTColumn) * WTMoreButtonW;
         y = (i / WTColumn) * WTMoreButtonH + WTHeaderViewH;
+        moreBtn.dk_backgroundColorPicker = DKColorPickerWithKey(WTMoreTableViewBackgroundColor);
         moreBtn.frame = CGRectMake(x, y, WTMoreButtonW, WTMoreButtonH);
         [self.contentView addSubview: moreBtn];
         
         moreBtn.tag = i;
         [moreBtn setTitle: item.title forState: UIControlStateNormal];
         [moreBtn setImage: item.image forState: UIControlStateNormal];
+        [moreBtn dk_setTitleColorPicker: DKColorPickerWithKey(WTMoreBtnTitleTextColor) forState: UIControlStateNormal];
         [moreBtn addTarget: self action: @selector(moreBtnClick:) forControlEvents: UIControlEventTouchUpInside];
     }
     
@@ -119,6 +121,7 @@ CGFloat const WTHeaderViewH = 44;
         WTMoreButton *surplusBtn = [WTMoreButton buttonWithType: UIButtonTypeCustom];
         x = (i + count) % WTColumn * WTMoreButtonW;
         y = (i + count) / WTColumn * WTMoreButtonH + WTHeaderViewH;
+        surplusBtn.dk_backgroundColorPicker = DKColorPickerWithKey(WTMoreTableViewBackgroundColor);
         surplusBtn.frame = CGRectMake(x, y, WTMoreButtonW, WTMoreButtonH);
         [self.contentView addSubview: surplusBtn];
     }

@@ -31,26 +31,13 @@
 - (void)wt_viewWillAppear:(BOOL)animated
 {
     [self wt_viewWillAppear: animated];
-   
-    self.navigationController.navigationBar.hidden = YES;
-    
-    if (![self isMemberOfClass: [UINavigationController class]] || ![self isMemberOfClass: [UITabBarController class]])
-    {
-//         WTLog(@"%@ wt_viewWillAppear", NSStringFromClass([self class]))
-        [MobClick beginLogPageView: NSStringFromClass([self class])];
-    }
-    
-    
 }
 
 - (void)wt_viewWillDisappear:(BOOL)animated
 {
     [self wt_viewWillDisappear: animated];
-    if (![self isMemberOfClass: [UINavigationController class]] || ![self isMemberOfClass: [UITabBarController class]])
-    {
-//        WTLog(@"%@ wt_viewWillDisappear", NSStringFromClass([self class]))
-        [MobClick endLogPageView: NSStringFromClass([self class])];
-    }
+
+    self.view.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
 }
 
 - (void)navViewWithTitle:(NSString *)title hideBack:(BOOL)hideBack
@@ -78,7 +65,7 @@
         UILabel *titleLabel = [UILabel new];
         titleLabel.text = title;
         self.titleLabel = titleLabel;
-        titleLabel.dk_textColorPicker =  DKColorPickerWithKey(UITabBarTitleColor);
+        titleLabel.dk_textColorPicker =  DKColorPickerWithKey(WTNavigationBarTitleColor);
         [titleLabel sizeToFit];
         [navView addSubview: titleLabel];
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {

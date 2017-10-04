@@ -74,9 +74,18 @@ static WTAppDelegateTool *_appDelegateTool;
     
 //    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(dkNightVersionThemeChanging) name: DKNightVersionThemeChangingNotification object: nil];
     
+    // 10、开启摇一摇的功能
+    [application setApplicationSupportsShakeToEdit:YES];
+    
     return YES;
 }
 
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (event.subtype == UIEventSubtypeMotionShake) { // 判断是否是摇动结束
+        NSLog(@"摇动结束");
+    }
+    return;
+}
 
 #pragma mark - 处理3DTouch点击事件
 - (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler

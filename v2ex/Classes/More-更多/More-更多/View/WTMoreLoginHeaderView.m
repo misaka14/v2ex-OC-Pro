@@ -49,8 +49,6 @@
 {
     [super awakeFromNib];
     
-    self.backgroundColor = [UIColor clearColor];
-    
     self.onlineView.layer.cornerRadius = self.onlineView.width * 0.5;
     
     // 头像

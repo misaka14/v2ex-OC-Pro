@@ -90,6 +90,7 @@ static WTAppDelegateTool *_appDelegateTool;
     [self initMobClick];
 
     
+    
 }
 
 #pragma mark 设置3D Touch按钮

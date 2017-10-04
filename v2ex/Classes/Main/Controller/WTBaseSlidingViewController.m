@@ -69,7 +69,7 @@
         [self.view addSubview: headerContentView];
         self.headerContentView = headerContentView;
         
-        headerContentView.backgroundColor = [UIColor colorWithHexString: WTAppLightColor];
+        headerContentView.dk_backgroundColorPicker = DKColorPickerWithKey(WTMoreBackgroundColor);
         _headerContentView = headerContentView;
     }
     return _headerContentView;
@@ -82,6 +82,7 @@
         // 2、footerView
         UIView *footerContentView = [UIView new];
         [self headerContentView];
+        
         footerContentView.layer.cornerRadius = 5;
         footerContentView.layer.masksToBounds = YES;
         footerContentView.frame = CGRectMake(0, self.headerViewH, WTScreenWidth, WTScreenHeight - self.headerViewH);

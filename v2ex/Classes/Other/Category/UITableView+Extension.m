@@ -44,10 +44,12 @@
     self.backgroundColor = [UIColor colorWithHexString: @"#F2F3F5"];
     
     UIView *headerView = [UIView new];
-    headerView.backgroundColor = self.backgroundColor;
+    headerView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     headerView.width = WTScreenWidth;
     headerView.height = 10;
     self.tableHeaderView = headerView;
+    
+    self.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
 }
 
 @end

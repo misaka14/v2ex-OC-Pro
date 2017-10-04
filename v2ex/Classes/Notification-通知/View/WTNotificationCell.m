@@ -29,11 +29,18 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.bgContentView.backgroundColor = [UIColor colorWithHexString: @"#F3F3F5"];
+    
+    self.contentView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
+    self.bgContentView.dk_backgroundColorPicker = DKColorPickerWithKey(WTNotificationBgContentViewBackgroundColor);
+    self.titleLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicTitleColor);
+    self.timeLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
+    
     self.bgContentView.layer.cornerRadius = 3;
     
     self.iconImageView.layer.cornerRadius = 5;
     self.iconImageView.layer.masksToBounds = YES;
+
+    
 }
 
 

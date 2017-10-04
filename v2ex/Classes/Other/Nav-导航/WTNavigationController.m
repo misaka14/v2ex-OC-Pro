@@ -68,6 +68,7 @@
     }
     viewController.edgesForExtendedLayout = UIRectEdgeNone;
     viewController.extendedLayoutIncludesOpaqueBars = YES;
+    viewController.navigationController.navigationBar.hidden = YES;
     [super pushViewController: viewController animated: animated];
 }
 

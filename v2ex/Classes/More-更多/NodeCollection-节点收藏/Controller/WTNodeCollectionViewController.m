@@ -42,12 +42,8 @@ NSString * const WTNodeCollectionCellIdentifier = @"WTNodeCollectionCellIdentifi
 - (void)setupView
 {
     [self navViewWithTitle: @"节点收藏"];
-    
-    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
-    layout.itemSize = CGSizeMake(100, 138);
-    
-    self.collectionView.backgroundColor = [UIColor whiteColor];
-    self.collectionView.showsVerticalScrollIndicator = NO;
+        
+    self.collectionView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     
     [self.collectionView registerNib: [UINib nibWithNibName: NSStringFromClass([WTNodeCollectionCell class]) bundle: nil] forCellWithReuseIdentifier: WTNodeCollectionCellIdentifier];
     

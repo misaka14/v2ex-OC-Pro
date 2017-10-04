@@ -43,7 +43,7 @@
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     
     UIView *headerView = [UIView new];
-    headerView.backgroundColor = [UIColor colorWithHexString: @"#F2F3F5"];
+    headerView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     headerView.width = WTScreenWidth;
     headerView.height = 10;
     self.tableView.tableHeaderView = headerView;

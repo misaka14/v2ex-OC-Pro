@@ -61,6 +61,8 @@ NSString * const WTReplyCellIdentifier = @"WTReplyCellIdentifier";
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.tableView.estimatedRowHeight = 128.5;
         
+        self.tableView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
+        
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.tableView registerNib: [UINib nibWithNibName: NSStringFromClass([WTReplyCell class]) bundle: nil] forCellReuseIdentifier: WTReplyCellIdentifier];
         

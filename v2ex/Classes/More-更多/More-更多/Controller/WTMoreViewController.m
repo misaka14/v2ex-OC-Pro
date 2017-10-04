@@ -63,7 +63,7 @@ CGFloat const moreHeaderViewH = 150;
 // 设置View
 - (void)setupView
 {
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     
     [self headerContentView];
     
@@ -76,7 +76,8 @@ CGFloat const moreHeaderViewH = 150;
         [self.footerContentView addSubview: tableView];
         self.tableView = tableView;
         
-        tableView.backgroundColor = WTColor(244, 244, 244);
+        tableView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
+        tableView.showsVerticalScrollIndicator = NO;
         tableView.tableFooterView = [UIView new];
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.rowHeight = 234;
@@ -303,7 +304,7 @@ CGFloat const moreHeaderViewH = 150;
         headerContentView.frame = CGRectMake(0, 0, WTScreenWidth, WTScreenHeight - WTTabBarHeight);
         [self.view addSubview: headerContentView];
         
-        headerContentView.backgroundColor = [UIColor colorWithHexString: WTAppLightColor];
+        headerContentView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
         
         _headerContentView = headerContentView;
     }
@@ -332,7 +333,7 @@ CGFloat const moreHeaderViewH = 150;
         WTMoreLoginHeaderView *moreLoginHeaderView = [WTMoreLoginHeaderView moreLoginHeaderView];
         [self.headerContentView addSubview: moreLoginHeaderView];
         _moreLoginHeaderView = moreLoginHeaderView;
-        
+        moreLoginHeaderView.dk_backgroundColorPicker = DKColorPickerWithKey(WTMoreHeaderViewBackgroundColor);
         moreLoginHeaderView.frame = CGRectMake(0, 0, WTScreenWidth, moreHeaderViewH);
     }
     return _moreLoginHeaderView;
@@ -346,6 +347,7 @@ CGFloat const moreHeaderViewH = 150;
         moreNotLoginHeaderView.frame = CGRectMake(0, 0, WTScreenWidth, moreHeaderViewH);
         [self.headerContentView addSubview: moreNotLoginHeaderView];
         moreNotLoginHeaderView.delegate = self;
+        moreNotLoginHeaderView.dk_backgroundColorPicker = DKColorPickerWithKey(WTMoreHeaderViewBackgroundColor);
         _moreNotLoginHeaderView = moreNotLoginHeaderView;
     }
     return _moreNotLoginHeaderView;

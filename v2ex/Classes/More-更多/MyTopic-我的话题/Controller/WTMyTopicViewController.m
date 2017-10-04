@@ -56,6 +56,8 @@ static NSString *const ID = @"myTopicCell";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib: [UINib nibWithNibName: NSStringFromClass([WTTopicCell class]) bundle: nil] forCellReuseIdentifier: ID];
     
+    self.tableView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
+    
     // 设置滚动条的内边距
 //    self.tableView.separatorInset = self.tableView.contentInset;
     

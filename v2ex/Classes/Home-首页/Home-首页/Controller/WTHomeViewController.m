@@ -27,20 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // 初始化导航栏
-    [self setupNav];
-    
+        
     // 添加子控制器
     [self setupAllChildViewControllers];
     
     self.view.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
-    
-}
-#pragma mark - 初始化导航栏
-- (void)setupNav
-{
-    [self.navigationController setNavigationBarHidden: YES animated: NO];
     
 }
 

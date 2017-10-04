@@ -35,13 +35,14 @@ NSString * const reuseIdentifier = @"reuseIdentifier";
 - (void)setupView
 {
     
-    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     
     [self.tableView registerClass: [UITableViewCell class] forCellReuseIdentifier: reuseIdentifier];
     
     self.tableView.sectionFooterHeight = CGFLOAT_MIN;
     self.tableView.sectionHeaderHeight = 22;
-    
+    self.tableView.dk_sectionIndexBackgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
+    self.tableView.dk_sectionIndexColorPicker =  DKColorPickerWithKey(WTNodeSelectedColor);
     self.tableView.bounces = NO;
 }
 
@@ -67,10 +68,11 @@ NSString * const reuseIdentifier = @"reuseIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: reuseIdentifier];
+    cell.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewCellBgViewBackgroundColor);
     
     NSArray<WTNodeItem *> *nodeItems = self.datas[indexPath.section];
     cell.textLabel.text = nodeItems[indexPath.row].title;
-    
+    cell.textLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicTitleColor);
     return cell;
 }
 
@@ -82,7 +84,9 @@ NSString * const reuseIdentifier = @"reuseIdentifier";
     
     label.frame = CGRectMake(0, 0, WTScreenWidth, 20);
     
-    label.backgroundColor = WTColor(242, 242, 242);
+    label.dk_textColorPicker = DKColorPickerWithKey(WTTopicTitleColor);
+    
+    label.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     
     return label;
 }

@@ -32,9 +32,6 @@ NSString * const ID = @"ID";
 
 @interface WTNodeTopicViewController () <UITableViewDataSource, UITableViewDelegate, WTTopicCellDelegate>
 
-@property (nonatomic, weak) UIView                                *headerView;
-@property (nonatomic, weak) UIView                                *footerView;
-
 @property (nonatomic, weak) WTNodeTopicHeaderView                 *nodeTopicHeaderView;
 
 @property (nonatomic, assign) UITableView                         *tableView;
@@ -65,7 +62,7 @@ NSString * const ID = @"ID";
     self.headerViewH = 195;
     
     
-    
+    self.view.dk_backgroundColorPicker = DKColorPickerWithKey(keyWTMoreBackgroundColor);
     
     UITableView *tableView = [UITableView new];
     
@@ -75,11 +72,11 @@ NSString * const ID = @"ID";
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.delegate = self;
         tableView.dataSource = self;
-        tableView.backgroundColor = [UIColor colorWithHexString: @"F2F3F5"];
+        tableView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
         
-        UIView *footerView = [UIView new];
-        footerView.backgroundColor =  [UIColor colorWithHexString: @"F2F3F5"];
-        tableView.tableFooterView = footerView;
+//        UIView *footerView = [UIView new];
+//        footerView.backgroundColor =  [UIColor colorWithHexString: @"F2F3F5"];
+//        tableView.tableFooterView = footerView;
         self.tableView = tableView;
         
     }
@@ -214,7 +211,7 @@ NSString * const ID = @"ID";
         nodeTopicHeaderView.frame = CGRectMake(0, 64, WTScreenWidth, 182);
         [self.headerContentView addSubview: nodeTopicHeaderView];
         _nodeTopicHeaderView = nodeTopicHeaderView;
-        
+        nodeTopicHeaderView.dk_backgroundColorPicker = DKColorPickerWithKey(WTMoreBackgroundColor);
 //        UIImageView *bgImageView = [[UIImageView alloc] initWithImage: [UIImage imageNamed: @"lol"]];
 //        bgImageView.frame = self.view.bounds;
 //        bgImageView.contentMode = UIViewContentModeScaleAspectFill;

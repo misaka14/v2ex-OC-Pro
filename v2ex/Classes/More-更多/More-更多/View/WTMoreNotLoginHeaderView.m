@@ -26,14 +26,14 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.backgroundColor = [UIColor clearColor];
     
-    [self.registerBtn setTitleColor: [UIColor whiteColor] forState: UIControlStateNormal];
-    self.registerBtn.backgroundColor = [UIColor colorWithHexString: @"#FAFAFA" alpha: 0.2];
+    [self.registerBtn dk_setTitleColorPicker: DKColorPickerWithKey(WTMoreRegisterTextColor) forState: UIControlStateNormal];
+//    self.registerBtn.backgroundColor = [UIColor colorWithHexString: @"#FAFAFA" alpha: 0.2];
+    self.registerBtn.dk_backgroundColorPicker =  DKColorPickerWithKey(WTMoreRegisterBackgroundColor);
     self.registerBtn.layer.cornerRadius = 3;
     
-    [self.loginBtn setTitleColor: [UIColor colorWithHexString: WTAppLightColor] forState: UIControlStateNormal];
-    self.loginBtn.backgroundColor = [UIColor whiteColor];
+    [self.loginBtn dk_setTitleColorPicker: DKColorPickerWithKey(WTMoreLoginTextColor) forState: UIControlStateNormal];
+    self.loginBtn.dk_backgroundColorPicker =  DKColorPickerWithKey(WTMoreLoginBackgroundColor);
     self.loginBtn.layer.cornerRadius = 3;
     
 }

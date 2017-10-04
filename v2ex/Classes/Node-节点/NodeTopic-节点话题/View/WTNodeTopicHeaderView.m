@@ -29,7 +29,7 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.backgroundColor = [UIColor clearColor];
+    self.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
 
 //    self.avatarImageV.layer.cornerRadius = self.avatarImageV.width * 0.5;
 //    self.avatarImageV.layer.masksToBounds = YES;

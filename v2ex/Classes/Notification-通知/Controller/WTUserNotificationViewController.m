@@ -64,9 +64,9 @@ static NSString * const ID = @"notificationCell";
 {
     [self navViewWithTitle: @"提醒" hideBack: YES];
     
-    self.tableView.tableFooterView = [UIView new];
-    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.tableView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     
     // iOS8 以后 self-sizing
     self.tableView.estimatedRowHeight = 96;
