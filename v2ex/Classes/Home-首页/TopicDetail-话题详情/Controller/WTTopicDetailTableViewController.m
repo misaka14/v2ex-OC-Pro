@@ -108,8 +108,14 @@ static NSString  * const commentCellID = @"commentCellID";
     // 2、加载 View
     [self setupView];
     
-    // 2、添加通知
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(toolbarButtonClick:) name: WTToolBarButtonClickNotification object: nil];
+    // 3、添加通知
+    {
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver: self selector: @selector(toolbarButtonClick:) name: WTToolBarButtonClickNotification object: nil];
+        [center addObserver: self selector: @selector(themeChangingNotification) name: DKNightVersionThemeChangingNotification object: nil];
+        
+    }
+   
 
     
     // 3、回复帖子用的url
@@ -129,7 +135,7 @@ static NSString  * const commentCellID = @"commentCellID";
 #pragma mark 设置View
 - (void)setupView
 {
-    self.tableView.backgroundColor = [UIColor colorWithHexString: @"#F2F3F5"];
+    self.tableView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
 }
 
 #pragma mark - 加载数据
@@ -227,6 +233,13 @@ static NSString  * const commentCellID = @"commentCellID";
             [self replyTopic];
             break;
     }
+}
+
+#pragma mark 换肤通知
+- (void)themeChangingNotification
+{
+    WTTopicDetailContentCell *cell = self.tableView.visibleCells.lastObject;
+    [cell themeChangingNotification];
 }
 
 #pragma mark 回复话题

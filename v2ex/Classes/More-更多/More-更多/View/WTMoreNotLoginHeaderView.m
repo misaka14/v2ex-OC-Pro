@@ -28,7 +28,6 @@
     [super awakeFromNib];
     
     [self.registerBtn dk_setTitleColorPicker: DKColorPickerWithKey(WTMoreRegisterTextColor) forState: UIControlStateNormal];
-//    self.registerBtn.backgroundColor = [UIColor colorWithHexString: @"#FAFAFA" alpha: 0.2];
     self.registerBtn.dk_backgroundColorPicker =  DKColorPickerWithKey(WTMoreRegisterBackgroundColor);
     self.registerBtn.layer.cornerRadius = 3;
     

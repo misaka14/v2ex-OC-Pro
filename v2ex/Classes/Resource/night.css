@@ -1,4 +1,4 @@
-<style type="text/css">
+<style type="text/css" id="night">
 * {
     padding: 0px;
     margin: 0px;
@@ -70,7 +70,7 @@ a:hover {
     text-decoration: underline;
 }
 a.dark:link, a.dark:visited, a.dark:active {
-    color: #7E7E7E;
+    color: #686868;
     text-decoration: none;
 }
 a.dark:hover {
@@ -304,7 +304,7 @@ ol {
     color: #999;
 }
 .fade {
-    color: #7E7E7E;
+    color: #686868;
 }
 .snow {
     color: #e2e2e2;
@@ -380,7 +380,7 @@ ol {
     padding: 10px;
     text-align: left;
 /*    border-bottom-color: RGBA(170,170,170,0.3);*/
-    background-color: #201F23;
+    background-color: #1B1B1B;
     padding: 0 9px 10px 9px;
 }
 
@@ -432,7 +432,7 @@ ol {
 }
 .cell[id^="r_"] > table, .inner[id^="r_"] > table {
     table-layout: fixed;
-    background-color: #222125;
+    background-color: #282828;
     border-radius: 3px;
 }
 
@@ -607,7 +607,7 @@ div.node:hover .node_compose {
     font-size: 14px;
 }
 .no {
-    background-color: #f0f0f0;
+    background-color: #445;
     border-radius: 2px;
     color: #ccc;
     display: inline-block;
@@ -617,7 +617,7 @@ div.node:hover .node_compose {
     padding: 2px 5px;
 }
 .reply_content {
-    color: #9B9B9A;
+    color: #8E8E8E;
     font-size: 14px;
     line-height: 1.6;
     word-break: break-all;

@@ -19,7 +19,9 @@
 {
     [super awakeFromNib];
     self.backgroundColor = [UIColor redColor];
-    self.tipTitleLabel.textColor = WTColor(219, 218, 232);
+    
+    self.tipTitleLabel.dk_textColorPicker = DKColorPickerWithKey(WTNoLoginTipTitleLabelTextColor);
+    self.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
 }
 
 @end

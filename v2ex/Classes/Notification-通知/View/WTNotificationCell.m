@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 /** 时间 */
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+/** 小图标 */
+@property (weak, nonatomic) IBOutlet UIImageView *reply_arrowImageV;
 @end
 @implementation WTNotificationCell
 
@@ -34,7 +36,7 @@
     self.bgContentView.dk_backgroundColorPicker = DKColorPickerWithKey(WTNotificationBgContentViewBackgroundColor);
     self.titleLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicTitleColor);
     self.timeLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
-    
+    self.reply_arrowImageV.dk_imagePicker = DKImagePickerWithNames(@"reply_arrow", @"reply_arrow_night");
     self.bgContentView.layer.cornerRadius = 3;
     
     self.iconImageView.layer.cornerRadius = 5;

@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *replyTimeLabel;               // 回复时间
 @property (weak, nonatomic) IBOutlet UIView *replyContentBgView;            // 回复内容背景的View
 @property (weak, nonatomic) IBOutlet UILabel *replyContentLabel;            // 回复内容 
+@property (weak, nonatomic) IBOutlet UIImageView *reply_arrowImageV;        // 小图标
 
 @end
 @implementation WTReplyCell
@@ -27,14 +28,15 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    self.contentView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
+    self.titleLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicTitleColor);
+    self.authorLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
+    self.replyTimeLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
+    self.replyContentLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
     
-    self.authorLabel.textColor = [UIColor colorWithHexString: WTTopicCellMainColor];
-    
-    self.titleLabel.textColor = [UIColor colorWithHexString: WTTopicCellMainColor];
-    
-    self.replyTimeLabel.textColor = [UIColor colorWithHexString: @"#737373"];
-    self.replyContentBgView.backgroundColor = [UIColor colorWithHexString: @"#F3F3F5"];
+    self.replyContentBgView.dk_backgroundColorPicker = DKColorPickerWithKey(UINavbarBackgroundColor);
     self.replyContentBgView.layer.cornerRadius = 3;
+    self.reply_arrowImageV.dk_imagePicker = DKImagePickerWithNames(@"reply_arrow", @"reply_arrow_night");
 //    self.avatarImageV.layer.cornerRadius = self.avatarImageV.width * 0.5;
 //    self.avatarImageV.layer.masksToBounds = YES;
 }

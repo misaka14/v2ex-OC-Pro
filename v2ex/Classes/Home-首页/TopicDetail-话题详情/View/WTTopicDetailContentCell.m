@@ -14,6 +14,10 @@
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
+@property (nonatomic, strong) NSString *lightHTML;
+
+@property (nonatomic, strong) NSString *nightHTML;
+
 @end
 @implementation WTTopicDetailContentCell
 
@@ -21,7 +25,8 @@
 {
     [super awakeFromNib];
     
-    self.contentView.backgroundColor = [UIColor colorWithHexString: @"#F2F3F5"];
+    self.contentView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewCellBgViewBackgroundColor);
+    self.webView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewCellBgViewBackgroundColor);
     
     // 取消反弹
     self.webView.scrollView.bounces = NO;
@@ -48,6 +53,8 @@
 {
     _topicDetailVM = topicDetailVM;
 
+    
+    
     // 1、加载网页
     [self.webView loadHTMLString: topicDetailVM.contentHTML baseURL: [NSURL URLWithString: WTHTTP]];
     
@@ -145,6 +152,58 @@
     
     return NO;
 }
+
+
+/**
+ 改变皮肤
+ */
+- (void)themeChangingNotification
+{
+    NSString *contentHTML = self.topicDetailVM.contentHTML;
+    
+    NSRange startRange = [contentHTML rangeOfString: @"<style type="];
+    NSRange endRange = [contentHTML rangeOfString: @"</style>"];
+    
+    NSString *oldCss = [[contentHTML substringWithRange: NSMakeRange(startRange.location, endRange.location + endRange.length)] stringByReplacingOccurrencesOfString: @"<script type=\"text/javascript\">\n/*! highlight.js v9.2.0 | BSD3 License | git.io/hljslicense */\n!function(e){var n=\"object\"==typeof windinitHighlight" withString: @""];
+    
+    NSString *newHTML = nil;
+    if ([[DKNightVersionManager sharedManager].themeVersion isEqualToString: DKThemeVersionNight]) // 说明是夜间皮肤
+    {
+        if (self.nightHTML != nil)
+        {
+            newHTML = self.nightHTML;
+        }
+        else
+        {
+            NSString *cssPath = [[NSBundle mainBundle] pathForResource: @"night.css" ofType: nil];
+            NSString *newCss = [NSString stringWithContentsOfFile: cssPath encoding: NSUTF8StringEncoding error: nil];
+            self.lightHTML = contentHTML;
+            
+            self.nightHTML = [contentHTML stringByReplacingOccurrencesOfString: oldCss withString: newCss];
+            newHTML = self.nightHTML;
+        }
+    }
+    else
+    {
+        if (self.lightHTML != nil)
+        {
+            newHTML = self.lightHTML;
+        }
+        else
+        {
+            NSString *cssPath = [[NSBundle mainBundle] pathForResource: @"light.css" ofType: nil];
+            NSString *newCss = [NSString stringWithContentsOfFile: cssPath encoding: NSUTF8StringEncoding error: nil];
+            
+            self.nightHTML = contentHTML;
+            
+            self.lightHTML = [contentHTML stringByReplacingOccurrencesOfString: oldCss withString: newCss];
+            newHTML = self.lightHTML;
+        }
+    }
+    
+    [self.webView loadHTMLString: newHTML baseURL: [NSURL URLWithString: WTHTTP]];
+}
+
     
 - (NSString *)parseImageUrl:(NSString *)url
 {

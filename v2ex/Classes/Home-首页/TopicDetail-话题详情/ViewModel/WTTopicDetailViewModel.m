@@ -198,16 +198,11 @@
     // 3、加载JS、CSS
     NSString *cssPath;
     if ([[DKNightVersionManager sharedManager].themeVersion isEqualToString: DKThemeVersionNormal])
-    {
         cssPath = [[NSBundle mainBundle] pathForResource: @"light.css" ofType: nil];
-        
-    }
     else
-    {
         cssPath = [[NSBundle mainBundle] pathForResource: @"night.css" ofType: nil];
-    }
-    NSString *css = [NSString stringWithContentsOfFile: cssPath encoding: NSUTF8StringEncoding error: nil];
     
+    NSString *css = [NSString stringWithContentsOfFile: cssPath encoding: NSUTF8StringEncoding error: nil];
     
     NSString *jsPath = [[NSBundle mainBundle] pathForResource: @"v2ex.js" ofType: nil];
     NSString *js = [NSString stringWithContentsOfFile: jsPath encoding: NSUTF8StringEncoding error: nil];
@@ -270,11 +265,7 @@
         }
     }
     
-    //html = [WTHTMLExtension topicDetailParseAvatarWithHTML: html];
-    
     [html appendString: js];
-    
-    
     
     [html appendString: @"</body></html>"];
     
@@ -488,6 +479,7 @@
     
     for (TFHppleElement *cell in cellArr)
     {
+        
         TFHppleElement *contentE = [cell searchWithXPathQuery: @"//div[@class='reply_content']"].firstObject;
         if (contentE == nil)
         {

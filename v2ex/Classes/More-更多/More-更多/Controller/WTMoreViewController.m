@@ -246,9 +246,9 @@ CGFloat const moreHeaderViewH = 150;
                             ]];
         
         [_datas addObject: @[
-                             [WTSettingItem settingItemWithTitle: @"主题" image: [UIImage imageNamed: @"mine_theme"] operationBlock:^{
-                                    [weakSelf.navigationController pushViewController: [[WTThemeViewController alloc] initWithCollectionViewLayout: [UICollectionViewFlowLayout new]] animated: YES];
-                                }],
+//                             [WTSettingItem settingItemWithTitle: @"主题" image: [UIImage imageNamed: @"mine_theme"] operationBlock:^{
+//                                    [weakSelf.navigationController pushViewController: [[WTThemeViewController alloc] initWithCollectionViewLayout: [UICollectionViewFlowLayout new]] animated: YES];
+//                                }],
                              
                                 [WTSettingItem settingItemWithTitle: @"隐私声明" image: [UIImage imageNamed: @"more_privacystatement"] operationBlock: ^{
             

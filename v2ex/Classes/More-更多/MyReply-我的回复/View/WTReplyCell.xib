@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -60,8 +60,8 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reply_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="WNe-Mw-Ovx">
-                        <rect key="frame" x="71" y="93" width="9" height="5"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" image="reply_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="WNe-Mw-Ovx">
+                        <rect key="frame" x="71" y="94" width="9" height="5"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="5" id="fGn-d8-oR9"/>
@@ -100,7 +100,7 @@
                     <constraint firstItem="gMR-ah-nAa" firstAttribute="top" secondItem="gEf-Zu-pTf" secondAttribute="bottom" constant="10" id="vhm-2X-Ih9"/>
                     <constraint firstItem="11U-kP-x0V" firstAttribute="top" secondItem="KIh-S5-z9A" secondAttribute="bottom" constant="5" id="x2a-DQ-n90"/>
                     <constraint firstAttribute="bottom" secondItem="Q6j-RP-8K0" secondAttribute="bottom" id="zMT-no-RLr"/>
-                    <constraint firstItem="7vs-Jf-kvi" firstAttribute="top" secondItem="WNe-Mw-Ovx" secondAttribute="bottom" id="zs1-OU-kg1"/>
+                    <constraint firstItem="7vs-Jf-kvi" firstAttribute="top" secondItem="WNe-Mw-Ovx" secondAttribute="bottom" constant="-1" id="zs1-OU-kg1"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -114,6 +114,7 @@
                 <outlet property="replyContentBgView" destination="7vs-Jf-kvi" id="d4v-mu-KZ6"/>
                 <outlet property="replyContentLabel" destination="gMR-ah-nAa" id="LAw-gI-q9M"/>
                 <outlet property="replyTimeLabel" destination="gEf-Zu-pTf" id="IbF-hl-UCI"/>
+                <outlet property="reply_arrowImageV" destination="WNe-Mw-Ovx" id="PGf-ko-Ztt"/>
                 <outlet property="titleLabel" destination="11U-kP-x0V" id="xSf-rD-InD"/>
             </connections>
             <point key="canvasLocation" x="307" y="275"/>

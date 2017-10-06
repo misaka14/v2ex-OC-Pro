@@ -28,7 +28,12 @@ static CGFloat const WTNavViewHeight = 64;
 @property (weak, nonatomic) IBOutlet UIView             *navView;
 /** 导航栏用户信息ContentView */
 @property (weak, nonatomic) IBOutlet UIView             *navUserInfoContentView;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *navContetnViewHeightLayoutCons;
+/** 加载中菊花 */
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingAiView;
+/** 加载中提示 */
+@property (weak, nonatomic) IBOutlet UILabel *loadingTipLabel;
 
 
 /** 用户名　*/
@@ -56,13 +61,6 @@ static CGFloat const WTNavViewHeight = 64;
 }
 
 #pragma mark - Life Cycle
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear: animated];
-    
-    self.navigationController.navigationBar.hidden = YES;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -85,9 +83,18 @@ static CGFloat const WTNavViewHeight = 64;
     
     self.navLineView.dk_backgroundColorPicker = DKColorPickerWithKey(UINavbarLineViewBackgroundColor);
     
-//    self.titleLabel.dk_textColorPicker =  DKColorPickerWithKey(UITabBarTitleColor);
+    self.titleLabel.dk_textColorPicker =  DKColorPickerWithKey(WTNavigationBarTitleColor);
 
-//    self.topicDetailUrl = @"https://www.v2ex.com/t/353634#reply0";
+    self.loadingView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
+    
+    self.tipView.dk_backgroundColorPicker =  DKColorPickerWithKey(UITableViewBackgroundColor);
+    
+    self.loadingTipLabel.dk_textColorPicker = DKColorPickerWithKey(WTNoLoginTipTitleLabelTextColor);
+    
+    if ([[DKNightVersionManager sharedManager].themeVersion isEqualToString: DKThemeVersionNormal])
+        self.loadingAiView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    else
+        self.loadingAiView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
 }
 
 #pragma mark -设置话题详情数据

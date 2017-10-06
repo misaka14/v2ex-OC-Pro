@@ -179,6 +179,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadingAiView" destination="gwU-qb-Vkm" id="o6Y-9C-vHa"/>
+                        <outlet property="loadingTipLabel" destination="Zm6-Ep-DOJ" id="GiL-bB-5Ux"/>
                         <outlet property="loadingView" destination="YLq-fp-LHu" id="XOv-WV-dXZ"/>
                         <outlet property="navContetnViewHeightLayoutCons" destination="6MR-ax-zHF" id="MKw-AK-gpx"/>
                         <outlet property="navLineView" destination="2r7-qr-vDq" id="xK5-aM-zlN"/>

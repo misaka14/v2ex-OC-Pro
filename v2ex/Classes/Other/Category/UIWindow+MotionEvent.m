@@ -20,7 +20,7 @@
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
-    if ([DKNightVersionManager sharedManager].themeVersion == DKThemeVersionNight)
+    if ([[DKNightVersionManager sharedManager].themeVersion isEqualToString: DKThemeVersionNight])
         [[DKNightVersionManager sharedManager] dawnComing];
     else
         [[DKNightVersionManager sharedManager] nightFalling];

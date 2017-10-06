@@ -1,26 +1,32 @@
-NORMAL   NIGHT    RED
-#F2F3F5  #1B1B1B  #dedede UITableViewBackgroundColor
-#FFFFFF  #282828  #dedede UITableViewCellBgViewBackgroundColor
-#494949  #8E8E8E  #dedede WTTopicTitleColor
-#AAAAAA  #686868  #dedede WTTopicCellLabelColor
-#DCDDDE  #18181B  #dedede UINavbarLineViewBackgroundColor
-#0A77FF  #0A77FF  #dedede WTNodeSelectedColor
-#EFEFEF  #2D2D2D  #dedede UINavbarBackgroundColor
-#0A77FF  #3599F7  #dedede WTTabbarTintColor
-#333333  #FFFFFF  #dedede WTThemeCellTitleColor
-#000000  #FFFFFF  #dedede WTSearchbarTextColor
-#CCCCCC  #FFFFFF  #dedede WTActivityIndicatorViewColor
-#CCCCCC  #6C6C6C  #dedede WTNavigationBarTitleColor
-#28AD54  #1B1B1B  #dedede WTMoreBackgroundColor
-#FFFFFF  #282828  #dedede WTMoreTableViewBackgroundColor
-#212121  #696969  #dedede WTMoreHeaderViewLabelTextColor
-#28AD54  #1B1B1B  #dedede WTMoreHeaderViewBackgroundColor
-#666666  #313131  #dedede WTMoreLineViewBackgroundColor
-#FAFAFA  #2D2D2D  #dedede WTMoreRegisterBackgroundColor
-#FFFFFF  #2D2D2D  #dedede WTMoreRegisterTextColor
-#FFFFFF  #4D4D4D  #dedede WTMoreLoginBackgroundColor
-#28AD54  #2D2D2D  #dedede WTMoreLoginTextColor
-#000000  #696969  #dedede WTMoreBtnTitleTextColor
-#F3F3F5  #2D2D2D  #dedede WTNotificationBgContentViewBackgroundColor
+NORMAL   NIGHT
+#F2F3F5  #1B1B1B   UITableViewBackgroundColor
+#FFFFFF  #282828   UITableViewCellBgViewBackgroundColor
+#494949  #8E8E8E   WTTopicTitleColor
+#f0f0f0  #353444   WTTopicNodeBackgroundColor
+#CCCCCC  #CCCCCC   WTTopicNodeTextColor
+#AAAAAA  #686868   WTTopicCellLabelColor
+
+#494949  #8E8E8E   WTNoLoginTipTitleLabelTextColor
+
+#DCDDDE  #18181B   UINavbarLineViewBackgroundColor
+#0A77FF  #0A77FF   WTNodeSelectedColor
+#EFEFEF  #2D2D2D   UINavbarBackgroundColor
+#0A77FF  #3599F7   WTTabbarTintColor
+#333333  #FFFFFF   WTThemeCellTitleColor
+#000000  #FFFFFF   WTSearchbarTextColor
+#CCCCCC  #FFFFFF   WTActivityIndicatorViewColor
+#CCCCCC  #6C6C6C   WTNavigationBarTitleColor
+
+#28AD54  #1B1B1B   WTMoreBackgroundColor
+#FFFFFF  #282828   WTMoreTableViewBackgroundColor
+#212121  #696969   WTMoreHeaderViewLabelTextColor
+#28AD54  #1B1B1B   WTMoreHeaderViewBackgroundColor
+#666666  #313131   WTMoreLineViewBackgroundColor
+#FAFAFA  #2D2D2D   WTMoreRegisterBackgroundColor
+#FFFFFF  #3C3C3C   WTMoreRegisterTextColor
+#FFFFFF  #4D4D4D   WTMoreLoginBackgroundColor
+#FFFFFF  #2D2D2D   WTMoreLoginTextColor
+#000000  #696969   WTMoreBtnTitleTextColor
+#F3F3F5  #2D2D2D   WTNotificationBgContentViewBackgroundColor
 
   

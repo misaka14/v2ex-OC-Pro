@@ -23,7 +23,7 @@ UIKIT_EXTERN CGFloat const WTMargin;
 /** 工具条的高度 */
 UIKIT_EXTERN CGFloat const WTToolBarHeight;
 /** 导航栏的高度 */
-UIKIT_EXTERN CGFloat const WTNavigationBarHeight;
+//UIKIT_EXTERN CGFloat const WTNavigationBarHeight;
 /** 状态栏的高度 */
 UIKIT_EXTERN CGFloat const WTStatusBarHeight;
 

@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *vipImageV;
 
+@property (weak, nonatomic) IBOutlet UIView *tabBar;
+
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 
 @end

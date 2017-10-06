@@ -33,6 +33,9 @@
     self.authorLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
     self.createTimeLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
     self.titleLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicTitleColor);
+    // #445
+    self.nodeLabel.dk_backgroundColorPicker = DKColorPickerWithKey(WTTopicNodeBackgroundColor);
+    self.nodeLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicNodeTextColor);
     // 圆角
 //    self.nodeLabel.layer.cornerRadius = 3;
 //    self.nodeLabel.layer.masksToBounds = YES;

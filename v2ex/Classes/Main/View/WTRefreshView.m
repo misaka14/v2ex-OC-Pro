@@ -20,6 +20,18 @@
     return [[NSBundle mainBundle] loadNibNamed: NSStringFromClass([WTRefreshView class]) owner: nil options: nil].lastObject;
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    self.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
+    self.tipLabel.dk_textColorPicker = DKColorPickerWithKey(WTNoLoginTipTitleLabelTextColor);
+    
+    if ([[DKNightVersionManager sharedManager].themeVersion isEqualToString: DKThemeVersionNormal])
+        self.aiView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    else
+        self.aiView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
+}
 
 - (void)startAnim
 {

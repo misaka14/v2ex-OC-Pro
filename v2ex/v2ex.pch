@@ -16,6 +16,7 @@
 #define ISIPHONEX ([UIScreen mainScreen].bounds.size.height == 812)
 #define WTTitleViewHeight (ISIPHONEX  ? 84 : 64)
 #define WTNavigationBarMaxY (ISIPHONEX  ? 84 : 64)
+#define WTNavigationBarHeight (ISIPHONEX  ? 64 : 44)
 #define WTNavigationBarCenterY (ISIPHONEX ? 20 : 10)
 #define WTTabBarCenterY (ISIPHONEX ? 20 : 0)
 

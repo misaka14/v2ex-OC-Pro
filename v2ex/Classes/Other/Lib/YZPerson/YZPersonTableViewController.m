@@ -13,9 +13,9 @@
 
 #define YZHeadViewH 200
 
-#define YZHeadViewMinH 64
+#define YZHeadViewMinH WTNavigationBarMaxY
 
-#define YZTabBarH 44
+#define YZTabBarH WTNavigationBarHeight
 
 @interface YZPersonTableViewController ()
 
@@ -38,6 +38,8 @@
     self.tableView = tableView;
 
     self.view = tableView;
+    
+    
 }
 
 - (void)viewDidLoad {
@@ -54,6 +56,18 @@
     tableView.tabBar = _tabBar;
     
 
+    //声明tableView的位置 添加下面代码
+    if (@available(iOS 11.0, *))
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    else
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    UIView *headerView = [UIView new];
+    headerView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
+    headerView.width = WTScreenWidth;
+    headerView.height = 10;
+    self.tableView.tableHeaderView = headerView;
+    
     
 }
 
@@ -82,8 +96,8 @@
     [_titleLabel setTextColor:alphaColor];
     
     // 设置导航条背景图片
-    self.navigationController.navigationBar.hidden = NO;
-    self.navigationController.navigationBar.y = 0;
+//    self.navigationController.navigationBar.hidden = NO;
+//    self.navigationController.navigationBar.y = 0;
 //    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithHexString: WTAppLightColor alpha: alpha]] forBarMetrics:UIBarMetricsDefault];
     
 }

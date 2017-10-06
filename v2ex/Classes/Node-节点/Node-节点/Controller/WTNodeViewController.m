@@ -13,6 +13,7 @@
 #import "WTHotNodeFlowLayout.h"
 #import "WTAllNodeViewController.h"
 #import "WTConst.h"
+#import "Masonry.h"
 #import "NetworkTool.h"
 
 @interface WTNodeViewController ()
@@ -63,7 +64,10 @@
     [self addChildViewController: hotNodeVC];
     self.hotNodeCollectionView = hotNodeVC.collectionView;
     [self.contentView addSubview: self.hotNodeCollectionView];
-    self.hotNodeCollectionView.frame = self.contentView.bounds;
+    [self.hotNodeCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.offset(0);
+        make.top.offset(WTNavigationBarMaxY);
+    }];
 }
 
 #pragma mark - 事件

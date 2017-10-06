@@ -15,7 +15,7 @@
 @interface YZPersonViewController ()
 
 @property (nonatomic, weak) UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UIView *tabBar;
+
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (nonatomic, weak) UIButton *selectedBtn;
 
