@@ -8,6 +8,7 @@
 
 #import "WTRegisterViewController.h"
 #import "NetworkTool.h"
+#import "WTContinueRegisterReqItem.h"
 #import "WTAccountViewModel.h"
 #import "UIImageView+WebCache.h"
 #import "SVProgressHUD.h"
@@ -25,14 +26,28 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextF;
 /** 邮箱 */
 @property (weak, nonatomic) IBOutlet UITextField *emailTextF;
-/** 验证码 */
+/** 图片验证码 */
 @property (weak, nonatomic) IBOutlet UITextField *codeTextF;
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+/** 登录 */
+@property (weak, nonatomic) IBOutlet UIButton    *loginButton;
+/** 手机号 */
+@property (weak, nonatomic) IBOutlet UITextField *phone_numberTextF;
+/** 手机验证码 */
+@property (weak, nonatomic) IBOutlet UITextField *phone_codeTextF;
+@property (weak, nonatomic) IBOutlet UILabel *rightTipLabel;
+/** 图片验证码TOPLayout约束 */
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *codeImageVTopLayoutCons;
+/** 图片验证码的BGContentView */
+@property (weak, nonatomic) IBOutlet UIView *codeImageVBgView;
 
 /** 注册请求模型　*/
-@property (nonatomic, strong) WTRegisterReqItem *registerReqItem;
+@property (nonatomic, strong) WTRegisterReqItem  *registerReqItem;
 /** 提示框View */
 @property (nonatomic, weak) WTTipView            *tipView;
+/** leftView的leading约束 */
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftViewLeadingLayoutCons;
+/** once */
+@property (nonatomic, strong) NSString *once;
 @end
 
 @implementation WTRegisterViewController
@@ -59,15 +74,23 @@
 #pragma mark 加载请求参数
 - (void)loadResiterItemReq
 {
-
+    __weak typeof(self) weakSelf = self;
     [[WTAccountViewModel shareInstance] getRegisterReqItemWithSuccess:^(WTRegisterReqItem *item) {
         
-        self.codeTextF.text = @"";
-        self.registerReqItem = item;
-        [self setupCodeImage];
+        weakSelf.codeTextF.text = @"";
+        weakSelf.registerReqItem = item;
+        [weakSelf setupCodeImage];
         
     } failure:^(NSError *error) {
         
+        if (error.code == 400 || error.code == -1011)
+        {
+            [weakSelf.tipView showErrorTitle: error.userInfo[@"errorInfo"]];
+        }
+        else
+        {
+            [weakSelf.tipView showErrorTitle: @"服务器异常，请稍候重试"];
+        }
     }];
 }
 
@@ -92,6 +115,13 @@
     self.loginButton.layer.cornerRadius = 3;
 }
 
+- (void)startAnimation
+{
+    [UIView animateWithDuration: 0.5 animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
 #pragma mark - 事件
 #pragma mark 关闭按钮点击
 - (IBAction)closeButtonClick
@@ -106,6 +136,7 @@
     NSString *username = self.usernameTextF.text;
     NSString *password = self.passwordTextF.text;
     NSString *email = self.emailTextF.text;
+    NSString *phone_number = self.phone_numberTextF.text;
     NSString *verificationCode = self.codeTextF.text;
 
     if ([username stringByTrim].length == 0)
@@ -126,6 +157,12 @@
         return;
     }
     
+    if ([phone_number stringByTrim].length == 0)
+    {
+        [SVProgressHUD showErrorWithStatus: @"手机号不能为空"];
+        return;
+    }
+    
     if ([verificationCode stringByTrim].length == 0)
     {
         [SVProgressHUD showErrorWithStatus: @"验证码不能为空"];
@@ -139,13 +176,12 @@
     self.registerReqItem.passwordValue = password;
     self.registerReqItem.emailValue = email;
     self.registerReqItem.verificationCodeValue = verificationCode;
+    self.registerReqItem.phone_numberValue = phone_number;
     
-    [[WTAccountViewModel shareInstance] registerWithRegisterReqItem: self.registerReqItem success:^(BOOL isSuccess) {
+    __weak typeof(self) weakSelf = self;
+    [[WTAccountViewModel shareInstance] registerWithRegisterReqItem: self.registerReqItem success:^(NSString *once) {
         
-        if (isSuccess)
-        {
-            [self.tipView showSuccessTitle: @"注册成功"];
-        }
+        weakSelf.once = once;
         
         [SVProgressHUD dismiss];
         
@@ -163,11 +199,42 @@
         }
         
         [self loadResiterItemReq];
-        
-       
-        
     }];
     
+}
+#pragma mark - 继续按钮
+- (IBAction)continueBtnClick
+{
+    NSString *code = self.phone_codeTextF.text;
+    if ([code stringByTrim].length == 0)
+    {
+        [SVProgressHUD showErrorWithStatus: @"验证码不能为空"];
+        return;
+    }
+    if (self.once == nil)
+    {
+        [SVProgressHUD showErrorWithStatus: @"服务器异常，请稍候重试"];
+        return;
+    }
+    
+    __weak typeof(self) weakSelf = self;
+    WTContinueRegisterReqItem *item = [[WTContinueRegisterReqItem alloc] initWithOnce: self.once code: code];
+    [[WTAccountViewModel shareInstance] continueRegisterWithContinueRegisterReqItem: item success:^{
+        
+        [weakSelf.tipView showSuccessTitle: @"注册成功"];
+        
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+        if (error.code == 400 || error.code == -1011)
+        {
+            [self.tipView showErrorTitle: error.userInfo[@"errorInfo"]];
+        }
+        else
+        {
+            [self.tipView showErrorTitle: @"服务器异常，请稍候重试"];
+        }
+        
+    }];
 }
 #pragma mark - 隐私按钮点击
 - (IBAction)privacyButtonClick
@@ -180,6 +247,21 @@
 {
     // 设置验证码图片
     [self setupCodeImage];
+}
+#pragma mark - 图片验证码开始编辑
+- (IBAction)codeTextFEditingDidBegin
+{
+    self.codeImageVBgView.hidden = NO;
+    self.codeImageVTopLayoutCons.constant = -120;
+    [self startAnimation];
+}
+
+#pragma mark - 图片验证码结束编辑
+- (IBAction)codeTextFEditingDidEnd:(id)sender
+{
+    self.codeImageVBgView.hidden = YES;
+    self.codeImageVTopLayoutCons.constant = 20;
+    [self startAnimation];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -200,6 +282,15 @@
         tipView.frame = CGRectMake(0, -44, self.view.width, 44);
     }
     return _tipView;
+}
+
+#pragma mark - Setter
+- (void)setOnce:(NSString *)once
+{
+    _once = once;
+    self.rightTipLabel.text = [NSString stringWithFormat: @"我们向您刚刚提交的手机号码 +86 %@ 发送了验证码", self.phone_numberTextF.text];
+    self.leftViewLeadingLayoutCons.constant = -WTScreenWidth;
+    [self startAnimation];
 }
 
 @end
