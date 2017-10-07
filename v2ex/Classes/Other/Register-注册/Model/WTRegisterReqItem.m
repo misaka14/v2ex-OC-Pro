@@ -25,4 +25,18 @@
     return @"once";
 }
 
+- (NSString *)phone_numberKey
+{
+    return @"phone_number";
+}
+- (NSString *)calling_codeKey
+{
+    return @"calling_code";
+}
+- (NSString *)calling_codeValue
+{
+    return @"86_CN";
+}
+
 @end
+

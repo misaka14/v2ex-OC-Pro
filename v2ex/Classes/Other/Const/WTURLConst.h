@@ -43,6 +43,8 @@ UIKIT_EXTERN NSString * const WTUserInfoUrl;
 UIKIT_EXTERN NSString * const WTUploadPictureUrl;
 /** 注册 */
 UIKIT_EXTERN NSString * const WTRegisterUrl;
+/** 继续注册 */
+UIKIT_EXTERN NSString * const WTContinueRegisterUrl;
 /** domain*/
 UIKIT_EXTERN NSString * const WTDomain;
 

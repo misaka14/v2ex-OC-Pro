@@ -33,4 +33,15 @@
 @property (nonatomic ,strong) NSString *onceKey;
 /** once的Value　*/
 @property (nonatomic, strong) NSString *onceValue;
+
+
+/** 手机号的key */
+@property (nonatomic, strong) NSString *phone_numberKey;
+/** 手机号的Value */
+@property (nonatomic, strong) NSString *phone_numberValue;
+/** +86 */
+@property (nonatomic, strong) NSString *calling_codeKey;
+@property (nonatomic, strong) NSString *calling_codeValue;
+
 @end
+

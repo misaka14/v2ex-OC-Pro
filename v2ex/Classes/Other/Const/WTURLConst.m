@@ -47,6 +47,10 @@ NSString * const WTUploadPictureUrl = @"https://pic.xiaojianjian.net/webtools/pi
 /** 注册 */
 NSString * const WTRegisterUrl = @"signup";
 
+/** 继续注册 */
+NSString * const WTContinueRegisterUrl = @"signup/confirm";
+
+
 /** domain*/
 NSString * const WTDomain = @"com.miaska14.com";
 /** code */

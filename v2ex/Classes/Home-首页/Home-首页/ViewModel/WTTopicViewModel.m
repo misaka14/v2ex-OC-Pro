@@ -13,7 +13,7 @@
 #import "NetworkTool.h"
 #import "WTTopicApiItem.h"
 #import "WTHTMLExtension.h"
-
+#import "WTAccountViewModel.h"
 
 #import "TFHpple.h"
 #import "NSString+YYAdd.h"
@@ -140,7 +140,7 @@
             }
             else                                // 用户收藏话题列表
             {
-                NSString *content = smallFadeArray[0].content;
+                NSString *content = smallFadeArray.firstObject.content;
                 NSArray *contents = [content componentsSeparatedByString: @"•"];
                 if (contents.count > 2)
                 {
@@ -188,6 +188,9 @@
 
     // 10、未读的消息
     [WTHTMLExtension parseUnreadWithDoc: doc];
+    
+    // 11、签到、头像
+    [WTHTMLExtension parseAvatarAndPastWithData: data];
 }
 
 

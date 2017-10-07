@@ -20,9 +20,9 @@
 @property (nonatomic, strong) NSString                              *once;
 /** 签名 */
 @property (nonatomic, strong) NSString                              *signature;
-/** 头像*/
+/** 头像 */
 @property (nonatomic, strong) NSURL                                 *avatarURL;
-
-@property (nonatomic, strong) NSString                              *pastUrl;
+/** 签到 */
+@property (nonatomic, assign, getter=isPast) BOOL                   past;
 
 @end

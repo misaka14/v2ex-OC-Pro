@@ -7,7 +7,7 @@
 //
 
 #import "WTHTMLExtension.h"
-//#import "HTMLParser.h"
+#import "WTAccountViewModel.h"
 //#import "HTMLNode.h"
 #import "WTURLConst.h"
 #import "TFHpple.h"
@@ -24,11 +24,11 @@
 //+ (WTTopic *)getIsNextPageWithData:(HTMLNode *)htmlNode
 //{
 //    HTMLNode *buttonNode = [htmlNode findChildOfClass: @"super normal button"];
-//    
+//
 //    NSString *buttonValue = [buttonNode getAttributeNamed: @"value"];
-//    
+//
 //    WTTopic *topic = [WTTopic new];
-//    
+//
 //    {
 //        topic.hasNextPage = [buttonValue containsString: @"下一页"];
 //    }
@@ -44,7 +44,16 @@
 + (NSString *)getOnceWithHtml:(NSString *)html
 {
     NSRange range = [html rangeOfString: @"/signout?once="];
-    return [html substringWithRange: NSMakeRange(range.location + range.length, 5)];
+    if (range.length > 0)
+    {
+        return [html substringWithRange: NSMakeRange(range.location + range.length, 5)];
+    }
+    else
+    {
+        NSData *data = [html dataUsingEncoding: NSUTF8StringEncoding];
+        TFHpple *doc = [[TFHpple alloc] initWithHTMLData: data];
+        return [[doc peekAtSearchWithXPathQuery: @"//input[@name='once']"] objectForKey: @"value"];
+    }
 }
 
 /**
@@ -55,25 +64,25 @@
  */
 + (NSString *)getCodeUrlWithData:(NSData *)data
 {
-//    HTMLParser *parser = [[HTMLParser alloc] initWithData: data error: nil];
-//    
-//    // 1、把 html 当中的body部分取出来
-//    HTMLNode *bodyNode = [parser body];
-//    
-//    // 2、获取 action = '/signup'的form节点
-//    HTMLNode *formNode = [bodyNode findChildWithAttribute: @"action" matchingName: @"/signup" allowPartial: YES];
-//
-//    // 3、获取所有tr标签
-//    NSArray *trNodes = [formNode findChildTags: @"tr"];
-//    
-//    // 4、获取 codeUrl
-//    NSString *codeUrl = nil;
-//    if (trNodes.count > 4)
-//    {
-//        HTMLNode *imgNode = [trNodes[3] findChildTag: @"img"];
-//        codeUrl = [imgNode getAttributeNamed: @"src"];
-//    }
-//    
+    //    HTMLParser *parser = [[HTMLParser alloc] initWithData: data error: nil];
+    //
+    //    // 1、把 html 当中的body部分取出来
+    //    HTMLNode *bodyNode = [parser body];
+    //
+    //    // 2、获取 action = '/signup'的form节点
+    //    HTMLNode *formNode = [bodyNode findChildWithAttribute: @"action" matchingName: @"/signup" allowPartial: YES];
+    //
+    //    // 3、获取所有tr标签
+    //    NSArray *trNodes = [formNode findChildTags: @"tr"];
+    //
+    //    // 4、获取 codeUrl
+    //    NSString *codeUrl = nil;
+    //    if (trNodes.count > 4)
+    //    {
+    //        HTMLNode *imgNode = [trNodes[3] findChildTag: @"img"];
+    //        codeUrl = [imgNode getAttributeNamed: @"src"];
+    //    }
+    //
     return nil;
 }
 
@@ -89,6 +98,8 @@
         return true;
     return false;
 }
+
+
 
 #pragma mark - 解析未读节点
 + (void)parseUnreadWithDoc:(TFHpple *)doc
@@ -116,11 +127,11 @@
 
 /**
  解析HTML　头像变成清晰的
-
+ 
  @param html 要解析html
  @return 解析后的html
  */
-+ (NSMutableString *)topicDetailParseAvatarWithHTML:(NSMutableString *)html
++ (NSString *)topicDetailParseAvatarWithHTML:(NSString *)html
 {
     NSString *newHTML =  [html stringByReplacingOccurrencesOfString: @"max-width: 24px; max-height: 24px;" withString: @"max-width: 35px; max-height: 35px;"];
     
@@ -147,8 +158,8 @@
 
 
 /**
-　过滤垃圾数据
-
+ 　过滤垃圾数据
+ 
  @param html html
  @return 过滤之后的数据
  */
@@ -156,7 +167,7 @@
 {
     // 特殊情况1
     
-        // https://www.v2ex.com/t/369999#reply2
+    // https://www.v2ex.com/t/369999#reply2
     html = [html stringByReplacingOccurrencesOfString: @"<div class=\"badge_mod\"/>" withString: @""];
     
     // 特殊情况2
@@ -174,9 +185,27 @@
     
     
     html = [html stringByReplacingOccurrencesOfString: @"class=\"inner\"" withString: @"class=\"cell\""];
-
+    
     
     
     return [html stringByReplacingOccurrencesOfString: @"<img src=\"/static/img/reply@2x.png\" width=\"20\" height=\"16\" align=\"absmiddle\" border=\"0\" alt=\"Reply\"/>" withString: @""];
 }
+
+#pragma mark - 解析头像和签到
++ (void)parseAvatarAndPastWithData:(NSData *)data
+{
+    NSString *html = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+    WTAccount *account = [WTAccountViewModel shareInstance].account;
+    account.past = ![html containsString: @"领取今日的登录奖励"];
+    
+    TFHpple *doc = [[TFHpple alloc] initWithHTMLData: data];
+    NSArray *imageE = [doc searchWithXPathQuery: @"//img"];
+    if (imageE.count > 1)
+    {
+        NSString *imageUrl = [WTHTMLExtension topicDetailParseAvatarWithHTML: [imageE[1] objectForKey: @"src"]];
+        account.avatarURL = [NSURL URLWithString: [NSString stringWithFormat: @"%@%@", WTHTTP, imageUrl]];
+    }
+    
+}
 @end
+

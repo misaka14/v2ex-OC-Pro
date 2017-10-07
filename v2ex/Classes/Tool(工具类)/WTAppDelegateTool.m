@@ -49,7 +49,7 @@ static WTAppDelegateTool *_appDelegateTool;
 {
     
     // 1、键盘呼出隐藏
-    [[IQKeyboardManager sharedManager] setEnable:YES];
+//    [[IQKeyboardManager sharedManager] setEnable:YES];
     
     // 2、分享SDK
     [WTShareSDKTool initShareSDK];

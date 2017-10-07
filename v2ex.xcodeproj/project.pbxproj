@@ -149,15 +149,11 @@
 		B60FA1D11D45C09200F98CF3 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = B60FA11E1D45C09200F98CF3 /* TFHpple.m */; };
 		B60FA1D21D45C09200F98CF3 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = B60FA1201D45C09200F98CF3 /* TFHppleElement.m */; };
 		B60FA1D31D45C09200F98CF3 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = B60FA1221D45C09200F98CF3 /* XPathQuery.m */; };
-		B60FA1D41D45C09200F98CF3 /* WTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60FA1261D45C09200F98CF3 /* WTLoginViewController.m */; };
-		B60FA1D51D45C09200F98CF3 /* WTLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B60FA1271D45C09200F98CF3 /* WTLoginViewController.xib */; };
 		B60FA1D61D45C09200F98CF3 /* WTAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = B60FA12A1D45C09200F98CF3 /* WTAccount.m */; };
 		B60FA1D71D45C09200F98CF3 /* WTLoginRequestItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B60FA12C1D45C09200F98CF3 /* WTLoginRequestItem.m */; };
 		B60FA1D81D45C09200F98CF3 /* WTLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B60FA12F1D45C09200F98CF3 /* WTLoginRegisterTextField.m */; };
 		B60FA1D91D45C09200F98CF3 /* WTAccountViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B60FA1321D45C09200F98CF3 /* WTAccountViewModel.m */; };
 		B60FA1DA1D45C09200F98CF3 /* WTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60FA1351D45C09200F98CF3 /* WTNavigationController.m */; };
-		B60FA1DB1D45C09200F98CF3 /* WTRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60FA1391D45C09200F98CF3 /* WTRegisterViewController.m */; };
-		B60FA1DC1D45C09200F98CF3 /* WTRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B60FA13A1D45C09200F98CF3 /* WTRegisterViewController.xib */; };
 		B60FA1DD1D45C09200F98CF3 /* WTTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60FA1401D45C09200F98CF3 /* WTTabBarController.m */; };
 		B60FA1E81D45C09200F98CF3 /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = B60FA1651D45C09200F98CF3 /* NetworkTool.m */; };
 		B60FA1E91D45C09200F98CF3 /* WTNetworkState.m in Sources */ = {isa = PBXBuildFile; fileRef = B60FA1671D45C09200F98CF3 /* WTNetworkState.m */; };
@@ -245,7 +241,6 @@
 		B6E889771C99CE4F00BAA96B /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E889341C99BDE100BAA96B /* libc++.tbd */; };
 		B6E9B8461EAB201F000120FA /* WTNoLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E9B8451EAB201F000120FA /* WTNoLoginView.m */; };
 		B6E9B8481EAB202D000120FA /* WTNoLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E9B8471EAB202D000120FA /* WTNoLoginView.xib */; };
-		B6E9B84B1EAB78B9000120FA /* WTRegisterReqItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E9B84A1EAB78B9000120FA /* WTRegisterReqItem.m */; };
 		B6ED4FED1EFAA87E005B1C5D /* WTNodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6ED4FEC1EFAA87E005B1C5D /* WTNodeViewController.xib */; };
 		B6ED4FEF1EFAB8AC005B1C5D /* WTUserNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6ED4FEE1EFAB8AC005B1C5D /* WTUserNotificationViewController.xib */; };
 		B6ED4FF11EFAD5F8005B1C5D /* WTTopicCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6ED4FF01EFAD5F8005B1C5D /* WTTopicCollectionViewController.xib */; };
@@ -253,6 +248,12 @@
 		B6ED4FF51EFAD75B005B1C5D /* WTNodeCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6ED4FF41EFAD75B005B1C5D /* WTNodeCollectionViewController.xib */; };
 		B6ED4FF71EFADB08005B1C5D /* WTMyFollowingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6ED4FF61EFADB08005B1C5D /* WTMyFollowingViewController.xib */; };
 		B6ED4FF91EFADBB2005B1C5D /* WTMyReplyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6ED4FF81EFADBB2005B1C5D /* WTMyReplyViewController.xib */; };
+		B6EDD1111F8740C800904FBC /* WTRegisterReqItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EDD10F1F873F8900904FBC /* WTRegisterReqItem.m */; };
+		B6EDD1281F89129E00904FBC /* WTRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EDD1261F89128C00904FBC /* WTRegisterViewController.m */; };
+		B6EDD1291F8912A700904FBC /* WTRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6EDD1271F89128C00904FBC /* WTRegisterViewController.xib */; };
+		B6EDD12C1F8912D000904FBC /* WTContinueRegisterReqItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EDD12A1F8912CF00904FBC /* WTContinueRegisterReqItem.m */; };
+		B6EDD12F1F89138900904FBC /* WTLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6EDD12E1F89137600904FBC /* WTLoginViewController.xib */; };
+		B6EDD1301F89139300904FBC /* WTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EDD12D1F89137500904FBC /* WTLoginViewController.m */; };
 		F9FBA535E2F9367137721A2A /* libPods-Today.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F91ED7AB1B9A1C2842D0A7C /* libPods-Today.a */; };
 /* End PBXBuildFile section */
 
@@ -551,8 +552,6 @@
 		B60FA1211D45C09200F98CF3 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		B60FA1221D45C09200F98CF3 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		B60FA1251D45C09200F98CF3 /* WTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTLoginViewController.h; sourceTree = "<group>"; };
-		B60FA1261D45C09200F98CF3 /* WTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTLoginViewController.m; sourceTree = "<group>"; };
-		B60FA1271D45C09200F98CF3 /* WTLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTLoginViewController.xib; sourceTree = "<group>"; };
 		B60FA1291D45C09200F98CF3 /* WTAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTAccount.h; sourceTree = "<group>"; };
 		B60FA12A1D45C09200F98CF3 /* WTAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTAccount.m; sourceTree = "<group>"; };
 		B60FA12B1D45C09200F98CF3 /* WTLoginRequestItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTLoginRequestItem.h; sourceTree = "<group>"; };
@@ -564,8 +563,6 @@
 		B60FA1341D45C09200F98CF3 /* WTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNavigationController.h; sourceTree = "<group>"; };
 		B60FA1351D45C09200F98CF3 /* WTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNavigationController.m; sourceTree = "<group>"; };
 		B60FA1381D45C09200F98CF3 /* WTRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTRegisterViewController.h; sourceTree = "<group>"; };
-		B60FA1391D45C09200F98CF3 /* WTRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTRegisterViewController.m; sourceTree = "<group>"; };
-		B60FA13A1D45C09200F98CF3 /* WTRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTRegisterViewController.xib; sourceTree = "<group>"; };
 		B60FA13F1D45C09200F98CF3 /* WTTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTTabBarController.h; sourceTree = "<group>"; };
 		B60FA1401D45C09200F98CF3 /* WTTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTTabBarController.m; sourceTree = "<group>"; };
 		B60FA1641D45C09200F98CF3 /* NetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTool.h; sourceTree = "<group>"; };
@@ -726,8 +723,6 @@
 		B6E9B8441EAB201F000120FA /* WTNoLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTNoLoginView.h; sourceTree = "<group>"; };
 		B6E9B8451EAB201F000120FA /* WTNoLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTNoLoginView.m; sourceTree = "<group>"; };
 		B6E9B8471EAB202D000120FA /* WTNoLoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNoLoginView.xib; sourceTree = "<group>"; };
-		B6E9B8491EAB78B9000120FA /* WTRegisterReqItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WTRegisterReqItem.h; path = v2ex/Classes/Main/View/WTRegisterReqItem.h; sourceTree = SOURCE_ROOT; };
-		B6E9B84A1EAB78B9000120FA /* WTRegisterReqItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WTRegisterReqItem.m; path = v2ex/Classes/Main/View/WTRegisterReqItem.m; sourceTree = SOURCE_ROOT; };
 		B6ED4FEC1EFAA87E005B1C5D /* WTNodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNodeViewController.xib; sourceTree = "<group>"; };
 		B6ED4FEE1EFAB8AC005B1C5D /* WTUserNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTUserNotificationViewController.xib; sourceTree = "<group>"; };
 		B6ED4FF01EFAD5F8005B1C5D /* WTTopicCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTTopicCollectionViewController.xib; sourceTree = "<group>"; };
@@ -735,6 +730,14 @@
 		B6ED4FF41EFAD75B005B1C5D /* WTNodeCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTNodeCollectionViewController.xib; sourceTree = "<group>"; };
 		B6ED4FF61EFADB08005B1C5D /* WTMyFollowingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTMyFollowingViewController.xib; sourceTree = "<group>"; };
 		B6ED4FF81EFADBB2005B1C5D /* WTMyReplyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WTMyReplyViewController.xib; sourceTree = "<group>"; };
+		B6EDD10E1F873F8900904FBC /* WTRegisterReqItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTRegisterReqItem.h; sourceTree = "<group>"; };
+		B6EDD10F1F873F8900904FBC /* WTRegisterReqItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTRegisterReqItem.m; sourceTree = "<group>"; };
+		B6EDD1261F89128C00904FBC /* WTRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTRegisterViewController.m; sourceTree = "<group>"; };
+		B6EDD1271F89128C00904FBC /* WTRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WTRegisterViewController.xib; sourceTree = "<group>"; };
+		B6EDD12A1F8912CF00904FBC /* WTContinueRegisterReqItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTContinueRegisterReqItem.m; sourceTree = "<group>"; };
+		B6EDD12B1F8912CF00904FBC /* WTContinueRegisterReqItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTContinueRegisterReqItem.h; sourceTree = "<group>"; };
+		B6EDD12D1F89137500904FBC /* WTLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTLoginViewController.m; sourceTree = "<group>"; };
+		B6EDD12E1F89137600904FBC /* WTLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WTLoginViewController.xib; sourceTree = "<group>"; };
 		CDF392E5F2C48E95E3610957 /* libPods-v2ex.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-v2ex.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F2DD917D497DE961BE1E73 /* Pods-Today.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Today.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Today/Pods-Today.debug.xcconfig"; sourceTree = "<group>"; };
 		D6BE01CD86AF2A7611452E7E /* Pods-v2ex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1511,6 +1514,7 @@
 				B60FA1231D45C09200F98CF3 /* Login-登录 */,
 				B60FA1331D45C09200F98CF3 /* Nav-导航 */,
 				B60FA1361D45C09200F98CF3 /* Register-注册 */,
+				B6EDD10D1F873F8900904FBC /* Model */,
 				B60FA13E1D45C09200F98CF3 /* TabBar */,
 			);
 			path = Other;
@@ -1605,8 +1609,8 @@
 			isa = PBXGroup;
 			children = (
 				B60FA1251D45C09200F98CF3 /* WTLoginViewController.h */,
-				B60FA1261D45C09200F98CF3 /* WTLoginViewController.m */,
-				B60FA1271D45C09200F98CF3 /* WTLoginViewController.xib */,
+				B6EDD12D1F89137500904FBC /* WTLoginViewController.m */,
+				B6EDD12E1F89137600904FBC /* WTLoginViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1659,9 +1663,6 @@
 			isa = PBXGroup;
 			children = (
 				B60FA1371D45C09200F98CF3 /* Controller */,
-				B60FA13B1D45C09200F98CF3 /* Model */,
-				B60FA13C1D45C09200F98CF3 /* View */,
-				B60FA13D1D45C09200F98CF3 /* ViewModel */,
 			);
 			path = "Register-注册";
 			sourceTree = "<group>";
@@ -1670,33 +1671,10 @@
 			isa = PBXGroup;
 			children = (
 				B60FA1381D45C09200F98CF3 /* WTRegisterViewController.h */,
-				B60FA1391D45C09200F98CF3 /* WTRegisterViewController.m */,
-				B60FA13A1D45C09200F98CF3 /* WTRegisterViewController.xib */,
+				B6EDD1261F89128C00904FBC /* WTRegisterViewController.m */,
+				B6EDD1271F89128C00904FBC /* WTRegisterViewController.xib */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		B60FA13B1D45C09200F98CF3 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B6E9B8491EAB78B9000120FA /* WTRegisterReqItem.h */,
-				B6E9B84A1EAB78B9000120FA /* WTRegisterReqItem.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		B60FA13C1D45C09200F98CF3 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		B60FA13D1D45C09200F98CF3 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B60FA13E1D45C09200F98CF3 /* TabBar */ = {
@@ -2243,6 +2221,18 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		B6EDD10D1F873F8900904FBC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B6EDD10E1F873F8900904FBC /* WTRegisterReqItem.h */,
+				B6EDD10F1F873F8900904FBC /* WTRegisterReqItem.m */,
+				B6EDD12B1F8912CF00904FBC /* WTContinueRegisterReqItem.h */,
+				B6EDD12A1F8912CF00904FBC /* WTContinueRegisterReqItem.m */,
+			);
+			name = Model;
+			path = "Register-注册/Model";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2333,7 +2323,7 @@
 					B69481671C462267001ABDA3 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = ZD2FW4SQ72;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -2391,6 +2381,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6EDD12F1F89138900904FBC /* WTLoginViewController.xib in Resources */,
+				B6EDD1291F8912A700904FBC /* WTRegisterViewController.xib in Resources */,
 				B60074001F7F88A200DDD085 /* WTToolBarView.xib in Resources */,
 				B60073FF1F7F883800DDD085 /* WTTopicDetailViewController.storyboard in Resources */,
 				B6E6306E1E9532E30084EAD0 /* v2ex.js in Resources */,
@@ -2400,7 +2392,6 @@
 				B69481781C462267001ABDA3 /* Assets.xcassets in Resources */,
 				B6271D511D599AF000A66983 /* WTMyFollowingCell.xib in Resources */,
 				30A2D8DE1D6B071C009AFA43 /* nodeitem.sqlite in Resources */,
-				B60FA1DC1D45C09200F98CF3 /* WTRegisterViewController.xib in Resources */,
 				B6A273451EAD02EE000B3A87 /* hotNode.plist in Resources */,
 				B60FA1C21D45C09200F98CF3 /* WTNodeTopicHeaderView.xib in Resources */,
 				B60FA1971D45C09200F98CF3 /* WTWebViewController.xib in Resources */,
@@ -2409,7 +2400,6 @@
 				3099B53D1D9A935B00B2DA46 /* LaunchScreen.storyboard in Resources */,
 				B6E9B8481EAB202D000120FA /* WTNoLoginView.xib in Resources */,
 				30E4987C1D70424100C2A6DA /* ShareSDK.bundle in Resources */,
-				B60FA1D51D45C09200F98CF3 /* WTLoginViewController.xib in Resources */,
 				30884B721DBA1407008FF94F /* WTMemberInfoTableViewController.storyboard in Resources */,
 				B61B5A9E1F71862400B0823E /* night.css in Resources */,
 				B63094571C4B8C1600E58EF8 /* nodes.plist in Resources */,
@@ -2568,6 +2558,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6EDD1301F89139300904FBC /* WTLoginViewController.m in Sources */,
+				B6EDD1281F89129E00904FBC /* WTRegisterViewController.m in Sources */,
+				B6EDD1111F8740C800904FBC /* WTRegisterReqItem.m in Sources */,
 				B60FA17F1D45C09200F98CF3 /* WTTopic.m in Sources */,
 				B60FA1B41D45C09200F98CF3 /* WTHotNodeFlowLayout.m in Sources */,
 				B60FA18E1D45C09200F98CF3 /* WTToolBarView.m in Sources */,
@@ -2577,7 +2570,6 @@
 				B60FA1C81D45C09200F98CF3 /* UIColor+Extension.m in Sources */,
 				B6A273341EACDFB1000B3A87 /* MMParser.m in Sources */,
 				303CF2471D6AA37D00D697F7 /* WTTopicCollectionCell.m in Sources */,
-				B6E9B84B1EAB78B9000120FA /* WTRegisterReqItem.m in Sources */,
 				B60FA1F21D45C09200F98CF3 /* WTShareSDKTool.m in Sources */,
 				B6370FC21F74032000DEC315 /* UIViewController+Extension.m in Sources */,
 				30A2D8CD1D6AE971009AFA43 /* WTNodeCollectionCell.m in Sources */,
@@ -2601,7 +2593,6 @@
 				30A2D93F1D6D3C0F009AFA43 /* WTMemberTopicViewModel.m in Sources */,
 				3050F8491D73C719004069B2 /* WTMyTopicViewController.m in Sources */,
 				B6235E421D48AA2300E5ECDB /* WTMoreNotLoginHeaderView.m in Sources */,
-				B60FA1DB1D45C09200F98CF3 /* WTRegisterViewController.m in Sources */,
 				B60FA1901D45C09200F98CF3 /* WTTopicDetailCommentCell.m in Sources */,
 				3009C6391DAF776400461B2F /* WTNodeApiItem.m in Sources */,
 				B60FA1F11D45C09200F98CF3 /* WTTableView.m in Sources */,
@@ -2656,6 +2647,7 @@
 				B664E8441D50667F00C22480 /* WTMyReplyViewController.m in Sources */,
 				B60FA1BD1D45C09200F98CF3 /* WTNodeTopicViewController.m in Sources */,
 				B60FA1B71D45C09200F98CF3 /* WTNodeItem.m in Sources */,
+				B6EDD12C1F8912D000904FBC /* WTContinueRegisterReqItem.m in Sources */,
 				B6E70C4F1D4E5CE7000CC806 /* WTNotificationItem.m in Sources */,
 				B60FA1CE1D45C09200F98CF3 /* UIView+init.m in Sources */,
 				B60FA1C51D45C09200F98CF3 /* NSString+Regex.m in Sources */,
@@ -2705,7 +2697,6 @@
 				B60FA1D71D45C09200F98CF3 /* WTLoginRequestItem.m in Sources */,
 				304E47DA1DBDFE280094FAD8 /* WTV2GroupViewController.m in Sources */,
 				B60FA1BF1D45C09200F98CF3 /* WTNodeTopicCell.m in Sources */,
-				B60FA1D41D45C09200F98CF3 /* WTLoginViewController.m in Sources */,
 				B60FA1BA1D45C09200F98CF3 /* WTHotNodeReusableView.m in Sources */,
 				B60FA1EA1D45C09200F98CF3 /* WTHTMLExtension.m in Sources */,
 				30884B651DB9E7E9008FF94F /* WTMemberInfoViewController.m in Sources */,
@@ -2930,8 +2921,8 @@
 				CODE_SIGN_ENTITLEMENTS = v2ex/v2ex.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jie Geng (ZD2FW4SQ72)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZD2FW4SQ72;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2984,8 +2975,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wutouqishi.v2ex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ddebd75e-56f7-4cbf-8656-e47619a5f57f";
-				PROVISIONING_PROFILE_SPECIFIER = v2exDev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "v2ex/Classes/Home(首页)/Controller/v2ex-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3002,9 +2993,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = v2ex/v2ex.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jie Geng (ZD2FW4SQ72)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZD2FW4SQ72;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3056,8 +3047,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wutouqishi.v2ex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9808ac96-4935-4ba6-90aa-368b2d60d018";
-				PROVISIONING_PROFILE_SPECIFIER = v2exAppStore;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "v2ex/Classes/Home(首页)/Controller/v2ex-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";

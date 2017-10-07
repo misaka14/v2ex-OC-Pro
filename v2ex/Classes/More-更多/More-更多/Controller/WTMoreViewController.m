@@ -109,12 +109,6 @@ CGFloat const moreHeaderViewH = 150;
     }
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear: animated];
-    
-    [self.navigationController setNavigationBarHidden: NO];
-}
 
 #pragma mark - UITableView DataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

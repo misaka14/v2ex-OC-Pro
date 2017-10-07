@@ -77,7 +77,7 @@
     [self.avatarImageV sd_setImageWithURL: account.avatarURL placeholderImage: WTIconPlaceholderImage];
     
     NSString *past = @"签到";
-    if (account.pastUrl.length == 0 || account.pastUrl == nil)
+    if (account.isPast)
     {
         past = @"已签到";
     }
