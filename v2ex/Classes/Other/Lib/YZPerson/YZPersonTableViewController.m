@@ -54,7 +54,7 @@
     
     YZTableView *tableView = (YZTableView *)self.tableView;
     tableView.tabBar = _tabBar;
-    
+    self.tableView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
 
     //声明tableView的位置 添加下面代码
     if (@available(iOS 11.0, *))

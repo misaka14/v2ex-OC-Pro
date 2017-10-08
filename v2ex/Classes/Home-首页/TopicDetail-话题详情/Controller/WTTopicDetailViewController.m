@@ -38,7 +38,10 @@ static CGFloat const WTNavViewHeight = 64;
 
 /** 用户名　*/
 @property (weak, nonatomic) IBOutlet UILabel            *titleLabel;
+/** 分隔线 */
 @property (weak, nonatomic) IBOutlet UIView             *navLineView;
+/** 话题详情Label */
+@property (weak, nonatomic) IBOutlet UILabel            *titleTipLabel;
 
 /** 已经登陆过的View */
 @property (weak, nonatomic) IBOutlet UIView             *normalView;
@@ -84,7 +87,8 @@ static CGFloat const WTNavViewHeight = 64;
     self.navLineView.dk_backgroundColorPicker = DKColorPickerWithKey(UINavbarLineViewBackgroundColor);
     
     self.titleLabel.dk_textColorPicker =  DKColorPickerWithKey(WTNavigationBarTitleColor);
-
+    self.titleTipLabel.dk_textColorPicker = DKColorPickerWithKey(WTNavigationBarTitleColor);
+    
     self.loadingView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     
     self.tipView.dk_backgroundColorPicker =  DKColorPickerWithKey(UITableViewBackgroundColor);

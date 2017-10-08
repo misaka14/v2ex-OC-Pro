@@ -85,8 +85,6 @@
 		48C897653E29BF7BBB425F0B /* libPods-v2ex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF392E5F2C48E95E3610957 /* libPods-v2ex.a */; };
 		B60073FF1F7F883800DDD085 /* WTTopicDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6DE74CA1F740FF20018021B /* WTTopicDetailViewController.storyboard */; };
 		B60074001F7F88A200DDD085 /* WTToolBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6370FC61F7405B200DEC315 /* WTToolBarView.xib */; };
-		B60074031F7FA18600DDD085 /* WTMore2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60074021F7FA18600DDD085 /* WTMore2ViewController.m */; };
-		B60074051F7FA1B600DDD085 /* WTMore2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B60074041F7FA1B600DDD085 /* WTMore2ViewController.xib */; };
 		B60136041E9937E3003A3CB4 /* highlight.js in Resources */ = {isa = PBXBuildFile; fileRef = B60136031E9937E3003A3CB4 /* highlight.js */; };
 		B60FA17B1D45C09200F98CF3 /* WTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60FA0501D45C09100F98CF3 /* WTHomeViewController.m */; };
 		B60FA17D1D45C09200F98CF3 /* WTTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B60FA0531D45C09100F98CF3 /* WTTopicViewController.m */; };
@@ -434,9 +432,6 @@
 		30FE1B371DB7182D00621E51 /* v2exTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = v2exTests.m; sourceTree = "<group>"; };
 		30FE1B391DB7182D00621E51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81BD77B1D9E6F005EABD0B77 /* Pods-Today.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Today.release.xcconfig"; path = "Pods/Target Support Files/Pods-Today/Pods-Today.release.xcconfig"; sourceTree = "<group>"; };
-		B60074011F7FA18600DDD085 /* WTMore2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTMore2ViewController.h; sourceTree = "<group>"; };
-		B60074021F7FA18600DDD085 /* WTMore2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTMore2ViewController.m; sourceTree = "<group>"; };
-		B60074041F7FA1B600DDD085 /* WTMore2ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WTMore2ViewController.xib; sourceTree = "<group>"; };
 		B60136031E9937E3003A3CB4 /* highlight.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = highlight.js; sourceTree = "<group>"; };
 		B60FA04F1D45C09100F98CF3 /* WTHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTHomeViewController.h; sourceTree = "<group>"; };
 		B60FA0501D45C09100F98CF3 /* WTHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTHomeViewController.m; sourceTree = "<group>"; };
@@ -1779,9 +1774,6 @@
 			children = (
 				B60FA20B1D45D7E700F98CF3 /* WTMoreViewController.h */,
 				B60FA20C1D45D7E700F98CF3 /* WTMoreViewController.m */,
-				B60074011F7FA18600DDD085 /* WTMore2ViewController.h */,
-				B60074021F7FA18600DDD085 /* WTMore2ViewController.m */,
-				B60074041F7FA1B600DDD085 /* WTMore2ViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2397,7 +2389,6 @@
 				B63094571C4B8C1600E58EF8 /* nodes.plist in Resources */,
 				B60FA1F01D45C09200F98CF3 /* WTPersonViewController.xib in Resources */,
 				B6ED4FF91EFADBB2005B1C5D /* WTMyReplyViewController.xib in Resources */,
-				B60074051F7FA1B600DDD085 /* WTMore2ViewController.xib in Resources */,
 				30E498791D70424100C2A6DA /* read_me.txt in Resources */,
 				30E4987A1D70424100C2A6DA /* README.txt in Resources */,
 				B6C92D301F7141880085F541 /* WTThemeCell.xib in Resources */,
@@ -2565,7 +2556,6 @@
 				B6370FC21F74032000DEC315 /* UIViewController+Extension.m in Sources */,
 				30A2D8CD1D6AE971009AFA43 /* WTNodeCollectionCell.m in Sources */,
 				B6B2B3AC1F1267380074B56A /* WTHotTopicViewModel.m in Sources */,
-				B60074031F7FA18600DDD085 /* WTMore2ViewController.m in Sources */,
 				B60FA1E91D45C09200F98CF3 /* WTNetworkState.m in Sources */,
 				30884B6A1DB9F89A008FF94F /* MisakaNetworkTool.m in Sources */,
 				B6A2732F1EACDFB1000B3A87 /* MMDocument.m in Sources */,

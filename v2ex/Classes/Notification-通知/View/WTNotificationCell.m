@@ -32,7 +32,9 @@
 {
     [super awakeFromNib];
     
-    self.contentView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    self.contentView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewCellBgViewBackgroundColor);
     self.bgContentView.dk_backgroundColorPicker = DKColorPickerWithKey(WTNotificationBgContentViewBackgroundColor);
     self.titleLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicTitleColor);
     self.timeLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);

@@ -18,6 +18,14 @@
     self.automaticallyChangeAlpha = YES;
     // 隐藏最后更新时间
     self.lastUpdatedTimeLabel.hidden = YES;
+    
+    
+    self.stateLabel.dk_textColorPicker = DKColorPickerWithKey(WTNoLoginTipTitleLabelTextColor);
+    
+    if ([[DKNightVersionManager sharedManager].themeVersion isEqualToString: DKThemeVersionNormal])
+        self.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    else
+        self.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
 }
 
 @end

@@ -193,4 +193,12 @@ NSString * const WTMemberTopicIdentifier = @"WTMemberTopicIdentifier";
     return nil;
 }
 
+- (UIColor *)backgroundColorForEmptyDataSet:(UIScrollView *)scrollView
+{
+    if ([[DKNightVersionManager sharedManager].themeVersion isEqualToString: DKThemeVersionNormal])
+        return [UIColor colorWithHexString: @"#F4F4F4"];
+    else
+        return [UIColor colorWithHexString: @"#1B1B1B"];
+}
+
 @end

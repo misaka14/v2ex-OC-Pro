@@ -35,6 +35,9 @@
                                                 <state key="normal" backgroundImage="common_back_new">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="backBtnClick" destination="Oa5-en-TwO" eventType="touchUpInside" id="dby-5H-pup"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="话题详情" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXF-s4-VBY">
                                                 <rect key="frame" x="153.5" y="52.5" width="69" height="20"/>
@@ -51,6 +54,9 @@
                                                     <constraint firstAttribute="height" constant="20" id="SNt-TU-ytC"/>
                                                 </constraints>
                                                 <state key="normal" backgroundImage="commodity_nav_share"/>
+                                                <connections>
+                                                    <action selector="shareItemClick" destination="Oa5-en-TwO" eventType="touchUpInside" id="Kik-Dw-a0z"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -120,6 +126,9 @@
                                         <state key="normal" title="查看本主题需要登录">
                                             <color key="titleColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="goLoginVCBtnClick" destination="Oa5-en-TwO" eventType="touchUpInside" id="TB7-G5-YQV"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qHQ-RU-gA7">
                                         <rect key="frame" x="37.5" y="138.5" width="300" height="250.5"/>
@@ -188,7 +197,8 @@
                         <outlet property="navView" destination="T5A-5j-bRW" id="gEj-2z-xdr"/>
                         <outlet property="normalView" destination="8YC-UW-Fv8" id="pLY-0d-Yrv"/>
                         <outlet property="tipView" destination="uO1-tc-qhI" id="HYL-Ul-3v7"/>
-                        <outlet property="titleLabel" destination="QVt-oL-9oF" id="oNt-nd-8HS"/>
+                        <outlet property="titleLabel" destination="QVt-oL-9oF" id="r6x-Ie-o1L"/>
+                        <outlet property="titleTipLabel" destination="hXF-s4-VBY" id="RQ7-Hd-t5a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0G-zd-ZcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

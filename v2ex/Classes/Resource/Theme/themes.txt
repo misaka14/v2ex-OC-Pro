@@ -15,17 +15,18 @@ NORMAL   NIGHT
 #333333  #FFFFFF   WTThemeCellTitleColor
 #000000  #FFFFFF   WTSearchbarTextColor
 #CCCCCC  #FFFFFF   WTActivityIndicatorViewColor
-#CCCCCC  #6C6C6C   WTNavigationBarTitleColor
+#000000  #FFFFFF   WTNavigationBarTitleColor
 
-#999999  #1B1B1B   WTNodeHeaderViewBackgroundColor
+#3599F7  #1B1B1B   WTNodeHeaderViewBackgroundColor
 #28AD54  #1B1B1B   WTMoreBackgroundColor
 #FFFFFF  #282828   WTMoreTableViewBackgroundColor
 #212121  #696969   WTMoreHeaderViewLabelTextColor
-#999999  #1B1B1B   WTMoreHeaderViewBackgroundColor
+#F1F1F8  #1B1B1B   WTMoreHeaderViewBackgroundColor
 #666666  #313131   WTMoreLineViewBackgroundColor
 #FAFAFA  #2D2D2D   WTMoreRegisterBackgroundColor
 #999999  #3C3C3C   WTMoreRegisterTextColor
 #3599F7  #4D4D4D   WTMoreLoginBackgroundColor
+#3599F7  #FFFFFF   WTMoreLoginAvatarBgViewBackgroundColor
 #FFFFFF  #2D2D2D   WTMoreLoginTextColor
 #000000  #696969   WTMoreBtnTitleTextColor
 #F3F3F5  #2D2D2D   WTNotificationBgContentViewBackgroundColor

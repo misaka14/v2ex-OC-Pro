@@ -218,9 +218,10 @@ static CGFloat const WTContentWebViewTopLayoutCons = 84;
     }
     else
     {
-        [self.previewWebView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.top.right.offset(0);
-            make.bottom.offset(-50);
+        [self.previewWebView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.offset(0);
+            make.height.equalTo(self.contentWebView).offset(0);
+            make.top.equalTo(self.view.mas_bottom).offset(0);
         }];
         
         [self.view layoutIfNeeded];

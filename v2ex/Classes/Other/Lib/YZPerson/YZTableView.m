@@ -18,14 +18,6 @@
 
 @implementation YZTableView
 
-- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
-{
-    if (self = [super initWithFrame: frame style: style])
-    {
-        self.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
-    }
-    return self;
-}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {

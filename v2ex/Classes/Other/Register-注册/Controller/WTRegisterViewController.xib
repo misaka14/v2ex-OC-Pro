@@ -167,7 +167,7 @@
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入图下的验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3yS-Sz-vrA">
                                             <rect key="frame" x="50" y="0.0" width="170" height="50"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="alphabet" keyboardAppearance="alert"/>
                                             <connections>
                                                 <action selector="codeTextFEditingDidBegin" destination="-1" eventType="editingDidBegin" id="TbN-Ul-tP2"/>
                                                 <action selector="codeTextFEditingDidEnd:" destination="-1" eventType="editingDidEnd" id="ixQ-4M-3zz"/>

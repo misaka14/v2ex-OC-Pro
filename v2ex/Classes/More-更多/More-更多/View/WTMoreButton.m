@@ -50,6 +50,7 @@ CGFloat const imageViewWH = 25;
     
     CGFloat imageViewX = (self.width - imageViewWH) * 0.5;
     self.imageView.frame = CGRectMake(imageViewX, 25, imageViewWH, imageViewWH);
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     [self.titleLabel sizeToFit];
     CGFloat titleLabelX = (self.width - self.titleLabel.width) * 0.5;

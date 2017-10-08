@@ -45,21 +45,6 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avp-Hb-5VV">
-                    <rect key="frame" x="176" y="61" width="5" height="5"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="5" id="bwT-Lm-Wi4"/>
-                        <constraint firstAttribute="width" constant="5" id="tPL-eJ-2Yn"/>
-                    </constraints>
-                </view>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ipad_player_setup_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="jiZ-mz-OkA">
-                    <rect key="frame" x="580" y="75" width="10" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="20" id="c5H-H6-sj5"/>
-                        <constraint firstAttribute="width" constant="10" id="szA-v2-vou"/>
-                    </constraints>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ih1-mF-ZTd">
                     <rect key="frame" x="520" y="70" width="60" height="30"/>
                     <color key="backgroundColor" red="0.15686274509803921" green="0.53527404496281272" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -84,26 +69,22 @@
                 <constraint firstItem="Ih1-mF-ZTd" firstAttribute="centerY" secondItem="c8M-LE-wQT" secondAttribute="centerY" id="2uw-6I-LFl"/>
                 <constraint firstItem="PYP-cg-Rp1" firstAttribute="leading" secondItem="c8M-LE-wQT" secondAttribute="trailing" constant="25" id="3xU-le-2dt"/>
                 <constraint firstItem="PYP-cg-Rp1" firstAttribute="top" secondItem="c8M-LE-wQT" secondAttribute="top" id="4eM-fH-LhP"/>
-                <constraint firstItem="avp-Hb-5VV" firstAttribute="leading" secondItem="PYP-cg-Rp1" secondAttribute="trailing" constant="5" id="6g8-z9-vBA"/>
                 <constraint firstItem="0Th-Gf-1uy" firstAttribute="top" secondItem="c8M-LE-wQT" secondAttribute="top" id="9lq-MG-D3h"/>
                 <constraint firstItem="9t8-JT-cQh" firstAttribute="leading" secondItem="PYP-cg-Rp1" secondAttribute="leading" id="KlZ-pk-0rN"/>
                 <constraint firstItem="MgC-pB-eOq" firstAttribute="leading" secondItem="1m1-dO-AuP" secondAttribute="leading" constant="-5" id="NVE-el-ko1"/>
                 <constraint firstItem="0Th-Gf-1uy" firstAttribute="bottom" secondItem="c8M-LE-wQT" secondAttribute="bottom" id="NmO-ze-5cW"/>
                 <constraint firstItem="1m1-dO-AuP" firstAttribute="top" secondItem="c8M-LE-wQT" secondAttribute="top" constant="-5" id="O51-Jt-exs"/>
                 <constraint firstItem="1m1-dO-AuP" firstAttribute="leading" secondItem="c8M-LE-wQT" secondAttribute="leading" constant="-5" id="O92-5T-1BK"/>
-                <constraint firstItem="avp-Hb-5VV" firstAttribute="top" secondItem="PYP-cg-Rp1" secondAttribute="top" constant="4" id="P9M-oi-8Ip"/>
                 <constraint firstItem="Ih1-mF-ZTd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="PEs-p4-M7Z"/>
                 <constraint firstItem="c8M-LE-wQT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="QCj-Mw-xcN"/>
                 <constraint firstItem="0Th-Gf-1uy" firstAttribute="trailing" secondItem="c8M-LE-wQT" secondAttribute="trailing" id="TAx-Cj-gB4"/>
                 <constraint firstItem="MgC-pB-eOq" firstAttribute="trailing" secondItem="1m1-dO-AuP" secondAttribute="trailing" constant="5" id="VdE-JQ-ZmH"/>
+                <constraint firstAttribute="trailing" secondItem="Ih1-mF-ZTd" secondAttribute="trailing" constant="20" id="ZNF-b7-xaZ"/>
                 <constraint firstItem="MgC-pB-eOq" firstAttribute="top" secondItem="1m1-dO-AuP" secondAttribute="top" constant="-5" id="Zt8-Oe-fxd"/>
-                <constraint firstItem="jiZ-mz-OkA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="10" id="cP5-WG-m8e"/>
                 <constraint firstItem="0Th-Gf-1uy" firstAttribute="leading" secondItem="c8M-LE-wQT" secondAttribute="leading" id="fEk-vT-ZgN"/>
                 <constraint firstItem="1m1-dO-AuP" firstAttribute="trailing" secondItem="c8M-LE-wQT" secondAttribute="trailing" constant="5" id="hbj-hH-Xb0"/>
-                <constraint firstAttribute="trailing" secondItem="jiZ-mz-OkA" secondAttribute="trailing" constant="10" id="l4I-r5-awD"/>
                 <constraint firstItem="9t8-JT-cQh" firstAttribute="bottom" secondItem="c8M-LE-wQT" secondAttribute="bottom" id="p7w-th-A6v"/>
                 <constraint firstItem="1m1-dO-AuP" firstAttribute="bottom" secondItem="c8M-LE-wQT" secondAttribute="bottom" constant="5" id="sQC-L8-c3C"/>
-                <constraint firstItem="jiZ-mz-OkA" firstAttribute="leading" secondItem="Ih1-mF-ZTd" secondAttribute="trailing" id="vXI-hW-a9j"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -117,14 +98,12 @@
                 <outlet property="avatarbgView1" destination="1m1-dO-AuP" id="Afr-Ir-3AS"/>
                 <outlet property="avatarbgView2" destination="MgC-pB-eOq" id="beu-CQ-huu"/>
                 <outlet property="bioLabel" destination="9t8-JT-cQh" id="MyR-c6-JbH"/>
-                <outlet property="onlineView" destination="avp-Hb-5VV" id="zhp-Mu-UUO"/>
                 <outlet property="pastBtn" destination="Ih1-mF-ZTd" id="H5t-bv-0h0"/>
                 <outlet property="usernameLabel" destination="PYP-cg-Rp1" id="CXd-kJ-NiY"/>
             </connections>
         </view>
     </objects>
     <resources>
-        <image name="ipad_player_setup_arrow" width="10" height="19"/>
         <image name="topic_avatar_normal" width="36" height="36"/>
     </resources>
 </document>

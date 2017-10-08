@@ -197,7 +197,7 @@ CGFloat const moreHeaderViewH = 150;
         __weak typeof(self) weakSelf = self;
         
         [_datas addObject: @[
-                             [WTSettingItem settingItemWithTitle: @"发表帖子" image: [UIImage imageNamed: @"mine_favourite"] operationBlock: ^{
+                             [WTSettingItem settingItemWithTitle: @"发表帖子" image: [UIImage imageNamed: @"more_publishTopic"] operationBlock: ^{
             
             
                                 [weakSelf checkIsLoginWithViewController: [WTPublishTopicViewController new]];

@@ -57,14 +57,24 @@
     self.avatarImageV.layer.cornerRadius = self.avatarImageV.width * 0.5;
     self.avatarImageV.layer.masksToBounds = YES;
     
-    self.pastBtn.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.pastBtn.layer.shadowColor = [UIColor lightGrayColor].CGColor;
     self.pastBtn.layer.shadowOffset = CGSizeMake(1, 1);
     self.pastBtn.layer.shadowRadius = 5;
     self.pastBtn.layer.shadowOpacity = 0.5;
     
     UIBezierPath *path = [UIBezierPath bezierPathWithRect: self.pastBtn.bounds];
     [path moveToPoint: CGPointMake(0, self.pastBtn.height)];
-
+    
+    self.pastBtn.backgroundColor = WTSelectedColor;
+    self.usernameLabel.dk_textColorPicker = DKColorPickerWithKey(WTNavigationBarTitleColor);
+    self.bioLabel.dk_textColorPicker = DKColorPickerWithKey(WTNavigationBarTitleColor);
+    self.avatarbgView1.dk_backgroundColorPicker = DKColorPickerWithKey(WTMoreLoginAvatarBgViewBackgroundColor);
+    self.avatarbgView2.dk_backgroundColorPicker = DKColorPickerWithKey(WTMoreLoginAvatarBgViewBackgroundColor);
+    
+    self.avatarbgView2.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    self.avatarbgView2.layer.shadowOffset = CGSizeMake(1, 1);
+    self.avatarbgView2.layer.shadowRadius = 5;
+    self.avatarbgView2.layer.shadowOpacity = 0.5;
 }
 
 - (void)setAccount:(WTAccount *)account
@@ -126,7 +136,7 @@
     POPBasicAnimation *backgroundColorAnim = [POPBasicAnimation animationWithPropertyNamed: kPOPViewBackgroundColor];
     backgroundColorAnim.duration = 1;
     backgroundColorAnim.autoreverses = YES;
-    backgroundColorAnim.toValue = [UIColor colorWithHexString: WTAppLightColor];
+    backgroundColorAnim.toValue = WTSelectedColor;
     [self.pastBtn pop_addAnimation: backgroundColorAnim forKey: kPOPViewBackgroundColor];
     
     

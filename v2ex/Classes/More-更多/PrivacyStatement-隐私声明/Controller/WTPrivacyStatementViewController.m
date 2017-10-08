@@ -24,7 +24,7 @@
     [self navViewWithTitle: @"隐私说明"];
     
     // 2、加载网页
-    NSURL *url = [NSURL URLWithString: @"http://www.misaka14.com"];
+    NSURL *url = [NSURL URLWithString: @"https://www.misaka14.com/V2EX_JAVA/privacy.html"];
     NSURLRequest *request = [NSURLRequest requestWithURL: url];
     [self.webView loadRequest: request];
     
