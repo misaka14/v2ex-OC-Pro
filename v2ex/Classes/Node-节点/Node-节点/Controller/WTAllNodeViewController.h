@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class WTNodeItem;
+@interface WTAllNodeViewController : UIViewController
+/** 点击标题的Block */
+@property (nonatomic, strong) void(^didClickTitleBlock)(WTNodeItem *nodeItem);
 
-@interface WTAllNodeViewController : UITableViewController
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end

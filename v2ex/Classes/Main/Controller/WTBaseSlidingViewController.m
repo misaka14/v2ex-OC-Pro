@@ -69,7 +69,7 @@
         [self.view addSubview: headerContentView];
         self.headerContentView = headerContentView;
         
-        headerContentView.dk_backgroundColorPicker = DKColorPickerWithKey(WTMoreBackgroundColor);
+        headerContentView.dk_backgroundColorPicker = DKColorPickerWithKey(WTNodeHeaderViewBackgroundColor);
         _headerContentView = headerContentView;
     }
     return _headerContentView;

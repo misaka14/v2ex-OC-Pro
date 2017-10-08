@@ -20,7 +20,7 @@
 /** 热门节点View */
 @property (nonatomic, weak) UICollectionView *hotNodeCollectionView;
 /** 所有节点View */
-@property (nonatomic, weak) UITableView *allNodeTableView;
+@property (nonatomic, weak) UIView *allNodeView;
 
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 
@@ -80,29 +80,29 @@
 {
     if (control.selectedSegmentIndex == 0)
     {
-        [self.allNodeTableView removeFromSuperview];
+        [self.allNodeView removeFromSuperview];
         [self.contentView addSubview: self.hotNodeCollectionView];
     }
     else
     {
         [self.hotNodeCollectionView removeFromSuperview];
-        [self.contentView addSubview: self.allNodeTableView];
+        [self.contentView addSubview: self.allNodeView];
 
     }
 }
 
 #pragma mark - Layz Method
-- (UITableView *)allNodeTableView
+- (UIView *)allNodeView
 {
-    if (_allNodeTableView == nil)
+    if (_allNodeView == nil)
     {
         WTAllNodeViewController *allNodeVC = [[WTAllNodeViewController alloc] init];
         [self addChildViewController: allNodeVC];
         
-        _allNodeTableView = allNodeVC.tableView;
-        _allNodeTableView.frame = self.contentView.bounds;
-        [self.contentView addSubview: _allNodeTableView];
+        _allNodeView = allNodeVC.view;
+        _allNodeView.frame = self.contentView.bounds;
+        [self.contentView addSubview: _allNodeView];
     }
-    return _allNodeTableView;
+    return _allNodeView;
 }
 @end

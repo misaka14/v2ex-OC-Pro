@@ -29,5 +29,6 @@
 
 @property (nonatomic, strong) NSString *title;
 
+- (instancetype)initWithContent:(NSString *)content once:(NSString *)once title:(NSString *)title;
 @end
 

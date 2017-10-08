@@ -62,7 +62,7 @@ NSString * const ID = @"ID";
     self.headerViewH = 195;
     
     
-    self.view.dk_backgroundColorPicker = DKColorPickerWithKey(keyWTMoreBackgroundColor);
+    self.view.dk_backgroundColorPicker = DKColorPickerWithKey(WTMoreHeaderViewBackgroundColor);
     
     UITableView *tableView = [UITableView new];
     
@@ -211,7 +211,7 @@ NSString * const ID = @"ID";
         nodeTopicHeaderView.frame = CGRectMake(0, 64, WTScreenWidth, 182);
         [self.headerContentView addSubview: nodeTopicHeaderView];
         _nodeTopicHeaderView = nodeTopicHeaderView;
-        nodeTopicHeaderView.dk_backgroundColorPicker = DKColorPickerWithKey(WTMoreBackgroundColor);
+        nodeTopicHeaderView.dk_backgroundColorPicker = DKColorPickerWithKey(WTNodeHeaderViewBackgroundColor);
 //        UIImageView *bgImageView = [[UIImageView alloc] initWithImage: [UIImage imageNamed: @"lol"]];
 //        bgImageView.frame = self.view.bounds;
 //        bgImageView.contentMode = UIViewContentModeScaleAspectFill;

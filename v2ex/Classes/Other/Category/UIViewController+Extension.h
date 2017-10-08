@@ -25,6 +25,9 @@
 /** 添加导航栏 */
 - (void)navViewWithTitle:(NSString *)title;
 
+/** 添加带关闭按钮的导航栏 */
+- (void)navViewWithCloseBtnAndTitle:(NSString *)title;
+
 
 /**
  添加导航栏

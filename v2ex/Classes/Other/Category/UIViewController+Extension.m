@@ -40,6 +40,21 @@
     self.view.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
 }
 
+- (void)navViewWithCloseBtnAndTitle:(NSString *)title
+{
+    [self navViewWithTitle: title hideBack: YES];
+    
+    UIButton *backBtn = [UIButton new];
+    [backBtn setImage: [UIImage imageNamed: @"reply_close_normal"] forState: UIControlStateNormal];
+    [backBtn sizeToFit];
+    [self.nav_View addSubview: backBtn];
+    [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(8);
+        make.centerY.offset(WTNavigationBarCenterY);
+    }];
+    [backBtn addTarget: self action: @selector(backBtnClick) forControlEvents: UIControlEventTouchUpInside];
+}
+
 - (void)navViewWithTitle:(NSString *)title hideBack:(BOOL)hideBack
 {
     UIView *navView = [UIView new];

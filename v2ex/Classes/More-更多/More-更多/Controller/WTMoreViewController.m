@@ -16,6 +16,7 @@
 #import "WTV2GroupViewController.h"
 #import "WTRegisterViewController.h"
 #import "WTMyFollowingViewController.h"
+#import "WTPublishTopicViewController.h"
 #import "WTNodeCollectionViewController.h"
 #import "WTTopicCollectionViewController.h"
 #import "WTPrivacyStatementViewController.h"
@@ -196,7 +197,17 @@ CGFloat const moreHeaderViewH = 150;
         __weak typeof(self) weakSelf = self;
         
         [_datas addObject: @[
+                             [WTSettingItem settingItemWithTitle: @"发表帖子" image: [UIImage imageNamed: @"mine_favourite"] operationBlock: ^{
+            
+            
+                                [weakSelf checkIsLoginWithViewController: [WTPublishTopicViewController new]];
+                            }],
                              
+                             [WTSettingItem settingItemWithTitle: @"节点收藏" image: [UIImage imageNamed: @"mine_favourite"] operationBlock: ^{
+            
+            
+                                    [weakSelf checkIsLoginWithViewController: [WTNodeCollectionViewController new]];
+                                }],
                              
                                 [WTSettingItem settingItemWithTitle: @"节点收藏" image: [UIImage imageNamed: @"mine_favourite"] operationBlock: ^{
             
@@ -240,9 +251,9 @@ CGFloat const moreHeaderViewH = 150;
                             ]];
         
         [_datas addObject: @[
-//                             [WTSettingItem settingItemWithTitle: @"主题" image: [UIImage imageNamed: @"mine_theme"] operationBlock:^{
-//                                    [weakSelf.navigationController pushViewController: [[WTThemeViewController alloc] initWithCollectionViewLayout: [UICollectionViewFlowLayout new]] animated: YES];
-//                                }],
+                             [WTSettingItem settingItemWithTitle: @"主题" image: [UIImage imageNamed: @"mine_theme"] operationBlock:^{
+                                    [weakSelf.navigationController pushViewController: [[WTThemeViewController alloc] initWithCollectionViewLayout: [UICollectionViewFlowLayout new]] animated: YES];
+                                }],
                              
                                 [WTSettingItem settingItemWithTitle: @"隐私声明" image: [UIImage imageNamed: @"more_privacystatement"] operationBlock: ^{
             

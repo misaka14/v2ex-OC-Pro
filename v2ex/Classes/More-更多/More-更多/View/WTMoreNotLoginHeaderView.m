@@ -35,6 +35,8 @@
     self.loginBtn.dk_backgroundColorPicker =  DKColorPickerWithKey(WTMoreLoginBackgroundColor);
     self.loginBtn.layer.cornerRadius = 3;
     
+    
+    
 }
 
 #pragma mark - 事件

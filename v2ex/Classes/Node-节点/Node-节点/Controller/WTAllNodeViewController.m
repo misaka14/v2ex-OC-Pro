@@ -8,6 +8,7 @@
 
 #import "WTAllNodeViewController.h"
 #import "WTNodeViewModel.h"
+#import "UIViewController+Extension.h"
 #import "WTNodeTopicViewController.h"
 
 NSString * const reuseIdentifier = @"reuseIdentifier";
@@ -15,6 +16,7 @@ NSString * const reuseIdentifier = @"reuseIdentifier";
 @interface WTAllNodeViewController ()
 
 @property (nonatomic, strong) NSMutableArray *datas;
+
 
 @end
 
@@ -34,6 +36,7 @@ NSString * const reuseIdentifier = @"reuseIdentifier";
 // 加载View
 - (void)setupView
 {
+    if (self.didClickTitleBlock)    [self navViewWithCloseBtnAndTitle: @"选择节点"];
     
     self.tableView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     
@@ -93,10 +96,19 @@ NSString * const reuseIdentifier = @"reuseIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WTNodeTopicViewController *nodeTopicVC = [WTNodeTopicViewController new];
     NSArray<WTNodeItem *> *nodeItems = self.datas[indexPath.section];
-    nodeTopicVC.nodeItem = nodeItems[indexPath.row];
-    [self.navigationController pushViewController: nodeTopicVC animated: YES];
+    WTNodeItem *nodeItem = nodeItems[indexPath.row];
+    if (self.didClickTitleBlock)
+    {
+        self.didClickTitleBlock(nodeItem);
+        [self dismissViewControllerAnimated: YES completion: nil];
+    }
+    else
+    {
+        WTNodeTopicViewController *nodeTopicVC = [WTNodeTopicViewController new];
+        nodeTopicVC.nodeItem = nodeItem;
+        [self.navigationController pushViewController: nodeTopicVC animated: YES];
+    }
 }
 
 - (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView

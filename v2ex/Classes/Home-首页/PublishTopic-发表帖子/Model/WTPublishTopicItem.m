@@ -9,5 +9,13 @@
 #import "WTPublishTopicItem.h"
 
 @implementation WTPublishTopicItem
-
+- (instancetype)initWithContent:(NSString *)content once:(NSString *)once title:(NSString *)title
+{
+    WTPublishTopicItem *item = [WTPublishTopicItem new];
+    item.content = content;
+    item.once = once;
+    item.title = title;
+    item.syntax = @"1";
+    return item;
+}
 @end
