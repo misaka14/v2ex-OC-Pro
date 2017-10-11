@@ -28,6 +28,7 @@ NSString * const WTUsernameOrEmailKey = @"WTUsernameOrEmailKey";
 
 NSString * const WTPasswordKey = @"WTPasswordKey";
 
+
 @implementation WTAccountViewModel
 
 static WTAccountViewModel *_instance;
@@ -189,7 +190,7 @@ static WTAccountViewModel *_instance;
  *  @param success          请求成功的回调
  *  @param failure          请求失败的回调
  */
-- (void)loginWithLoginRequestItem:(WTLoginRequestItem *)loginRequestItem username:(NSString *)username password:(NSString *)password verificationCodeValue:(NSString *)verificationCodeValue success:(void (^)())success failure:(void (^)(NSError *error))failure
+- (void)loginWithLoginRequestItem:(WTLoginRequestItem *)loginRequestItem username:(NSString *)username password:(NSString *)password verificationCodeValue:(NSString *)verificationCodeValue success:(void (^)())success failure:(void (^)(NSError *error, WTLoginRequestItem *loginRequestItem))failure
 {
     NSString *urlString = [WTHTTPBaseUrl stringByAppendingPathComponent: WTLoginUrl];
     
@@ -220,33 +221,26 @@ static WTAccountViewModel *_instance;
             return;
         }
         
-        NSError *error = nil;
-        if([html containsString: @"用户名和密码无法匹配"])
-        {
-            error = [NSError errorWithDomain: WTDomain code: -1011 userInfo: @{@"message" : @"用户名和密码无法匹配"}];
-            WTLog(@"用户名和密码无法匹配")
-        }
-        else if([html containsString: WTRegisterProblem1])
-        {
-            NSString *message = [self parseProblemWithData: responseObject];
-            error = [NSError errorWithDomain: WTDomain code: -1011 userInfo: @{@"message" : message}];
-        }
-        else
-        {
-            WTLog(@"登陆未知错误")
-            WTLog(@"html:%@", [[NSString alloc] initWithData: responseObject encoding: NSUTF8StringEncoding])
-            error = [NSError errorWithDomain: WTDomain code: -1011 userInfo: @{@"message" : @"未知错误"}];
-        }
+        
+        
+        // 2、登录失败，重新获取登录的参数
+        NSString *message = [self parseProblemWithData: responseObject];
+        NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+        userInfo[@"message"] = message;
+        NSError *error = [NSError errorWithDomain: WTDomain code: -1011 userInfo: userInfo];
+        
+        
+        WTLoginRequestItem *loginRequestItem = [WTAccountViewModel getLoginRequestParamWithData: responseObject];
         
         if (failure)
         {
-            failure(error);
+            failure(error, loginRequestItem);
         }
         
     } failure:^(NSError *error) {
-        if (error)
+        if (failure)
         {
-            failure(error);
+            failure(error, nil);
         }
     }];
 }

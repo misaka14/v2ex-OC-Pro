@@ -30,7 +30,7 @@
 		<key>name</key>
 		<string>Apple</string>
 		<key>nodeURL</key>
-		<string>/go/apple</string>
+		<string>/?tab=apple</string>
 	</dict>
 	<dict>
 		<key>name</key>

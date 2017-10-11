@@ -165,6 +165,10 @@ NS_ASSUME_NONNULL_BEGIN
             btn.x = (w - btn.width) * 0.5;
             btn.height = btnH;
             btn.y = (self.titleScrollView.height - btnH) * 0.5 + WTNavigationBarCenterY;
+            
+            UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(titleBtnDidClick)];
+            [doubleTap setNumberOfTapsRequired: 2];
+            [btn addGestureRecognizer: doubleTap];
 
         }
         
@@ -209,6 +213,14 @@ NS_ASSUME_NONNULL_BEGIN
     
     // 3、添加一个子控制器的View
     //[self setupOneViewControllerView: currentIndex];
+}
+
+#pragma mark 标题栏标题双击事件
+- (void)titleBtnDidClick:(UIGestureRecognizer *)ges
+{
+    WTTopicViewController *topicVC = self.childViewControllers[ges.view.tag];
+    
+    [topicVC loadNewData];
 }
 
 #pragma mark 选中按钮

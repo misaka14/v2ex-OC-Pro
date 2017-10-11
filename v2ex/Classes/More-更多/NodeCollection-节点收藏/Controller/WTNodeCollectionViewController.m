@@ -7,6 +7,7 @@
 //  节点收藏控制器
 
 #import "WTNodeCollectionViewController.h"
+#import "WTNodeTopicViewController.h"
 #import "UIViewController+Extension.h"
 
 #import "WTNodeCollectionCell.h"
@@ -19,7 +20,7 @@
 
 NSString * const WTNodeCollectionCellIdentifier = @"WTNodeCollectionCellIdentifier";
 
-@interface WTNodeCollectionViewController ()
+@interface WTNodeCollectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, strong) WTNodeViewModel *nodeVM;
 
@@ -42,6 +43,11 @@ NSString * const WTNodeCollectionCellIdentifier = @"WTNodeCollectionCellIdentifi
 - (void)setupView
 {
     [self navViewWithTitle: @"节点收藏"];
+    
+    if (@available(iOS 11.0, *))
+        self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    self.collectionView.contentInset = UIEdgeInsetsMake(WTNavigationBarMaxY, 0, 0, 0);
+    self.collectionView.scrollIndicatorInsets = self.collectionView.contentInset;
         
     self.collectionView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     
@@ -100,5 +106,13 @@ NSString * const WTNodeCollectionCellIdentifier = @"WTNodeCollectionCellIdentifi
     cell.nodeItem = self.nodeVM.nodeItems[indexPath.row];
     
     return cell;
+}
+
+#pragma mark - UICollectionView delegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    WTNodeTopicViewController *vc = [WTNodeTopicViewController new];
+    vc.nodeItem = self.nodeVM.nodeItems[indexPath.row];
+    [self.navigationController pushViewController: vc animated: YES];
 }
 @end

@@ -222,7 +222,7 @@
     
     [html appendString: highlightJs];
     
-    [html appendString: fastClickJs];
+    //[html appendString: fastClickJs];
      
     [html appendString: @"</head><body>"];
     

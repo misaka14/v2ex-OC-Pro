@@ -204,6 +204,7 @@
     {
         NSString *imageUrl = [WTHTMLExtension topicDetailParseAvatarWithHTML: [imageE[1] objectForKey: @"src"]];
         account.avatarURL = [NSURL URLWithString: [NSString stringWithFormat: @"%@%@", WTHTTP, imageUrl]];
+        
     }
     
 }

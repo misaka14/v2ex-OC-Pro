@@ -258,7 +258,7 @@ static FMDatabase *_db;
 {
     NSString *urlStr = @"https://www.v2ex.com/my/nodes";
     
-    [[NetworkTool shareInstance] GETWithUrlString: urlStr success:^(NSData *data) {
+    [[NetworkTool shareInstance] GETFirefoxWithUrlString: urlStr success:^(NSData *data) {
         
         [self getMyNodeCollectionItemsWithData: data];
         
@@ -306,6 +306,9 @@ static FMDatabase *_db;
                 nodeItem.avatar_large = [NSURL URLWithString: [WTHTTPBaseUrl stringByAppendingString: icon]];
             }
             
+            NSString *href = [gridItemE objectForKey: @"href"];
+            
+            nodeItem.url = [WTHTTPBaseUrl stringByAppendingPathComponent: href];
             nodeItem.title = contents.firstObject;
             nodeItem.stars = [contents.lastObject integerValue];
             

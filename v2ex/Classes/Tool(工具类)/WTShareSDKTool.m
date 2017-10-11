@@ -66,14 +66,14 @@
                                             appSecret:@"dc3131f1a5d51cc9287dc3500064f4cb"];
                       break;
                   case SSDKPlatformTypeQQ:
-                      [appInfo SSDKSetupQQByAppId:@"1105260400"
-                                           appKey:@"KEYDr2YiG9bWy1eWnQd"
+                      [appInfo SSDKSetupQQByAppId:@"1106465414"
+                                           appKey:@"SNmIY09YKoeJruQb"
                                          authType:SSDKAuthTypeBoth];
                       break;
                   case SSDKPlatformTypeSinaWeibo:
                       //设置新浪微博应用信息,其中authType设置为使用SSO＋Web形式授权
-                      [appInfo SSDKSetupSinaWeiboByAppKey:@"2818820208"
-                                                appSecret:@"0a57c4668d290c1d7032fc8298ad5958"
+                      [appInfo SSDKSetupSinaWeiboByAppKey:@"741838407"
+                                                appSecret:@"91a2b25321f875d155e63f6c9cc5b3f0"
                                               redirectUri:@"http://www.baidu.com"
                                                  authType:SSDKAuthTypeBoth];
                       break;

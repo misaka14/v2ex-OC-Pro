@@ -45,14 +45,14 @@
     [self navViewWithTitle: title hideBack: YES];
     
     UIButton *backBtn = [UIButton new];
-    [backBtn setImage: [UIImage imageNamed: @"reply_close_normal"] forState: UIControlStateNormal];
+    [backBtn setImage: [UIImage imageNamed: @"nav_close_normal"] forState: UIControlStateNormal];
     [backBtn sizeToFit];
     [self.nav_View addSubview: backBtn];
     [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(8);
         make.centerY.offset(WTNavigationBarCenterY);
     }];
-    [backBtn addTarget: self action: @selector(backBtnClick) forControlEvents: UIControlEventTouchUpInside];
+    [backBtn addTarget: self action: @selector(closeBtnClick) forControlEvents: UIControlEventTouchUpInside];
 }
 
 - (void)navViewWithTitle:(NSString *)title hideBack:(BOOL)hideBack
@@ -110,6 +110,11 @@
 - (void)backBtnClick
 {
     [self.navigationController popViewControllerAnimated: YES];
+}
+
+- (void)closeBtnClick
+{
+    [self dismissViewControllerAnimated: YES completion: nil];
 }
 
 - (void)navViewWithTitle:(NSString *)title

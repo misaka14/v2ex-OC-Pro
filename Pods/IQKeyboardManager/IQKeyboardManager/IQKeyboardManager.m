@@ -32,21 +32,20 @@
 #import "IQUIViewController+Additions.h"
 #import "IQPreviousNextView.h"
 
+#import <QuartzCore/CABase.h>
+
+#import <objc/runtime.h>
+
 #import <UIKit/UINavigationBar.h>
 #import <UIKit/UITapGestureRecognizer.h>
 #import <UIKit/UITextField.h>
 #import <UIKit/UITextView.h>
 #import <UIKit/UITableViewController.h>
+#import <UIKit/UICollectionViewController.h>
 #import <UIKit/UINavigationController.h>
-#import <UIKit/UITableView.h>
 #import <UIKit/UITouch.h>
-
-#import <QuartzCore/CABase.h>
-
-#import <UIKit/UICollectionView.h>
 #import <UIKit/NSLayoutConstraint.h>
 
-#import <objc/runtime.h>
 
 NSInteger const kIQDoneButtonToolbarTag             =   -1002;
 NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
@@ -282,7 +281,7 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
 		//If keyboard is currently showing. Sending a fake notification for keyboardWillShow to adjust view according to keyboard.
 		if (_kbShowNotification)	[self keyboardWillShow:_kbShowNotification];
 
-        [self showLog:IQLocalizedString(@"enabled", nil)];
+        [self showLog:@"Enabled"];
     }
 	//If not disable, desable it.
     else if (enable == NO &&
@@ -294,19 +293,19 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
 		//Setting NO to _enable.
 		_enable = enable;
 		
-        [self showLog:IQLocalizedString(@"disabled", nil)];
+        [self showLog:@"Disabled"];
     }
 	//If already disabled.
 	else if (enable == NO &&
              _enable == NO)
 	{
-        [self showLog:IQLocalizedString(@"already disabled", nil)];
+        [self showLog:@"Already Disabled"];
 	}
 	//If already enabled.
 	else if (enable == YES &&
              _enable == YES)
 	{
-        [self showLog:IQLocalizedString(@"already enabled", nil)];
+        [self showLog:@"Already Enabled"];
 	}
 }
 
@@ -549,7 +548,7 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
 
     //  If can't get rootViewController then printing warning to user.
     if (controller == nil)
-        [self showLog:(IQLocalizedString(@"You must set UIWindow.rootViewController in your AppDelegate to work with IQKeyboardManager", nil))];
+        [self showLog:@"You must set UIWindow.rootViewController in your AppDelegate to work with IQKeyboardManager"];
     
     __weak typeof(self) weakSelf = self;
     
@@ -652,7 +651,7 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
     //Getting UIScrollView whose scrolling is enabled.    //  (Bug ID: #285)
     while (superView)
     {
-        if (superView.isScrollEnabled)
+        if (superView.isScrollEnabled && superView.shouldIgnoreScrollingAdjustment == NO)
         {
             superScrollView = superView;
             break;
@@ -751,7 +750,7 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
                 //Getting UIScrollView whose scrolling is enabled.    //  (Bug ID: #285)
                 while (tempScrollView)
                 {
-                    if (tempScrollView.isScrollEnabled)
+                    if (tempScrollView.isScrollEnabled && tempScrollView.shouldIgnoreScrollingAdjustment == NO)
                     {
                         nextScrollView = tempScrollView;
                         break;
@@ -1960,10 +1959,16 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
 
     if ([self canGoPrevious])
     {
+        UIView *currentTextFieldView = _textFieldView;
         BOOL isAcceptAsFirstResponder = [self goPrevious];
         
         if (isAcceptAsFirstResponder == YES && barButton.invocation)
         {
+            if (barButton.invocation.methodSignature.numberOfArguments > 2)
+            {
+                [barButton.invocation setArgument:&currentTextFieldView atIndex:2];
+            }
+
             [barButton.invocation invoke];
         }
     }
@@ -1980,10 +1985,16 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
 
     if ([self canGoNext])
     {
+        UIView *currentTextFieldView = _textFieldView;
         BOOL isAcceptAsFirstResponder = [self goNext];
         
         if (isAcceptAsFirstResponder == YES && barButton.invocation)
         {
+            if (barButton.invocation.methodSignature.numberOfArguments > 2)
+            {
+                [barButton.invocation setArgument:&currentTextFieldView atIndex:2];
+            }
+
             [barButton.invocation invoke];
         }
     }
@@ -1998,10 +2009,16 @@ NSInteger const kIQPreviousNextButtonToolbarTag     =   -1005;
         [[UIDevice currentDevice] playInputClick];
     }
 
+    UIView *currentTextFieldView = _textFieldView;
     BOOL isResignedFirstResponder = [self resignFirstResponder];
     
     if (isResignedFirstResponder == YES && barButton.invocation)
     {
+        if (barButton.invocation.methodSignature.numberOfArguments > 2)
+        {
+            [barButton.invocation setArgument:&currentTextFieldView atIndex:2];
+        }
+
         [barButton.invocation invoke];
     }
 }

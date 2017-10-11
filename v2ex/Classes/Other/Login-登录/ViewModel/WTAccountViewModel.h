@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "WTAccount.h"
 #import "WTUserItem.h"
+
+
+
 @class WTRegisterReqItem, WTLoginRequestItem, WTContinueRegisterReqItem;
 @interface WTAccountViewModel : NSObject
 
@@ -59,7 +62,7 @@
  *  @param success          请求成功的回调
  *  @param failure          请求失败的回调
  */
-- (void)loginWithLoginRequestItem:(WTLoginRequestItem *)loginRequestItem username:(NSString *)username password:(NSString *)password verificationCodeValue:(NSString *)verificationCodeValue success:(void (^)())success failure:(void (^)(NSError *error))failure;
+- (void)loginWithLoginRequestItem:(WTLoginRequestItem *)loginRequestItem username:(NSString *)username password:(NSString *)password verificationCodeValue:(NSString *)verificationCodeValue success:(void (^)())success failure:(void (^)(NSError *error, WTLoginRequestItem *loginRequestItem))failure;
 
 
 /**

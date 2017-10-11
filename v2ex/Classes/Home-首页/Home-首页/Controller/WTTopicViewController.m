@@ -12,6 +12,7 @@
 
 #import "WTTopicCell.h"
 
+#import "UIScrollView+YYAdd.h"
 #import "WTCellAnimationTool.h"
 #import "NetworkTool.h"
 #import "WTTopicViewModel.h"
@@ -103,11 +104,13 @@ static NSString *const ID = @"topicCell";
 - (void)loadNewData
 {
     self.topicVM.page = 1; // 由于是抓取数据的原因，每次下拉刷新直接重头开始加载
+    [self.tableView scrollToTop];
     
+    __weak typeof(self) weakSelf = self;
     [self.topicVM getNodeTopicWithUrlStr: self.urlString topicType: WTTopicTypeNormal success:^{
         
-        [self.tableView reloadData];
-        [self.tableView.mj_header endRefreshing];
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.mj_header endRefreshing];
 //        NSArray *cellArray = self.tableView.visibleCells;
 //        
 //        //  延迟
@@ -129,7 +132,7 @@ static NSString *const ID = @"topicCell";
         
     } failure:^(NSError *error) {
         
-        [self.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_header endRefreshing];
     }];
 }
 
@@ -138,14 +141,15 @@ static NSString *const ID = @"topicCell";
 {
     self.topicVM.page ++;
     
+    __weak typeof(self) weakSelf = self;
     [self.topicVM getNodeTopicWithUrlStr: self.urlString topicType: WTTopicTypeNormal success:^{
         
-        [self.tableView reloadData];
-        [self.tableView.mj_footer endRefreshing];
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView.mj_footer endRefreshing];
         
     } failure:^(NSError *error) {
         
-        [self.tableView.mj_footer endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
     }];
 }
 

@@ -80,14 +80,13 @@
 {
     if (control.selectedSegmentIndex == 0)
     {
-        [self.allNodeView removeFromSuperview];
-        [self.contentView addSubview: self.hotNodeCollectionView];
+        
+        [self.contentView bringSubviewToFront: self.hotNodeCollectionView];
     }
     else
     {
-        [self.hotNodeCollectionView removeFromSuperview];
-        [self.contentView addSubview: self.allNodeView];
-
+        [self.contentView bringSubviewToFront: self.allNodeView];
+        
     }
 }
 

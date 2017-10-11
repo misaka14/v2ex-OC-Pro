@@ -510,7 +510,9 @@ static NSString  * const commentCellID = @"commentCellID";
         [[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview: vc.view];
         
         vc.view.alpha = 0;
-        vc.view.frame = self.view.bounds;
+        [vc.view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.offset(0);
+        }];
         
         // 、回复之后的block操作
         __weak typeof(self) weakSelf = self;

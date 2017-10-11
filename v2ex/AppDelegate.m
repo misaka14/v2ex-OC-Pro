@@ -51,18 +51,18 @@ static WTAppDelegateTool *_appDelegateTool;
     application.applicationIconBadgeNumber = 0;
     
     // 6、界面 FPS 代码
-//#if DEBUG
-//    WTFPSLabel *fpsLabel = [[WTFPSLabel alloc] initWithFrame: CGRectMake(15, WTScreenHeight - 80, 55, 50)];
-//    [self.window addSubview: fpsLabel];
-//#else
-//    
-//#endif
+#if DEBUG
+    WTFPSLabel *fpsLabel = [[WTFPSLabel alloc] initWithFrame: CGRectMake(15, WTScreenHeight - 80, 55, 50)];
+    [self.window addSubview: fpsLabel];
+#else
+    
+#endif
 
-//    // 7、显示顶层window
-//    [WTTopWindow showWithStatusBarClickBlock:^{
-//        
-//        [_appDelegateTool searchAllScrollViewsInView: application.keyWindow];
-//    }];
+    // 7、显示顶层window
+    [WTTopWindow showWithStatusBarClickBlock:^{
+        
+        [_appDelegateTool searchAllScrollViewsInView: application.keyWindow];
+    }];
     
     // 8、设置3DTouch 按钮
     if (iOS9Later)
@@ -73,7 +73,6 @@ static WTAppDelegateTool *_appDelegateTool;
     // 9、初始化第三方SDK
     [_appDelegateTool initAppSDKWithDidFinishLaunchingWithOptions: launchOptions];
     
-//    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(dkNightVersionThemeChanging) name: DKNightVersionThemeChangingNotification object: nil];
     
     
     return YES;

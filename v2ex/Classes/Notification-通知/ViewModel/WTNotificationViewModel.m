@@ -67,6 +67,8 @@
             
             NSArray<TFHppleElement *> *nodeEs = [cellE searchWithXPathQuery: @"//a[@class='node']"];
             
+            NSString *content = cellE.content;
+            
             WTNotificationItem *notificationItem = [WTNotificationItem new];
             {
 
@@ -88,6 +90,11 @@
                 notificationItem.lastReplyTime = snowEs.firstObject.content;
                 // 5、回复内容
                 notificationItem.content = payloadEs.firstObject.content;
+                if ([content containsString: @"感谢了你在主题"])
+                {
+                    notificationItem.content = [NSString stringWithFormat: @"感谢了这条回复  【%@】", notificationItem.content];
+                }
+                
                 
                 // 6、uid
                 TFHppleElement *nodeE = nodeEs.firstObject;

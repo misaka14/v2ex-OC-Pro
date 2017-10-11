@@ -143,14 +143,12 @@
 		2EF2A4B80B2A84804BDFB20F206FDED1 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F09A7C836345FFD64BF7C532C274AEA /* NSData+ImageContentType.m */; };
 		2FB646EB2667A668B4EA2D356A5D6F08 /* SDImageCacheConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 811030320DE46102267F977E56319A4A /* SDImageCacheConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FE665ED7C6421E10F007FD6A439068A /* YYTextWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = AAF9A300EA76FC4873159DEC172E68EB /* YYTextWeakProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3037AB601C885680CFEA52F0D9BFF3B6 /* IQNSArray+Sort.h in Headers */ = {isa = PBXBuildFile; fileRef = B26007204E54C1ACF71E68AC34CE58B9 /* IQNSArray+Sort.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		309791EE9C924851B61FAF2B1CB13BA2 /* CTAssetsGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA623299280FCE7FA519C6646DCFC647 /* CTAssetsGridView.m */; };
 		3159F008BA5D38F82147747F9EDFE268 /* UIProgressView+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 173CFF51969239CAFFCE41A2F30B2802 /* UIProgressView+Night.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31790CFE8CFD77974B3B237B931C1C34 /* CAShapeLayer+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D620BBE17DCC37B7186EB5FB06A41A1 /* CAShapeLayer+Night.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31ED9BD97AF9E62874AF3CDF2F8090CF /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C23291ABE0D9D73689C12B2AFAAFAA /* AFNetworkActivityIndicatorManager.m */; };
 		33BD1BBE5C813F8C41D3D5E367433583 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D67415603A868949ACFB52082330FF /* SVRadialGradientLayer.m */; };
 		341A4BCFB7B1E78548ECD00869FE22B3 /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 23175339849EFE9EB966554741150E55 /* MJRefreshStateHeader.m */; };
-		35773004282D2825DD45C3EF9B32C21F /* IQKeyboardManagerConstantsInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = DF0E846D7F644CCAC4A202BD613F56EF /* IQKeyboardManagerConstantsInternal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3581D6CCBA68806E1B5611E8D101B12D /* UIToolbar+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 891724666F36A210D5772617A1897EF5 /* UIToolbar+Night.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35FEF75EB9FED9367CF2932F0F1FA615 /* UIImage+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DCFA9C1D8224A4B22BABF05819B9F5B /* UIImage+GIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		36322EE081678EB0326B955AF20AB041 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C16333BBAE5C8223A764A5FAFD7DF3F /* MobileCoreServices.framework */; };
@@ -321,6 +319,7 @@
 		6CD7D6CD16763B13790A4D68C6CB4CDF /* SDWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F1AF8F9E8A9989527164C9445DAD24F5 /* SDWebImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6D06226E4854E2E8B95AB0640740E61E /* JGProgressHUDImageIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E44DB4474D36AAB596A72AC1078452A /* JGProgressHUDImageIndicatorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6D62554AA673FBA9BDC7CAFEBC023A81 /* YYCategories-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 825F74234CACCA5DE91C4E2942605A93 /* YYCategories-dummy.m */; };
+		6DD7A82ED48E61FD8C2BA3EA9649DD2E /* IQNSArray+Sort.h in Headers */ = {isa = PBXBuildFile; fileRef = B26007204E54C1ACF71E68AC34CE58B9 /* IQNSArray+Sort.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6DFBFC04EABFA9A25288A5BAC88163D3 /* UITextField+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E747A9D7FB41AE25F349570FD882F81 /* UITextField+YYAdd.m */; };
 		6E9DCBCB20D945655540F71EEBDFE954 /* NSNotificationCenter+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = BECAA8095EC0EBD748C8362589C20AE7 /* NSNotificationCenter+YYAdd.m */; };
 		6F2E6DB77705FF518799702F48F7F418 /* UIBarButtonItem+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 790262D70D49DC9108DF802FDB42F076 /* UIBarButtonItem+Night.m */; };
@@ -420,6 +419,7 @@
 		909F7FE511052967F37A2BA4BB4B5CCB /* POPPropertyAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AC7CE7A62B3D733664A4A2CCDF72917 /* POPPropertyAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		90F903B4C40A1AA1B41D58CA8E2726E8 /* UIColor+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 62EBD042B58E588F0E55C311C318BF72 /* UIColor+YYAdd.m */; };
 		91E7BA397D538FC3A3770401C99F0224 /* JGProgressHUD-Defines.h in Headers */ = {isa = PBXBuildFile; fileRef = E7BC985C62FF01A682D420E018415858 /* JGProgressHUD-Defines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9216E6BF8AF8A584B78667EA7D41DE2F /* IQKeyboardManagerConstantsInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = DF0E846D7F644CCAC4A202BD613F56EF /* IQKeyboardManagerConstantsInternal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		925EBB6CDAA2E17791E1DDCDA62A3375 /* MJRefreshConst.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D8D6BCF07119735E588B174921A382A /* MJRefreshConst.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		928A7B70D223EA3AFCDE795A23A6FCBF /* POPAnimationPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = C6A9B90D392B89EB97F0BFCE145300D7 /* POPAnimationPrivate.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		92937DC066543122186195A2941D3C60 /* MJFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1008F644DE270F3D9949A4113815ED76 /* MJFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -3518,9 +3518,9 @@
 				28B30D7AF077B7BBD7361FB6AC3AA2BC /* IQBarButtonItem.h in Headers */,
 				71DFF4FCF490E7C2983380C32C3E05A6 /* IQKeyboardManager.h in Headers */,
 				D5B7D8C76ECDAE3675FED3DDD52A1A1F /* IQKeyboardManagerConstants.h in Headers */,
-				35773004282D2825DD45C3EF9B32C21F /* IQKeyboardManagerConstantsInternal.h in Headers */,
+				9216E6BF8AF8A584B78667EA7D41DE2F /* IQKeyboardManagerConstantsInternal.h in Headers */,
 				1A12AC09DAEE727DBD9D111A2B098516 /* IQKeyboardReturnKeyHandler.h in Headers */,
-				3037AB601C885680CFEA52F0D9BFF3B6 /* IQNSArray+Sort.h in Headers */,
+				6DD7A82ED48E61FD8C2BA3EA9649DD2E /* IQNSArray+Sort.h in Headers */,
 				43643239F78BFE4405AD5092ACC1B176 /* IQPreviousNextView.h in Headers */,
 				53E16175D3F285FCD0AA297379790B78 /* IQTextView.h in Headers */,
 				F88EBCF213D5CDC9DD9761F38AC8851A /* IQTitleBarButtonItem.h in Headers */,

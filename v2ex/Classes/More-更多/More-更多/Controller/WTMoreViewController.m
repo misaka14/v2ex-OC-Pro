@@ -203,11 +203,6 @@ CGFloat const moreHeaderViewH = 150;
                                 [weakSelf checkIsLoginWithViewController: [WTPublishTopicViewController new]];
                             }],
                              
-                             [WTSettingItem settingItemWithTitle: @"节点收藏" image: [UIImage imageNamed: @"mine_favourite"] operationBlock: ^{
-            
-            
-                                    [weakSelf checkIsLoginWithViewController: [WTNodeCollectionViewController new]];
-                                }],
                              
                                 [WTSettingItem settingItemWithTitle: @"节点收藏" image: [UIImage imageNamed: @"mine_favourite"] operationBlock: ^{
             

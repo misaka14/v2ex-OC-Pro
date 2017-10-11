@@ -17,19 +17,10 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     if (self.statusBarClickBlock) self.statusBarClickBlock();
-//    !self.statusBarClickBlock ? : self.statusBarClickBlock();
+
 }
 
-#pragma mark - 状态栏控制
-- (BOOL)prefersStatusBarHidden
-{
-    return NO;
-}
 
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleDefault;
-}
 @end
 /***** XMGTopViewController *****/
 

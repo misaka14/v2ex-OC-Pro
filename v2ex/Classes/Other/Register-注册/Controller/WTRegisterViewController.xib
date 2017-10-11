@@ -59,7 +59,7 @@
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jyo-Yt-XdB">
                                             <rect key="frame" x="50" y="0.0" width="170" height="50"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                                            <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_username" translatesAutoresizingMaskIntoConstraints="NO" id="GOn-d3-V2W">
                                             <rect key="frame" x="15" y="16" width="20" height="19"/>
@@ -86,7 +86,7 @@
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0YA-XQ-9rR">
                                             <rect key="frame" x="50" y="0.0" width="170" height="50"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" keyboardAppearance="alert" secureTextEntry="YES"/>
+                                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_password" translatesAutoresizingMaskIntoConstraints="NO" id="xc5-NA-PGF">
                                             <rect key="frame" x="15" y="16" width="20" height="19"/>
@@ -113,7 +113,7 @@
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="电子邮箱" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lRT-My-Ytl">
                                             <rect key="frame" x="50" y="0.0" width="170" height="50"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                         </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_email" translatesAutoresizingMaskIntoConstraints="NO" id="jLP-T0-ZLR">
                                             <rect key="frame" x="15" y="16" width="20" height="19"/>
@@ -140,7 +140,7 @@
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请使用真实手机注册" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ra7-1H-l3i">
                                             <rect key="frame" x="50" y="0.0" width="170" height="50"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_telephone" translatesAutoresizingMaskIntoConstraints="NO" id="Ex6-AH-oPI">
                                             <rect key="frame" x="15" y="16" width="20" height="19"/>

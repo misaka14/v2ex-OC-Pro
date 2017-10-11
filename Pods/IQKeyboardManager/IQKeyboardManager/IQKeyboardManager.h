@@ -27,12 +27,13 @@
 
 #import <Foundation/NSObject.h>
 #import <Foundation/NSObjCRuntime.h>
+#import <Foundation/NSSet.h>
 
-#import <UIKit/UITapGestureRecognizer.h>
 #import <UIKit/UITextInputTraits.h>
-#import <UIKit/UIView.h>
 
-@class UIFont;
+@class UIFont, UIColor, UITapGestureRecognizer, UIView, UIImage;
+
+@class NSString;
 
 ///---------------------
 /// @name IQToolbar tags

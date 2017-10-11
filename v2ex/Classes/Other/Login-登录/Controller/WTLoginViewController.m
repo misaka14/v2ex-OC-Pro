@@ -17,6 +17,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIImage+Extension.h"
 
+
 @interface WTLoginViewController ()
 /** 背景图片 */
 @property (weak, nonatomic) IBOutlet UIImageView    *bgImageV;
@@ -55,7 +56,9 @@
     [self initView];
     
     [self initData];
+    
 }
+
 #pragma mark - Private
 - (void)initView
 {
@@ -140,6 +143,15 @@
     // 1、设置验证码
     [[NetworkTool shareInstance] GETWithUrlString: self.loginRequestItem.verificationCode success:^(NSData *data) {
         
+        // 0、重新加载一个新的验证码
+        NSString *html = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+        if ([html isEqualToString: @""])
+        {
+            [self initData];
+            return;
+        }
+        
+        
         // 1、设置验证码
         weakSelf.verificationCodeImageV.image = [UIImage imageWithData: data];
         
@@ -173,14 +185,22 @@
         
         [[NSNotificationCenter defaultCenter] postNotificationName: WTLoginStateChangeNotification object: nil];
         
-    } failure:^(NSError *error) {
+    } failure:^(NSError *error, WTLoginRequestItem *loginRequestItem) {
+        
         [weakSelf.loginButton setTitle: @"登陆" forState: UIControlStateNormal];
+        
         if (error.code == 400 || error.code == -1011)
         {
             [weakSelf.tipView showErrorTitle: error.userInfo[@"message"]];
+            
+            if (loginRequestItem)
+                weakSelf.loginRequestItem = loginRequestItem;
+            else
+                [weakSelf initData];
+        
             return;
         }
-        [self.tipView showErrorTitle: @"服务器异常，请稍候重试"];
+        [weakSelf.tipView showErrorTitle: @"服务器异常，请稍候重试"];
     }];
     
 }
