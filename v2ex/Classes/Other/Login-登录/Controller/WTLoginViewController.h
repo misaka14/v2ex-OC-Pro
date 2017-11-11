@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class WTLogin2FARequestItem;
 @interface WTLoginViewController : UIViewController
 /** 登陆成功的回调 */
 @property (nonatomic, copy) void (^loginSuccessBlock)();
+
+/** 两步验证请求参数 */
+@property (nonatomic, strong) WTLogin2FARequestItem *twoFArequestItem;
 @end

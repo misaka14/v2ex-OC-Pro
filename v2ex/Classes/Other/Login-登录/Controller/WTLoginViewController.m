@@ -10,10 +10,13 @@
 
 #import "WTTipView.h"
 
+
 #import "NetworkTool.h"
+#import "WTLogin2FARequestItem.h"
 #import "WTLoginRequestItem.h"
 #import "WTAccountViewModel.h"
 
+#import "NSString+YYAdd.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+Extension.h"
 
@@ -40,9 +43,17 @@
 @property (nonatomic, strong) NSTimer               *timer;
 /** 登录请求参数  */
 @property (nonatomic, strong) WTLoginRequestItem    *loginRequestItem;
+
 /** 验证码顶部约束 */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *verificationCodeTopLayoutCons;
+/** 验证码码ContentView */
 @property (weak, nonatomic) IBOutlet UIView *verificationCodeImageVBgView;
+/** leftView的leading的约束 */
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftViewLeadingLayoutCons;
+/** 两步验证填写框 */
+@property (weak, nonatomic) IBOutlet UITextField *twoFaTextF;
+/** 两步验证确定按钮 */
+@property (weak, nonatomic) IBOutlet UIButton *twoFaBtn;
 
 @end
 
@@ -72,6 +83,7 @@
     [self.usernameOrEmailTextField addTarget: self action: @selector(textFieldEditingChanged) forControlEvents: UIControlEventEditingChanged];
     [self.passwordTextField addTarget: self action: @selector(textFieldEditingChanged) forControlEvents: UIControlEventEditingChanged];
     [self.verificationCodeLabel addTarget: self action: @selector(textFieldEditingChanged) forControlEvents: UIControlEventEditingChanged];
+    [self.twoFaTextF addTarget: self action: @selector(twoFaTextFieldEditingChanged) forControlEvents: UIControlEventEditingChanged];
     
     self.title = @"帐号登录";
     
@@ -85,6 +97,10 @@
     
     // 4、为 codeImageView 添加点击手势
     [self.verificationCodeImageV addGestureRecognizer: [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(setupCodeImage)]];
+    
+    // 5、如果是二次登录的话
+    if (self.twoFArequestItem)
+        self.leftViewLeadingLayoutCons.constant = -WTScreenWidth;
 }
 
 - (void)initData
@@ -165,6 +181,27 @@
     }];
 }
 
+#pragma mark 登录成功的操作
+- (void)loginSucessOperation:(BOOL)twoStepAuth item:(WTLogin2FARequestItem *)item;
+{
+    if (twoStepAuth)
+    {
+        self.twoFArequestItem = item;
+        self.leftViewLeadingLayoutCons.constant = -WTScreenWidth;
+        [UIView animateWithDuration: 0.5 animations:^{
+            [self.view layoutIfNeeded];
+        }];
+    }
+    else
+    {
+        [self closeButtonClick];
+        
+        if (self.loginSuccessBlock) self.loginSuccessBlock();
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName: WTLoginStateChangeNotification object: nil];
+    }
+}
+
 #pragma mark - 事件
 #pragma mark 登陆
 - (IBAction)loginButton:(UIButton *)sender
@@ -172,18 +209,14 @@
     [self.view endEditing: YES];
     [self.loginButton setTitle: @"登陆中..." forState: UIControlStateNormal];
 
-    NSString *username = self.usernameOrEmailTextField.text;
-    NSString *password = self.passwordTextField.text;
-    NSString *verificationCode = self.verificationCodeLabel.text;
+    NSString *username = [self.usernameOrEmailTextField.text stringByTrim];
+    NSString *password = [self.passwordTextField.text stringByTrim];
+    NSString *verificationCode = [self.verificationCodeLabel.text stringByTrim];
     
     __weak typeof(self) weakSelf = self;
-    [[WTAccountViewModel shareInstance] loginWithLoginRequestItem: self.loginRequestItem username: username password: password verificationCodeValue: verificationCode success: ^{
+    [[WTAccountViewModel shareInstance] loginWithLoginRequestItem: self.loginRequestItem username: username password: password verificationCodeValue: verificationCode success: ^(BOOL twoStepAuth, WTLogin2FARequestItem *item){
         
-        [weakSelf closeButtonClick];
-        
-        if (weakSelf.loginSuccessBlock) weakSelf.loginSuccessBlock();
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName: WTLoginStateChangeNotification object: nil];
+        [weakSelf loginSucessOperation: twoStepAuth item: item];
         
     } failure:^(NSError *error, WTLoginRequestItem *loginRequestItem) {
         
@@ -210,10 +243,37 @@
     [self stopTimer];
     [self dismissViewControllerAnimated: YES completion: nil];
 }
+- (IBAction)faBtnClick
+{
+    [self.twoFaBtn setTitle: @"登陆中..." forState: UIControlStateNormal];
+    
+    NSString *code = [self.twoFaTextF.text stringByTrim];
+    self.twoFArequestItem.code = code;
+    
+     __weak typeof(self) weakSelf = self;
+    [[WTAccountViewModel shareInstance] login2faWithLogin2FARequestItem: self.twoFArequestItem success:^{
+        
+        [weakSelf loginSucessOperation: NO item: nil];
+        
+    } failure:^(NSError *error) {
+        [weakSelf.twoFaBtn setTitle: @"继续" forState: UIControlStateNormal];
+        if (error.code == 400 || error.code == -1011)
+        {
+            [weakSelf.tipView showErrorTitle: error.userInfo[@"message"]];
+        }
+        [weakSelf.tipView showErrorTitle: @"服务器异常，请稍候重试"];
+    }];
+    
+}
+
+- (void)twoFaTextFieldEditingChanged
+{
+    self.twoFaBtn.userInteractionEnabled = self.twoFaTextF.text.length > 0;
+}
 
 - (void)textFieldEditingChanged
 {
-    if (self.usernameOrEmailTextField.text.length > 0 && self.passwordTextField.text.length > 0 && self.verificationCodeLabel.text.length > 0)
+    if ([self.usernameOrEmailTextField.text stringByTrim].length > 0 && [self.passwordTextField.text stringByTrim].length > 0 && [self.verificationCodeLabel.text stringByTrim].length > 0)
     {
         self.loginButton.userInteractionEnabled = YES;
     }
@@ -269,6 +329,11 @@
 #pragma mark - Setter
 - (void)setLoginRequestItem:(WTLoginRequestItem *)loginRequestItem
 {
+    if (loginRequestItem == nil)
+    {
+        [self initData];
+        return;
+    }
     _loginRequestItem = loginRequestItem;
     
     // 1、设置验证码

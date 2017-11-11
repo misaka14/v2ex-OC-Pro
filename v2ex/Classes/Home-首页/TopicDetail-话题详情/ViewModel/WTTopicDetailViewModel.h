@@ -41,6 +41,8 @@ typedef NS_ENUM(NSUInteger, WTThankType){
 @property (nonatomic, assign) WTThankType      thankType;
 /** 当前的页数 */
 @property (nonatomic, assign) NSUInteger       currentPage;
+/** 忽略url */
+@property (nonatomic, strong) NSString         *ignoreUrl;
 /**
  *  根据data解析出话题数组
  *

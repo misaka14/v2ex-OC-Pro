@@ -20,6 +20,9 @@ NSString * const WTNewestUrl = @"/recent";
 /** 登陆的URL */
 NSString * const WTLoginUrl = @"/signin";
 
+/** 两步验证的URL */
+NSString * const WTLogin2faUrl = @"/2fa";
+
 /** 全部节点的URL */
 NSString * const WTAllNodeUrl = @"https://www.v2ex.com/api/nodes/all.json";
 
@@ -62,3 +65,4 @@ NSString * const WTErrorMessageKey = @"message";
 NSString * const WTMisaka14Domain = @"https://www.misaka14.com/V2EX_JAVA/";
 /** 搜索话题 */
 NSString * const WTSearchTopicUrl = @"worm?method=searchTopic";
+

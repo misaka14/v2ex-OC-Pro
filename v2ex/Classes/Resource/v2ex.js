@@ -1,7 +1,9 @@
 <script>
 
+
     // 初始化样式
     initCss();
+
     // 初始化头像点击
     initAvatarOnclick();
 
@@ -9,12 +11,14 @@
 
     initCellOnClick();
 
+    
+{
     if ('addEventListener' in document)
     {
         document.addEventListener('DOMContentLoaded', function(){
                 FastClick.attach(document.body);
         }, false);
-    }
+    } 
 
     function initAvatarOnclick()
     {
@@ -22,13 +26,13 @@
 
         for (var i = 0; i < avatars.length; i++)
         {
-            avatars[i].onclick = function(){
+            avatars[i].onclick = function(event){
 
                 var html = this.parentNode.parentNode.innerHTML;
 
-                window.location.href= "userId://" + html.match(/member\/(\S*)\"/)[1];
-
-                getEvent().stopPropagation();
+                //window.location.href= "userId://" + html.match(/member\/(\S*)\"/)[1];
+                window.webkit.messageHandlers.WTUsernameDidClickAppName.postMessage(html.match(/member\/(\S*)\"/)[1]);
+                event.stopPropagation();
             }
         }
     }
@@ -38,13 +42,13 @@
         var usernames = document.getElementsByClassName("dark");
         for(var i = 0; i < usernames.length; i++)
         {
-            usernames[i].onclick = function(){
+            usernames[i].onclick = function(event){
 
 
                 this.href = "javascript:;";
-                window.location.href= "userId://" + this.innerHTML;
-
-                getEvent().stopPropagation();
+                //window.location.href= "userId://" + this.innerHTML;
+                window.webkit.messageHandlers.WTUsernameDidClickAppName.postMessage(this.innerHTML);
+                event.stopPropagation();
             }
         }
     }
@@ -60,31 +64,41 @@
                 cells[i].onclick = function(){
 
                     var dark = this.getElementsByClassName("dark")[0];
-                    window.location.href= "replyusername://@" + dark.innerHTML;
+                    var thank_area = this.getElementsByClassName("thank_area")[0];
+                    // onclick="if (confirm('&#x786E;&#x5B9A;&#x8981;&#x5411; aqutor &#x53D1;&#x9001;&#x611F;&#x8C22;&#xFF1F;')) { thankReply(4952660, 'lhwhugrpctgkkicrhqvkcpcljmwxflxk'); }" 
+                    var thankParam = thank_area.innerHTML.match("[a-z]{10,}");
+                    var thankId = thank_area.innerHTML.match("[0-9]{7,}");
+                    window.webkit.messageHandlers.WTItemCellDidClickAppName.postMessage(dark.innerHTML+","+thankId + "?t="+thankParam);
                 }
             }
 
         }
     }
 
-    var topic_content_images = document.getElementsByClassName("topic_content")[0].getElementsByTagName("img");
+    var topic_content_images = document.getElementsByClassName("topic_content").getElementsByTagName("img");
+    var topic_content_imagesArray = [];
+    for (var i = 0; i < topic_content_images.length; i++)
+    {
+        var imgs = reply_content[i].getElementsByTagName("img");
+        topic_content_imagesArray.concat(imgs);
+    }
     //
     var reply_content = document.getElementsByClassName("reply_content");
    
     for(var i = 0; i < reply_content.length; i++)
     {
-        contentImageClick(reply_content[i].getElementsByTagName("img"));
+        var imgs = reply_content[i].getElementsByTagName("img");
+        topic_content_imagesArray.concat(imgs);
     }
     //
-    contentImageClick(topic_content_images);
-    //    contentImageClick(reply_content_images);
+    contentImageClick(topic_content_imagesArray);
     //
     function contentImageClick(images)
     {
         for(var i = 0; i < images.length; i++)
         {
             images[i].index = i;
-            images[i].onclick = function(){
+            images[i].onclick = function(event){
 
                 var parentNode = this.parentNode;
                 if (parentNode.href != undefined)
@@ -97,7 +111,9 @@
 
                 if (images.length == 1)
                 {
-                    window.location.href="images://--" + this.src+"--";
+                    //window.location.href="images://--" + this.src+"--";
+                    event.stopPropagation();
+                    alert("images://--" + this.src+"--");
                     return;
                 }
 
@@ -113,8 +129,9 @@
                     }
 
                 }
-                getEvent().stopPropagation();
-                window.location.href="images://" + imagesUrl;
+                event.stopPropagation();
+                //window.location.href="images://" + imagesUrl;                
+                alert("images://" + imagesUrl);
             }
         }
     }
@@ -130,38 +147,5 @@
             topic_content.style.padding = "10px";
         }
     }
-       
-
-    function getEvent() {
-        if (document.all) {
-            return window.event; //如果是ie
-        }
-        func = getEvent.caller;
-        while (func != null) {
-            var arg0 = func.arguments[0];
-            if (arg0) {
-                if ((arg0.constructor == Event || arg0.constructor == MouseEvent) || (typeof(arg0) == "object" && arg0.preventDefault && arg0.stopPropagation)) {
-                    return arg0;
-                }
-            }
-            func = func.caller;
-        }
-        return null;
-    }                                                        
-                                                               
-
-    window.onload = function(){
-
-        $('a').on('click touchend', function(e) {  
-          var el = $(this);  
-          var link = el.attr('href');  
-          window.location = link;  
-       });
-
-
-
-    }
-
-
 
 </script>

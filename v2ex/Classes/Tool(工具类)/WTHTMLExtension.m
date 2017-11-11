@@ -102,8 +102,9 @@
 
 
 #pragma mark - 解析未读节点
-+ (void)parseUnreadWithDoc:(TFHpple *)doc
++ (void)parseUnreadWithData:(id)data
 {
+    TFHpple *doc = [[TFHpple alloc] initWithHTMLData: data];
     // 1、判断是否有未读数据
     TFHppleElement *unreadE = [doc peekAtSearchWithXPathQuery: @"//input[@class='super special button']"];
     NSString *value = nil;

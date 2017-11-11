@@ -7,7 +7,7 @@
 //
 
 #import "WTProgressHUD.h"
-
+#import "UIViewController+Extension.h"
 @implementation WTProgressHUD
 
 static WTProgressHUD *_progressHUD;
@@ -19,7 +19,7 @@ static UIView *_view;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _progressHUD = [WTProgressHUD progressHUDWithStyle: JGProgressHUDStyleDark];
-        _view = [_progressHUD currentVC: [UIApplication sharedApplication].keyWindow.rootViewController].view;
+        _view = [UIViewController topVC].view;
     });
     return _progressHUD;
 }
@@ -27,29 +27,29 @@ static UIView *_view;
 - (void)errorWithMessage:(NSString *)message
 {
     _progressHUD.textLabel.text = message;
-    _progressHUD.indicatorView = [[JGProgressHUDErrorIndicatorView alloc] init]; //JGProgressHUDSuccessIndicatorView is also available
+    _progressHUD.indicatorView = [[JGProgressHUDErrorIndicatorView alloc] init];
     [_progressHUD showInView: _view];
     [_progressHUD dismissAfterDelay: 2.0];
 }
 
-- (UIViewController *)currentVC:(UIViewController *)vc
+- (void)successWithMessage:(NSString *)message
 {
-    if ([vc isKindOfClass: [UITabBarController class]])
-    {
-        UITabBarController *tabBarVC = (UITabBarController *)vc;
-        return [self currentVC: tabBarVC.selectedViewController];
-    }
-    else if([vc isKindOfClass: [UINavigationController class]])
-    {
-        UINavigationController *navVC = (UINavigationController *)vc;
-        return [self currentVC: [navVC topViewController]];
-    }
-    else if(vc.presentedViewController)
-    {
-        UIViewController *presentVC = vc;
-        return [self currentVC: presentVC];
-    }
-    return vc;
-    
+    _progressHUD.textLabel.text = message;
+    _progressHUD.indicatorView = [[JGProgressHUDSuccessIndicatorView alloc] init];
+    [_progressHUD showInView: _view];
+    [_progressHUD dismissAfterDelay: 2.0];
+}
+
+- (void)progress
+{
+    _progressHUD.textLabel.text = @"正在加载中";
+    _progressHUD.indicatorView = [[JGProgressHUDPieIndicatorView alloc] init];
+    [_progressHUD showInView: _view];
+}
+
+- (void)hide
+{
+    [_progressHUD dismiss];
 }
 @end
+

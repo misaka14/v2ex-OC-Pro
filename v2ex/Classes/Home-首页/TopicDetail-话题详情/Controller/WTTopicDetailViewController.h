@@ -15,6 +15,9 @@
 @property (nonatomic, strong) NSString *topicTitle;
 /** 是否展示导航 */
 @property (nonatomic, assign, getter=isHideNav) BOOL hideNav;
+/** 忽略主题的BLock */
+@property (nonatomic, strong) void(^ignoreTopicBlock)(void);
+
 /**
  *  更新页数的Block
  */

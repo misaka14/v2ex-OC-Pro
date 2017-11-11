@@ -12,6 +12,7 @@
 #import "WTPostReplyViewController.h"
 #import "WTMemberDetailViewController.h"
 
+#import "WTProgressHUD.h"
 #import "WTToolBarView.h"
 #import "WTTopicDetailHeadCell.h"
 #import "WTTopicDetailContentCell.h"
@@ -101,8 +102,8 @@ static NSString  * const commentCellID = @"commentCellID";
     // BUG:
         // https:/www.v2ex.com/t/376552#reply1
         // https:/www.v2ex.com/t/374772#reply81 图片太大
-    
-    
+    //self.topicDetailUrl = @"https:/www.v2ex.com/t/374772#reply81";
+//    self.topicDetailUrl = @"https://cn.v2ex.com/t/404494";
     // 1、加载数据
     [self setupData];
     
@@ -184,6 +185,27 @@ static NSString  * const commentCellID = @"commentCellID";
     self.postReplyVC.view.alpha = 0;
 }
 
+- (BOOL)isLogin
+{
+    
+    // 1、先判断是否登陆
+    if (![[WTAccountViewModel shareInstance] isLogin])
+    {
+        // 1.1、跳转至登陆控制器
+        WTLoginViewController *loginVC = [WTLoginViewController new];
+        
+        // 1.2、登陆之后的操作
+        __weak typeof(self) weakSelf = self;
+        loginVC.loginSuccessBlock = ^(){
+            [weakSelf setupData];
+        };
+        
+        [self presentViewController: loginVC animated: YES completion: nil];
+        return NO;
+    }
+    return YES;
+}
+
 #pragma mark - 事件
 - (void)toolbarButtonClick:(NSNotification *)noti
 {
@@ -229,8 +251,8 @@ static NSString  * const commentCellID = @"commentCellID";
             [self setupData];
             break;
         }
-        case WTToolBarButtonTypeSafari:
-            
+        case WTToolBarButtonTypeIgnore:
+            [self showIgnoreView];             // 忽略主题
             break;
         case WTToolBarButtonTypeReply:      // 回复话题
             [self replyTopic];
@@ -267,25 +289,41 @@ static NSString  * const commentCellID = @"commentCellID";
     [self.postReplyVC.textView becomeFirstResponder];
 }
 
+#pragma makr 忽略主题
+- (void)showIgnoreView
+{
+    // 1、先判断是否登陆
+    if (![[WTAccountViewModel shareInstance] isLogin])
+    {
+        WTLoginViewController *loginVC = [WTLoginViewController new];
+        [self presentViewController: loginVC animated: YES completion: nil];
+        return;
+    }
+    
+    __weak typeof(self) weakSelf = self;
+    
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"您确定要投拆这个帖子?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        // 忽略主题
+        [weakSelf ignoreTopic];
+        
+    }];
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        [alert dismissViewControllerAnimated: YES completion: nil];
+    }];
+    
+    [alert addAction: defaultAction];
+    [alert addAction: cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 #pragma mark - 帖子操作
 - (void)topicOperationWithMethod:(HTTPMethodType)method urlString:(NSString *)urlString allowOperation:(BOOL(^)())allowOperation
 {
     __weak typeof(self) weakSelf = self;
-    // 1、先判断是否登陆
-    if (![[WTAccountViewModel shareInstance] isLogin])
-    {
-        // 1.1、跳转至登陆控制器
-        WTLoginViewController *loginVC = [WTLoginViewController new];
-        
-        // 1.2、登陆之后的操作
-        
-        loginVC.loginSuccessBlock = ^(){
-            [weakSelf setupData];
-        };
-        
-        [self presentViewController: loginVC animated: YES completion: nil];
+    if (![self isLogin])
         return;
-    }
     
     // 允许登陆之后的操作
     if (allowOperation)
@@ -318,7 +356,41 @@ static NSString  * const commentCellID = @"commentCellID";
     
 }
 
+#pragma mark - 感谢主题
+- (void)thankActionWithParam:(NSString *)param
+{
+    NSString *url = [WTHTTPBaseUrl stringByAppendingString: [NSString stringWithFormat: @"thank/reply/%@", param]];
+    [[WTProgressHUD shareProgressHUD] progress];
+    [[NetworkTool shareInstance] requestWithMethod: HTTPMethodTypeGET url: url param: nil success:^(id responseObject) {
+        
+        [[WTProgressHUD shareProgressHUD] dismiss];
+        
+        [[WTProgressHUD shareProgressHUD] successWithMessage: @"已感谢"];
+        
+    } failure:^(NSError *error) {
+        
+        [[WTProgressHUD shareProgressHUD] errorWithMessage: @"服务器异常"];
+        
+    }];
+}
 
+#pragma mark - 忽略主题
+- (void)ignoreTopic
+{
+    __weak typeof(self) weakSelf = self;
+    [[WTProgressHUD shareProgressHUD] progress];
+    [[NetworkTool shareInstance] requestWithMethod: HTTPMethodTypeGET url: self.topicDetailVM.ignoreUrl param: nil success:^(id responseObject) {
+        
+        [[WTProgressHUD shareProgressHUD] dismiss];
+        [weakSelf.navigationController popViewControllerAnimated: YES];
+        if (weakSelf.ignoreTopicBlock) weakSelf.ignoreTopicBlock();
+        
+    } failure:^(NSError *error) {
+        
+        [[WTProgressHUD shareProgressHUD] errorWithMessage: @"服务器异常"];
+        
+    }];
+}
 
 #pragma mark - 解析url
 - (void)parseUrl
@@ -455,9 +527,11 @@ static NSString  * const commentCellID = @"commentCellID";
     WTMemberDetailViewController *memeberDetailVC = [[WTMemberDetailViewController alloc] initWithUsername: username];
     [self.navigationController pushViewController: memeberDetailVC animated: YES];
 }
-
-- (void)topicDetailContentCell:(WTTopicDetailContentCell *)contentCell didClickedCellWithUsername:(NSString *)userName
+- (void)topicDetailContentCell:(WTTopicDetailContentCell *)contentCell didClickedCellWithParam:(NSString *)param
 {
+    [self isLogin];
+    
+    NSArray *params = [param componentsSeparatedByString: @","];
     
     __weak typeof(self) weakSelf = self;
     UIAlertController *ac = [UIAlertController alertControllerWithTitle: nil message: nil preferredStyle: UIAlertControllerStyleActionSheet];
@@ -465,20 +539,31 @@ static NSString  * const commentCellID = @"commentCellID";
     
     UIAlertAction *thankAction = [UIAlertAction actionWithTitle: @"感谢" style: UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
+        if (params.count > 1)
+        {
+            NSString *t = params[1];
+            [weakSelf thankActionWithParam: t];
+        }
+        
+        
+        
     }];
     
     UIAlertAction *replyAction = [UIAlertAction actionWithTitle: @"回复" style: UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
-        weakSelf.postReplyVC.ausername = userName;
+        if (params.count > 0)
+        {
+            weakSelf.postReplyVC.ausername = params.firstObject;
+            [weakSelf replyTopic];
+        }
         
-        [weakSelf replyTopic];
     }];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle: @"取消" style: UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }];
     
-//    [ac addAction: thankAction];
+    [ac addAction: thankAction];
     [ac addAction: replyAction];
     [ac addAction: cancelAction];
     

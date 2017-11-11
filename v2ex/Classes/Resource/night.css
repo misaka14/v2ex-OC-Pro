@@ -1447,6 +1447,10 @@ a.btn_hero:hover {
     padding-top: 8px;
 }
 
+img{
+    max-width: 100%;
+}
+
 .markdown_body>img{
     padding-left: 10px;
     max-width: 95%;

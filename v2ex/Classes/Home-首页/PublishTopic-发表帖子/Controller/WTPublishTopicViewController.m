@@ -139,7 +139,7 @@ static CGFloat const WTContentWebViewTopLayoutCons = 84;
         [weakSelf sendMarkdownSuccessBlockWithResponseObject: responseObject];
 
     } failure:^(NSError *error) {
-
+        [[WTProgressHUD shareProgressHUD] errorWithMessage: @"发表失败，请稍候重试"];
     }];
 }
 
@@ -194,12 +194,12 @@ static CGFloat const WTContentWebViewTopLayoutCons = 84;
     void(^successBlock)(NSString *) = ^(NSString *topicDetailUrl){
         [weakSelf.navigationController popViewControllerAnimated: NO];
         WTTopicDetailViewController *vc = [WTTopicDetailViewController topicDetailViewController];
-        vc.topicDetailUrl =@"https://www.v2ex.com/t/395994";
+        vc.topicDetailUrl = topicDetailUrl;
         [[UIViewController topVC].navigationController pushViewController: vc animated: YES];
     };
     
     void(^failureBlock)(NSError *) = ^(NSError *error){
-        
+        [[WTProgressHUD shareProgressHUD] errorWithMessage: @"发表失败，请稍候重试"];
     };
     
     [WTPublishTopicViewModel publishTopicWithNodeItem: self.nodeItem title: title content: markdown success: successBlock failure: failureBlock];

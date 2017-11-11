@@ -11,6 +11,7 @@
 #import "NetworkTool.h"
 #import "WTURLConst.h"
 #import "SVProgressHUD.h"
+#import "WTProgressHUD.h"
 #import "NSString+Regex.h"
 @interface WTPostReplyViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 /** 相册选择器 */
@@ -40,8 +41,6 @@
     // 1、添加手势
     [self addGes];
     
-    
-
 }
 
 #pragma mark - Private
@@ -148,6 +147,12 @@
     NSString *content = self.textView.text;
     if (content.length == 0)
     {
+        return;
+    }
+    
+    if (self.once == nil)
+    {
+        [[WTProgressHUD shareProgressHUD] errorWithMessage: @"请求参数出错，请重新打开回复框"];
         return;
     }
     

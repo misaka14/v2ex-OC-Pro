@@ -72,7 +72,13 @@
     TFHppleElement *titleElement = [headerElement searchWithXPathQuery: @"//h1"].firstObject;
     
     // 5、节点
-    TFHppleElement *nodeElement = [headerElement searchWithXPathQuery: @"//a"][2];
+    NSArray<TFHppleElement *> *aEs = [headerElement searchWithXPathQuery: @"//a"];
+    TFHppleElement *nodeElement;
+    if (aEs.count > 2)
+    {
+        nodeElement = aEs[2];
+    }
+    
     
     // 7、楼层
     TFHppleElement *floorElement = [doc searchWithXPathQuery: @"//span[@class='no']"].firstObject;
@@ -88,6 +94,9 @@
     
     // 11、当前的页数
     TFHppleElement *currentPageE = [doc peekAtSearchWithXPathQuery: @"//span[@class='page_current']"];
+    
+    // 12、忽略URL
+    NSArray<TFHppleElement *> *tbEs = [doc searchWithXPathQuery: @"//a[@class='tb']"];
     
     {
         WTTopicDetail *topicDetail = [WTTopicDetail new];
@@ -106,7 +115,8 @@
         topicDetail.title = titleElement.content;
         
         // 5、节点
-        topicDetail.node = nodeElement.content;
+        if (nodeElement)
+            topicDetail.node = nodeElement.content;
         
         
         topicDetailVM.topicDetail = topicDetail;
@@ -124,6 +134,15 @@
         if (operations.count > 0)
         {
             topicDetailVM.collectionUrl = [WTHTTPBaseUrl stringByAppendingPathComponent: [operations.firstObject objectForKey: @"href"]];
+            
+            // 9、忽略URL
+            if (operations.count > 4) {
+                TFHppleElement *e = [operations objectAtIndex: 3];
+                NSString *value = [e objectForKey: @"onclick"];
+                value = [value stringByReplacingOccurrencesOfString: @"if (confirm('确定不想再看到这个主题？')) { location.href = '" withString: @""];
+                value = [value stringByReplacingOccurrencesOfString: @"'; }" withString: @""];
+                topicDetailVM.ignoreUrl = [WTHTTPBaseUrl stringByAppendingPathComponent: value];
+            }
         }
         
         // 5、once
@@ -147,6 +166,8 @@
         
         // 8、楼层
         topicDetailVM.floorText = floorElement.content;
+        
+        
     }
     
     
@@ -222,7 +243,7 @@
     
     [html appendString: highlightJs];
     
-    //[html appendString: fastClickJs];
+    [html appendString: fastClickJs];
      
     [html appendString: @"</head><body>"];
     
@@ -457,7 +478,7 @@
         topicDetailVM.currentPage = [currentPageE.content integerValue];
         
         // 10、未读的消息
-        [WTHTMLExtension parseUnreadWithDoc: doc];
+//        [WTHTMLExtension parseUnreadWithDoc: doc];
     }
     
     

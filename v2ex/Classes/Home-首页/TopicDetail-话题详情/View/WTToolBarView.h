@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, WTToolBarButtonType) {
     WTToolBarButtonTypeCollection,      // 收藏
     WTToolBarButtonTypePrev,            // 上一页
     WTToolBarButtonTypeNext,            // 下一页
-    WTToolBarButtonTypeSafari,          // safari
+    WTToolBarButtonTypeIgnore,          // ignore
     WTToolBarButtonTypeReply            // 回复
 };
 

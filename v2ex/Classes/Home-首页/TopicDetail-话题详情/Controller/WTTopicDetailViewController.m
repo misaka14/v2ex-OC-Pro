@@ -107,6 +107,7 @@ static CGFloat const WTNavViewHeight = 64;
     
     // 1、创建话题详情数据控制器
     WTTopicDetailTableViewController *topicVC = [WTTopicDetailTableViewController topicDetailTableViewController];
+    topicVC.ignoreTopicBlock = self.ignoreTopicBlock;
     topicVC.topicDetailUrl = self.topicDetailUrl;
     [self.normalView addSubview: topicVC.view];
     _tableView = topicVC.tableView;

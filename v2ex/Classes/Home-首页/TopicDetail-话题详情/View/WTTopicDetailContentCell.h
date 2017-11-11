@@ -21,7 +21,7 @@
 - (void)topicDetailContentCell:(WTTopicDetailContentCell *)contentCell didClickedWithCommentAvatar:(NSString *)userName;
 
 // 整个cell的点击
-- (void)topicDetailContentCell:(WTTopicDetailContentCell *)contentCell didClickedCellWithUsername:(NSString *)userName;
+- (void)topicDetailContentCell:(WTTopicDetailContentCell *)contentCell didClickedCellWithParam:(NSString *)param;
 @end
 
 @interface WTTopicDetailContentCell : UITableViewCell

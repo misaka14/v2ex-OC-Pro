@@ -14,4 +14,10 @@
 
 - (void)errorWithMessage:(NSString *)message;
 
+- (void)successWithMessage:(NSString *)message;
+
+- (void)progress;
+
+- (void)hide;
 @end
+

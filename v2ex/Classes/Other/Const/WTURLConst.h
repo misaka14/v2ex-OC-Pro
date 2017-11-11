@@ -22,6 +22,9 @@ UIKIT_EXTERN NSString * const WTNewestUrl;
 /** 登陆的URL */
 UIKIT_EXTERN NSString * const WTLoginUrl;
 
+/** 两步验证的URL */
+UIKIT_EXTERN NSString * const WTLogin2faUrl;
+
 /** 收藏话题URL */
 UIKIT_EXTERN NSString * const WTCollectionTopicUrl;
 
@@ -58,5 +61,9 @@ UIKIT_EXTERN NSString * const WTMisaka14Domain;
 
 /** 搜索话题 */
 UIKIT_EXTERN NSString * const WTSearchTopicUrl;
+/** 两步验证通知 */
+UIKIT_EXTERN NSString * const WTTwoStepAuthNSNotification;
+/** 两步验证通知Once的key */
+UIKIT_EXTERN NSString * const WTTwoStepAuthWithOnceKey;
 
 NS_ASSUME_NONNULL_END

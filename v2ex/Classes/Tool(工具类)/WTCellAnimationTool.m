@@ -32,4 +32,22 @@
     [UIView commitAnimations];
 }
 
++ (void)animation02WithCell:(UITableViewCell *)cell
+{
+    //以下是动画内容，自定义
+    cell.transform=CGAffineTransformMakeTranslation(cell.bounds.size.width, 1);
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        cell.transform=CGAffineTransformMakeTranslation(0, 1);
+    }];
+}
+
++ (void)animation03WithCell:(UITableViewCell *)cell
+{
+    cell.alpha = 0;
+    [UIView animateWithDuration: 0.5 animations:^{
+        cell.alpha = 1;
+    }];
+}
+
 @end

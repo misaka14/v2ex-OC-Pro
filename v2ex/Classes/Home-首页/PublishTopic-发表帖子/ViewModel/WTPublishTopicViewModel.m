@@ -18,6 +18,7 @@
 
 #import "MJExtension.h"
 
+#define WTPublishProblem @"创建新主题过程中遇到一些问题："
 
 @implementation WTPublishTopicViewModel
 
@@ -46,7 +47,27 @@
         
         [[NetworkTool shareInstance] requestWithMethod: HTTPMethodTypePOST url: urlString param: item.mj_keyValues success:^(id responseObject) {
             
+            NSString *html = [[NSString alloc] initWithData: responseObject encoding: NSUTF8StringEncoding];
+            NSError *error = nil;
+            if ([html containsString: WTPublishProblem])
+            {
+                
+                NSString *errorInfo = [self parseProblemWithData: responseObject];
+                error = [[NSError alloc] initWithDomain: WTDomain code: -1011 userInfo: @{@"errorInfo" : errorInfo}];
+                if (failure) failure(error);
+                return;
+            }
+            
+            
             NSString *topicDetailUrl = [self topicDetailUrlWithParseData: responseObject];
+            
+            if (topicDetailUrl == nil)
+            {
+                NSString *errorInfo = @"未知错误，请稍候重试";
+                error = [[NSError alloc] initWithDomain: WTDomain code: -1011 userInfo: @{@"errorInfo" : errorInfo}];
+                if (failure) failure(error);
+                return;
+            }
             
             if (success) success(topicDetailUrl);
             
@@ -55,6 +76,12 @@
     } failure: failureBlock];
 }
 
++ (NSString *)parseProblemWithData:(NSData *)data
+{
+    TFHpple *doc = [[TFHpple alloc] initWithHTMLData: data];
+    
+    return [[doc peekAtSearchWithXPathQuery: @"//div[@class='problem']"].content stringByReplacingOccurrencesOfString: WTPublishProblem withString: @""];
+}
 
 /**
  解析二进制获取详情URL

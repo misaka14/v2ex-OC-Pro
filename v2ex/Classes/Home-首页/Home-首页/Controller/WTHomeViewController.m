@@ -8,8 +8,10 @@
 
 #import "WTHomeViewController.h"
 #import "WTTopicDetailViewController.h"
+#import "WTLoginViewController.h"
 
-#import "WTPublishTopicViewController.h"
+#import "WTAccountViewModel.h"
+#import "WTLogin2FARequestItem.h"
 
 #import "WTURLConst.h"
 #import "UIBarButtonItem+Extension.h"
@@ -33,6 +35,8 @@
     
     self.view.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     
+    // 注册通知
+    [self initNoti];
 }
 
 #pragma mark 添加子控制器
@@ -45,6 +49,31 @@
         topicVC.urlString = [WTHTTPBaseUrl stringByAppendingString: node.nodeURL];
         [self addChildViewController: topicVC];
     }
+}
+#pragma mark 注册通知
+- (void)initNoti
+{
+    // 1、二次登录的通知
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(twoStepAuth:) name: WTTwoStepAuthNSNotification object: nil];
+}
+
+#pragma mark 事件
+- (void)twoStepAuth:(NSNotification *)noti
+{
+    NSString *once = [noti.userInfo objectForKey: WTTwoStepAuthWithOnceKey];
+    
+    WTLoginViewController *loginVC = [WTLoginViewController new];
+    
+    // 两次登录的请求参数
+    WTAccount *account = [WTAccountViewModel shareInstance].account;
+    WTLogin2FARequestItem *item = [[WTLogin2FARequestItem alloc] initWithOnce: once usernameOrEmail: account.usernameOrEmail password: account.password];
+    loginVC.twoFArequestItem = item;
+    // 请求成功Block
+    __weak typeof (self) weakSelf = self;
+    loginVC.loginSuccessBlock = ^{
+        [weakSelf reloadSelectedVCData];
+    };
+    [self presentViewController: loginVC animated: YES completion: nil];
 }
 
 

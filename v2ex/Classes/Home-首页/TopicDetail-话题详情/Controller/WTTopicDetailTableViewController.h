@@ -21,6 +21,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView                       *tableView;
 
+/** 忽略主题的BLock */
+@property (nonatomic, strong) void(^ignoreTopicBlock)(void);
+
 + (instancetype)topicDetailTableViewController;
 
 - (void)setupData;

@@ -179,12 +179,18 @@ static NSString *const ID = @"topicCell";
     WTTopicDetailViewController *detailVC = [WTTopicDetailViewController topicDetailViewController];
     detailVC.topicDetailUrl = topic.detailUrl;
     detailVC.topicTitle = topic.title;
+    __weak typeof(self) weakSelf = self;
+    detailVC.ignoreTopicBlock = ^{
+        [weakSelf.topicVM.topics removeObjectAtIndex: indexPath.row];
+        [weakSelf.tableView deleteRowsAtIndexPaths: @[indexPath] withRowAnimation: UITableViewRowAnimationLeft];
+    };
     [self.navigationController pushViewController: detailVC animated: YES];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     // cell显示动效果
     [WTCellAnimationTool animation01WithCell: cell];
+
 }
 
 

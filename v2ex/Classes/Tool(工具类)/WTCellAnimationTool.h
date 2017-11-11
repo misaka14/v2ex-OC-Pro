@@ -11,5 +11,6 @@
 @interface WTCellAnimationTool : NSObject
 
 + (void)animation01WithCell:(UITableViewCell *)cell;
-
++ (void)animation02WithCell:(UITableViewCell *)cell;
++ (void)animation03WithCell:(UITableViewCell *)cell;
 @end

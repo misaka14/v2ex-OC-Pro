@@ -41,10 +41,9 @@ static NSString *const TodayCellIdentifier = @"TodayCellIdentifier";
     
     self.preferredContentSize = CGSizeMake(0, 44 * 3);
     
-    #ifdef __IPHONE_10_0 //因为是iOS10才有的，还请记得适配
-    //如果需要折叠
-    self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
-    #endif
+    //因为是iOS10才有的，还请记得适配
+    if ([[UIDevice currentDevice].systemVersion doubleValue] >= 10.0)
+        self.extensionContext.widgetLargestAvailableDisplayMode = NCWidgetDisplayModeExpanded;
     
     [self initData];
 }

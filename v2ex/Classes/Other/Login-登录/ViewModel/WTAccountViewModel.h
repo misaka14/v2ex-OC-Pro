@@ -12,7 +12,7 @@
 
 
 
-@class WTRegisterReqItem, WTLoginRequestItem, WTContinueRegisterReqItem;
+@class WTRegisterReqItem, WTLoginRequestItem, WTContinueRegisterReqItem, WTLogin2FARequestItem;
 @interface WTAccountViewModel : NSObject
 
 @property (nonatomic, strong) WTAccount *account;
@@ -62,7 +62,16 @@
  *  @param success          请求成功的回调
  *  @param failure          请求失败的回调
  */
-- (void)loginWithLoginRequestItem:(WTLoginRequestItem *)loginRequestItem username:(NSString *)username password:(NSString *)password verificationCodeValue:(NSString *)verificationCodeValue success:(void (^)())success failure:(void (^)(NSError *error, WTLoginRequestItem *loginRequestItem))failure;
+- (void)loginWithLoginRequestItem:(WTLoginRequestItem *)loginRequestItem username:(NSString *)username password:(NSString *)password verificationCodeValue:(NSString *)verificationCodeValue success:(void (^)(BOOL twoStepAuth, WTLogin2FARequestItem *login2FARequestItem))success failure:(void (^)(NSError *error, WTLoginRequestItem *loginRequestItem))failure;
+
+/**
+ 两步验证
+ 
+ @param login2FARequestItem 请求参数
+ @param success 请求成功的回调
+ @param failure 请求失败的回调
+ */
+- (void)login2faWithLogin2FARequestItem:(WTLogin2FARequestItem *)login2FARequestItem success:(void(^)(void))success failure:(void(^)(NSError *error))failure;
 
 
 /**

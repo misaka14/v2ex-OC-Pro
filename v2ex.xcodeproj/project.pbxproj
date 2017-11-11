@@ -196,6 +196,7 @@
 		B664E84F1D506B0B00C22480 /* WTReplyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B664E84E1D506B0B00C22480 /* WTReplyViewModel.m */; };
 		B67363741F8A20AF002B896C /* publishtopic.html in Resources */ = {isa = PBXBuildFile; fileRef = B67363731F8A1D0C002B896C /* publishtopic.html */; };
 		B67363761F8A44C4002B896C /* WTAllNodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B67363751F8A44C4002B896C /* WTAllNodeViewController.xib */; };
+		B67751741F8F6D1400BE8FBB /* WTLogin2FARequestItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B67751731F8F6D1400BE8FBB /* WTLogin2FARequestItem.m */; };
 		B692085B1F8E4FCE0088D3AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B69208521F8E4F4E0088D3AD /* main.m */; };
 		B692085C1F8E4FD50088D3AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B69208501F8E4F4E0088D3AD /* AppDelegate.m */; };
 		B692085D1F8E4FDE0088D3AD /* MJExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B69208591F8E4F4E0088D3AD /* MJExtensionConfig.m */; };
@@ -203,7 +204,6 @@
 		B692085F1F8E50B70088D3AD /* nodes.plist in Resources */ = {isa = PBXBuildFile; fileRef = B69208511F8E4F4E0088D3AD /* nodes.plist */; };
 		B69208601F8E51790088D3AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B692085A1F8E4F4E0088D3AD /* Assets.xcassets */; };
 		B69208621F8E5E270088D3AD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E889731C99CDEF00BAA96B /* libz.tbd */; };
-		B69208641F8E60F60088D3AD /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = B69208631F8E605D0088D3AD /* tessdata */; };
 		B6A2732E1EACDFB1000B3A87 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6A2731B1EACDFB1000B3A87 /* Info.plist */; };
 		B6A2732F1EACDFB1000B3A87 /* MMDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A2731D1EACDFB1000B3A87 /* MMDocument.m */; };
 		B6A273301EACDFB1000B3A87 /* MMElement.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A273201EACDFB1000B3A87 /* MMElement.m */; };
@@ -253,6 +253,7 @@
 		B6EDD12C1F8912D000904FBC /* WTContinueRegisterReqItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EDD12A1F8912CF00904FBC /* WTContinueRegisterReqItem.m */; };
 		B6EDD12F1F89138900904FBC /* WTLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6EDD12E1F89137600904FBC /* WTLoginViewController.xib */; };
 		B6EDD1301F89139300904FBC /* WTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EDD12D1F89137500904FBC /* WTLoginViewController.m */; };
+		B6FD54831F9A3A4B00737EB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6FD54821F9A392E00737EB0 /* LaunchScreen.storyboard */; };
 		F9FBA535E2F9367137721A2A /* libPods-Today.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F91ED7AB1B9A1C2842D0A7C /* libPods-Today.a */; };
 /* End PBXBuildFile section */
 
@@ -616,6 +617,8 @@
 		B664E84E1D506B0B00C22480 /* WTReplyViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTReplyViewModel.m; sourceTree = "<group>"; };
 		B67363731F8A1D0C002B896C /* publishtopic.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = publishtopic.html; sourceTree = "<group>"; };
 		B67363751F8A44C4002B896C /* WTAllNodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WTAllNodeViewController.xib; sourceTree = "<group>"; };
+		B67751721F8F6D1400BE8FBB /* WTLogin2FARequestItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTLogin2FARequestItem.h; sourceTree = "<group>"; };
+		B67751731F8F6D1400BE8FBB /* WTLogin2FARequestItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTLogin2FARequestItem.m; sourceTree = "<group>"; };
 		B692084F1F8E4F4E0088D3AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B69208501F8E4F4E0088D3AD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B69208511F8E4F4E0088D3AD /* nodes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = nodes.plist; sourceTree = "<group>"; };
@@ -626,7 +629,6 @@
 		B69208561F8E4F4E0088D3AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B69208591F8E4F4E0088D3AD /* MJExtensionConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConfig.m; sourceTree = "<group>"; };
 		B692085A1F8E4F4E0088D3AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B69208631F8E605D0088D3AD /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
 		B69481681C462267001ABDA3 /* v2ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = v2ex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A2731B1EACDFB1000B3A87 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6A2731C1EACDFB1000B3A87 /* MMDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDocument.h; sourceTree = "<group>"; };
@@ -713,6 +715,7 @@
 		B6EDD12B1F8912CF00904FBC /* WTContinueRegisterReqItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WTContinueRegisterReqItem.h; sourceTree = "<group>"; };
 		B6EDD12D1F89137500904FBC /* WTLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WTLoginViewController.m; sourceTree = "<group>"; };
 		B6EDD12E1F89137600904FBC /* WTLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WTLoginViewController.xib; sourceTree = "<group>"; };
+		B6FD54821F9A392E00737EB0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDF392E5F2C48E95E3610957 /* libPods-v2ex.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-v2ex.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0F2DD917D497DE961BE1E73 /* Pods-Today.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Today.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Today/Pods-Today.debug.xcconfig"; sourceTree = "<group>"; };
 		D6BE01CD86AF2A7611452E7E /* Pods-v2ex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1586,6 +1589,8 @@
 				B60FA12C1D45C09200F98CF3 /* WTLoginRequestItem.m */,
 				30FE1B2E1DB6FD5900621E51 /* WTUserItem.h */,
 				30FE1B2F1DB6FD5900621E51 /* WTUserItem.m */,
+				B67751721F8F6D1400BE8FBB /* WTLogin2FARequestItem.h */,
+				B67751731F8F6D1400BE8FBB /* WTLogin2FARequestItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1903,6 +1908,7 @@
 		B692084E1F8E4F1F0088D3AD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B6FD54821F9A392E00737EB0 /* LaunchScreen.storyboard */,
 				B692084F1F8E4F4E0088D3AD /* AppDelegate.h */,
 				B69208501F8E4F4E0088D3AD /* AppDelegate.m */,
 				B692085A1F8E4F4E0088D3AD /* Assets.xcassets */,
@@ -1942,7 +1948,6 @@
 		B694816A1C462267001ABDA3 /* v2ex */ = {
 			isa = PBXGroup;
 			children = (
-				B69208631F8E605D0088D3AD /* tessdata */,
 				3080282E1DB0E2940059E9E3 /* v2ex.entitlements */,
 				B63A5EB01C5BC5CE00D3BF8B /* Classes */,
 				B692084E1F8E4F1F0088D3AD /* Supporting Files */,
@@ -2279,7 +2284,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -2325,7 +2330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B69208641F8E60F60088D3AD /* tessdata in Resources */,
+				B6FD54831F9A3A4B00737EB0 /* LaunchScreen.storyboard in Resources */,
 				B69208601F8E51790088D3AD /* Assets.xcassets in Resources */,
 				B692085E1F8E50B70088D3AD /* hotNode.plist in Resources */,
 				B692085F1F8E50B70088D3AD /* nodes.plist in Resources */,
@@ -2553,6 +2558,7 @@
 				B6B2B3A51F1258740074B56A /* WTHotTopicViewController.m in Sources */,
 				B6A273321EACDFB1000B3A87 /* MMHTMLParser.m in Sources */,
 				303CF2431D6AA25800D697F7 /* WTMemberAPIItem.m in Sources */,
+				B67751741F8F6D1400BE8FBB /* WTLogin2FARequestItem.m in Sources */,
 				B664E84F1D506B0B00C22480 /* WTReplyViewModel.m in Sources */,
 				30A2D8FB1D6C5117009AFA43 /* WTMemberDetailViewController.m in Sources */,
 				30A2D93C1D6D34DD009AFA43 /* WTMemberReplyViewController.m in Sources */,
@@ -2697,6 +2703,7 @@
 				CODE_SIGN_ENTITLEMENTS = Today/Today.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jie Geng (ZD2FW4SQ72)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZD2FW4SQ72;
 				INFOPLIST_FILE = Today/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2720,6 +2727,7 @@
 				CODE_SIGN_ENTITLEMENTS = Today/Today.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jie Geng (ZD2FW4SQ72)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZD2FW4SQ72;
 				INFOPLIST_FILE = Today/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2864,7 +2872,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jie Geng (ZD2FW4SQ72)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZD2FW4SQ72;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2937,7 +2945,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jie Geng (ZD2FW4SQ72)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZD2FW4SQ72;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				FRAMEWORK_SEARCH_PATHS = (

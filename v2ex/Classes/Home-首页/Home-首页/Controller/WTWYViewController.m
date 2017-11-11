@@ -166,7 +166,7 @@ NS_ASSUME_NONNULL_BEGIN
             btn.height = btnH;
             btn.y = (self.titleScrollView.height - btnH) * 0.5 + WTNavigationBarCenterY;
             
-            UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(titleBtnDidClick)];
+            UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action: @selector(titleBtnDoubleClick:)];
             [doubleTap setNumberOfTapsRequired: 2];
             [btn addGestureRecognizer: doubleTap];
 
@@ -216,7 +216,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 #pragma mark 标题栏标题双击事件
-- (void)titleBtnDidClick:(UIGestureRecognizer *)ges
+- (void)titleBtnDoubleClick:(UIGestureRecognizer *)ges
 {
     WTTopicViewController *topicVC = self.childViewControllers[ges.view.tag];
     
@@ -309,5 +309,15 @@ NS_ASSUME_NONNULL_BEGIN
     }
 }
 
+#pragma mark - Public
+/**
+ 刷新当前选中的VC的数据
+ */
+- (void)reloadSelectedVCData
+{
+    NSInteger index = [self.titleButtons indexOfObject: self.selectedBtn];
+    WTTopicViewController *vc = self.childViewControllers[index];
+    [vc loadNewData];
+}
 @end
 NS_ASSUME_NONNULL_END

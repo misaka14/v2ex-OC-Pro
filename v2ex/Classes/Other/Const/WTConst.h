@@ -59,3 +59,11 @@ UIKIT_EXTERN NSString * const WTUnReadNotificationNotification;
 
 /** 未读通知个数 */
 UIKIT_EXTERN NSString * const WTUnReadNumKey;
+
+/** 需要两步验证 */
+UIKIT_EXTERN NSString * const WT2FALoginTip;
+
+/** 两步验证通知 */
+UIKIT_EXTERN NSString * const WTTwoStepAuthNSNotification;
+/** 两步验证通知Once的key */
+UIKIT_EXTERN NSString * const WTTwoStepAuthWithOnceKey;

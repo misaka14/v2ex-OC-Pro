@@ -70,8 +70,17 @@
 }
 
 #pragma mark 根据data解析出节点话题数组
-- (void)nodeTopicsWithData:(NSData *)data topicType:(WTTopicType)topicType avartorURL:(NSURL *)avartorURL
+- (void)nodeTopicsWithData:(NSData *)data topicType:(WTTopicType)topicType avartorURL:(NSURL *)avartorURL 
 {
+    // 1、检查是否需要二次登录
+    NSString *html = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+    if ([html containsString: WTLogin2faUrl])
+    {
+        NSString *once = [WTHTMLExtension getOnceWithHtml: html];
+        if (once) [[NSNotificationCenter defaultCenter] postNotificationName: WTTwoStepAuthNSNotification object: nil  userInfo: @{WTTwoStepAuthWithOnceKey : once}];
+        return;
+    }
+    
     TFHpple *doc = [[TFHpple alloc] initWithHTMLData: data];
     
     NSArray *cellItemArray;
@@ -130,7 +139,8 @@
             }
             else        // 用户话题控制器的评论数
             {
-                topic.commentCount = countOrangeArray.firstObject.content;
+                if (countOrangeArray.count > 0)
+                    topic.commentCount = countOrangeArray.firstObject.content;
             }
             
             // 6、最后回复时间
@@ -187,7 +197,7 @@
     }
 
     // 10、未读的消息
-    [WTHTMLExtension parseUnreadWithDoc: doc];
+    //[WTHTMLExtension parseUnreadWithDoc: doc];
     
     // 11、签到、头像
     [WTHTMLExtension parseAvatarAndPastWithData: data];

@@ -75,7 +75,7 @@
  
  @param doc 未读消息
  */
-+ (void)parseUnreadWithDoc:(TFHpple *)doc;
++ (void)parseUnreadWithData:(id)data;
 
 /**
  解析头像和签到

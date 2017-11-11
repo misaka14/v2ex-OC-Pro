@@ -50,6 +50,12 @@ NSString * const WTUnReadNotificationNotification = @"WTUnReadNotificationNotifi
 
 /** 未读通知个数 */
 NSString * const WTUnReadNumKey = @"WTUnReadNumKey";
+/** 需要两步验证 */
+NSString * const WT2FALoginTip = @"你的 V2EX 账号已经开启了两步验证，请输入验证码继续";
 
+/** 两步验证通知 */
+NSString * const WTTwoStepAuthNSNotification = @"WTTwoStepAuthNSNotification";
 
+/** 两步验证通知Once的key */
+NSString * const WTTwoStepAuthWithOnceKey = @"WTTwoStepAuthWithOnceKey";
 

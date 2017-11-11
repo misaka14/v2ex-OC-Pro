@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hlx-bw-Lb2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hlx-bw-Lb2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -122,25 +122,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JcT-yz-M24" id="SaS-aW-UdH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXx-NE-yGU">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
-                                                    <color key="backgroundColor" red="0.28958413004875183" green="0.31462949514389038" blue="0.32950475811958313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="JcT-yz-M24" id="tyR-a2-OwW"/>
-                                                    </connections>
-                                                </webView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="yXx-NE-yGU" secondAttribute="bottom" id="Bsp-vI-XgY"/>
-                                                <constraint firstItem="yXx-NE-yGU" firstAttribute="top" secondItem="SaS-aW-UdH" secondAttribute="top" id="HzD-mb-sho"/>
-                                                <constraint firstItem="yXx-NE-yGU" firstAttribute="leading" secondItem="SaS-aW-UdH" secondAttribute="leading" id="g9V-Gi-O9w"/>
-                                                <constraint firstAttribute="trailing" secondItem="yXx-NE-yGU" secondAttribute="trailing" id="l8S-Eg-LMF"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="webView" destination="yXx-NE-yGU" id="2FO-97-UVE"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCellID" rowHeight="69" id="TcO-Wa-b4W" customClass="WTTopicDetailCommentCell">
                                         <rect key="frame" x="0.0" y="165" width="375" height="69"/>

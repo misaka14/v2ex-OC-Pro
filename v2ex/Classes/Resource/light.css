@@ -1216,6 +1216,7 @@ table.data td.d {
     line-height: 12px;
     padding-top: 5px;
 }
+
 img.avatar {
     border-radius: 4px;
     padding: 10px 0 0 8px;
@@ -1446,6 +1447,10 @@ a.btn_hero:hover {
 
 .cell[id^="r_"] > table .sep3{
     padding-top: 8px;
+}
+
+img{
+    max-width: 100%;
 }
 
 .markdown_body>img{
