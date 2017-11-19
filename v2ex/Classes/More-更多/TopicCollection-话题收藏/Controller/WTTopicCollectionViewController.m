@@ -7,10 +7,11 @@
 //  话题收藏控制器
 
 #import "WTTopicCollectionViewController.h"
-#import "UIViewController+Extension.h"
+#import "WTTopicDetailViewController.h"
 
 #import "WTTopicCollectionCell.h"
 #import "WTTopicCollectionViewModel.h"
+#import "UIViewController+Extension.h"
 
 #import "WTRefreshNormalHeader.h"
 #import "WTRefreshAutoNormalFooter.h"
@@ -20,7 +21,7 @@
 
 NSString * const WTTopicCollectionCellIdentifier = @"WTTopicCollectionCellIdentifier";
 
-@interface WTTopicCollectionViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface WTTopicCollectionViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UITableViewDelegate>
 
 @property (nonatomic, strong) WTTopicCollectionViewModel *topicCollectionVM;
 
@@ -132,6 +133,17 @@ NSString * const WTTopicCollectionCellIdentifier = @"WTTopicCollectionCellIdenti
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 跳转至话题详情控制器
+    WTTopicCollectionItem *topic = self.topicCollectionVM.topicCollectionItems[indexPath.row];
+    WTTopicDetailViewController *detailVC = [WTTopicDetailViewController topicDetailViewController];
+    detailVC.topicDetailUrl = topic.detailUrl;
+    detailVC.topicTitle = topic.title;
+    [self.navigationController pushViewController: detailVC animated: YES];
+}
+
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 //{

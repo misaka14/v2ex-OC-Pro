@@ -1456,6 +1456,18 @@ img{
     max-width: 95%;
 }
 
+.thanked {
+    color: #ccc;
+    background: #445;
+    width: 60px;
+    height: 14px;
+    position: absolute;
+    right: 30px;
+    top: 9px;
+    
+    padding: 1px 6px;
+}
+
 * {
     -webkit-touch-callout:none;
     -webkit-user-select:none;

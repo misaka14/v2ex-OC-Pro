@@ -47,6 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
 {
     [super awakeFromNib];
     
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     self.contentView.dk_backgroundColorPicker =  DKColorPickerWithKey(UITableViewBackgroundColor);
     self.bgView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewCellBgViewBackgroundColor);
     

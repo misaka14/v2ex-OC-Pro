@@ -38,6 +38,8 @@
 {
     [super awakeFromNib];
     
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     // 2、节点
     self.nodeBtn.layer.cornerRadius = 1.5;
     self.iconImageV.layer.cornerRadius = 5;

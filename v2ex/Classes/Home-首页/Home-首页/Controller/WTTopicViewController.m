@@ -12,6 +12,7 @@
 
 #import "WTTopicCell.h"
 
+#import "WTAccountViewModel.h"
 #import "UIScrollView+YYAdd.h"
 #import "WTCellAnimationTool.h"
 #import "NetworkTool.h"
@@ -71,16 +72,8 @@ static NSString *const ID = @"topicCell";
     [self.tableView registerNib: [UINib nibWithNibName: NSStringFromClass([WTTopicCell class]) bundle: nil] forCellReuseIdentifier: ID];
     
 
-    
-    // 1.2只有'最近',　全部节点需要上拉刷新
-    if ([WTTopicViewModel isNeedNextPage: self.urlString])
-    {
-        self.tableView.mj_footer = [WTRefreshAutoNormalFooter footerWithRefreshingTarget: self refreshingAction: @selector(loadOldData)];
-    }
-    else
-    {
-        self.tableView.mj_footer = nil;
-    }
+    // 5、设置URLString
+    [self setUrlString];
     
 //    [self.tableView.mj_header beginRefreshing];
     
@@ -94,11 +87,12 @@ static NSString *const ID = @"topicCell";
 #pragma mark - 注册通知
 - (void)initNoti
 {
-    if ([self.title isEqualToString: @"最近"])
+    if ([self.title isEqualToString: @"全部"])
     {
-        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(loadNewData) name: WTLoginStateChangeNotification object: nil];
+        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reloadData) name: WTLoginStateChangeNotification object: nil];
     }
 }
+
 
 #pragma mark 加载最新的数据
 - (void)loadNewData
@@ -111,24 +105,6 @@ static NSString *const ID = @"topicCell";
         
         [weakSelf.tableView reloadData];
         [weakSelf.tableView.mj_header endRefreshing];
-//        NSArray *cellArray = self.tableView.visibleCells;
-//        
-//        //  延迟
-//        CGFloat delay =0.05;
-//        for (UITableViewCell *cell in cellArray) {
-//            cell.transform = CGAffineTransformMakeTranslation(0, self.view.bounds.size.height);
-//        }
-//        
-//        for (int i = 0; i<cellArray.count; i++) {
-//            UITableViewCell *cell = cellArray[i];
-//            CGFloat cellDelay = delay *i;
-//            
-//            [UIView animateWithDuration:1.0 delay:cellDelay usingSpringWithDamping:0.5 initialSpringVelocity:10 options:UIViewAnimationOptionCurveEaseIn animations:^{
-//                cell.transform =  CGAffineTransformMakeTranslation(self.view.bounds.size.width, 0);
-//            } completion:^(BOOL finished) {
-//                
-//            }];
-//        }
         
     } failure:^(NSError *error) {
         
@@ -152,6 +128,35 @@ static NSString *const ID = @"topicCell";
         [weakSelf.tableView.mj_footer endRefreshing];
     }];
 }
+- (void)reloadData
+{
+    [self setUrlString];
+    
+    [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)setUrlString
+{
+    // 1.2只有'最近',　全部节点需要上拉刷新
+    if ([WTTopicViewModel isNeedNextPage: self.urlString])
+    {
+        if ([self.urlString containsString: @"/?tab=all"] && [WTAccountViewModel shareInstance].isLogin)
+        {
+            [self.urlString stringByReplacingOccurrencesOfString: @"/?tab=all" withString: @"/recent"];
+            self.tableView.mj_footer = [WTRefreshAutoNormalFooter footerWithRefreshingTarget: self refreshingAction: @selector(loadOldData)];
+        }
+        else
+        {
+            self.tableView.mj_footer = nil;
+        }
+        
+    }
+    else
+    {
+        self.tableView.mj_footer = nil;
+    }
+}
+
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -187,11 +192,11 @@ static NSString *const ID = @"topicCell";
     [self.navigationController pushViewController: detailVC animated: YES];
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    // cell显示动效果
-    [WTCellAnimationTool animation01WithCell: cell];
-
-}
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//    // cell显示动效果
+//    [WTCellAnimationTool animation01WithCell: cell];
+//
+//}
 
 
 #pragma mark - WTTopicCellDelegate

@@ -361,10 +361,10 @@ CGFloat const moreHeaderViewH = 150;
         UIAlertController *loginC = [UIAlertController alertControllerWithTitle: @"提示" message: @"您确定要退出吗?" preferredStyle: UIAlertControllerStyleAlert];
         
         UIAlertAction *sureAction = [UIAlertAction actionWithTitle: @"确定" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName: WTLoginStateChangeNotification object: nil];
             // 清除帐号
             [[WTAccountViewModel shareInstance] loginOut];
+            [[NSNotificationCenter defaultCenter] postNotificationName: WTLoginStateChangeNotification object: nil];
+            
             [self viewWillAppear: YES];
             
         }];

@@ -25,7 +25,7 @@
         cell.layer.position = CGPointMake(0, cell.layer.position.y);
     }
     [UIView beginAnimations:@"transform" context:NULL];
-    [UIView setAnimationDuration:0.8];
+    [UIView setAnimationDuration:0.5];
     cell.layer.transform = CATransform3DIdentity;
     cell.alpha = 1;
     cell.layer.shadowOffset = CGSizeMake(0, 0);

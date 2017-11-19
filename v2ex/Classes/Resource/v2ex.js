@@ -11,8 +11,7 @@
 
     initCellOnClick();
 
-    
-{
+
     if ('addEventListener' in document)
     {
         document.addEventListener('DOMContentLoaded', function(){
@@ -75,12 +74,12 @@
         }
     }
 
-    var topic_content_images = document.getElementsByClassName("topic_content").getElementsByTagName("img");
-    var topic_content_imagesArray = [];
+    var topic_content_images = document.getElementsByClassName("topic_content");
+    var topic_content_imagesArray = new Array();
     for (var i = 0; i < topic_content_images.length; i++)
     {
-        var imgs = reply_content[i].getElementsByTagName("img");
-        topic_content_imagesArray.concat(imgs);
+        var imgs = topic_content_images[i].getElementsByTagName("img");
+        topic_content_imagesArray = addImage(imgs, topic_content_imagesArray);
     }
     //
     var reply_content = document.getElementsByClassName("reply_content");
@@ -88,7 +87,7 @@
     for(var i = 0; i < reply_content.length; i++)
     {
         var imgs = reply_content[i].getElementsByTagName("img");
-        topic_content_imagesArray.concat(imgs);
+        topic_content_imagesArray = addImage(imgs, topic_content_imagesArray);
     }
     //
     contentImageClick(topic_content_imagesArray);
@@ -97,8 +96,9 @@
     {
         for(var i = 0; i < images.length; i++)
         {
-            images[i].index = i;
-            images[i].onclick = function(event){
+            var img = images[i];
+            img.index = i;
+            img.onclick = function(event){
 
                 var parentNode = this.parentNode;
                 if (parentNode.href != undefined)
@@ -113,7 +113,7 @@
                 {
                     //window.location.href="images://--" + this.src+"--";
                     event.stopPropagation();
-                    alert("images://--" + this.src+"--");
+                    window.webkit.messageHandlers.WTImagesDidClickAppName.postMessage("images://--" + this.src+"--");
                     return;
                 }
 
@@ -131,11 +131,19 @@
                 }
                 event.stopPropagation();
                 //window.location.href="images://" + imagesUrl;                
-                alert("images://" + imagesUrl);
+                window.webkit.messageHandlers.WTImagesDidClickAppName.postMessage("images://" + imagesUrl);
             }
         }
     }
 
+    function addImage(imgs, topic_content_imagesArray)
+    {
+        for (var i = 0; i < imgs.length; i++)
+        {
+            topic_content_imagesArray = topic_content_imagesArray.concat(imgs[i]);
+        }
+        return topic_content_imagesArray;
+    }
 
 
     function initCss()

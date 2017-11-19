@@ -8,6 +8,6 @@
 
 #import <MJRefresh/MJRefresh.h>
 
-@interface WTRefreshAutoNormalFooter : MJRefreshBackNormalFooter
+@interface WTRefreshAutoNormalFooter : MJRefreshAutoNormalFooter
 
 @end

@@ -120,9 +120,6 @@ static NSString *const ID = @"myTopicCell";
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // 取消选中的效果
-    [tableView deselectRowAtIndexPath: indexPath animated: YES];
-    
     // 跳转至话题详情控制器
     WTTopic *topic = self.topicVM.topics[indexPath.row];
     WTTopicDetailViewController *detailVC = [WTTopicDetailViewController topicDetailViewController];

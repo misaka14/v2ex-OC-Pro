@@ -207,7 +207,7 @@
 #pragma mark - 是否是下一页
 + (BOOL)isNeedNextPage:(NSString *)urlSuffix
 {
-    if ([urlSuffix containsString: @"recent"] || [urlSuffix containsString: @"my"] || [urlSuffix containsString: @"member"])
+    if ([urlSuffix containsString: @"recent"] || [urlSuffix containsString: @"my"] || [urlSuffix containsString: @"member"] || [urlSuffix containsString: @"/?tab=all"])
         return true;
     return false;
 }

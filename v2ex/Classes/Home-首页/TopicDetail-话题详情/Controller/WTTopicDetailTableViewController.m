@@ -359,11 +359,11 @@ static NSString  * const commentCellID = @"commentCellID";
 #pragma mark - 感谢主题
 - (void)thankActionWithParam:(NSString *)param
 {
-    NSString *url = [WTHTTPBaseUrl stringByAppendingString: [NSString stringWithFormat: @"thank/reply/%@", param]];
+    NSString *url = [WTHTTPBaseUrl stringByAppendingPathComponent: [NSString stringWithFormat: @"/thank/reply/%@", param]];
     [[WTProgressHUD shareProgressHUD] progress];
-    [[NetworkTool shareInstance] requestWithMethod: HTTPMethodTypeGET url: url param: nil success:^(id responseObject) {
+    [[NetworkTool shareInstance] requestWithMethod: HTTPMethodTypePOST url: url param: nil success:^(id responseObject) {
         
-        [[WTProgressHUD shareProgressHUD] dismiss];
+//        [[WTProgressHUD shareProgressHUD] dismiss];
         
         [[WTProgressHUD shareProgressHUD] successWithMessage: @"已感谢"];
         
@@ -531,7 +531,7 @@ static NSString  * const commentCellID = @"commentCellID";
 {
     [self isLogin];
     
-    NSArray *params = [param componentsSeparatedByString: @","];
+    NSArray<NSString *> *params = [param componentsSeparatedByString: @","];
     
     __weak typeof(self) weakSelf = self;
     UIAlertController *ac = [UIAlertController alertControllerWithTitle: nil message: nil preferredStyle: UIAlertControllerStyleActionSheet];
@@ -562,8 +562,10 @@ static NSString  * const commentCellID = @"commentCellID";
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle: @"取消" style: UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
     }];
-    
-    [ac addAction: thankAction];
+    if (params.count > 1 && ![params[1] containsString: @"null"])
+    {
+        [ac addAction: thankAction];
+    }
     [ac addAction: replyAction];
     [ac addAction: cancelAction];
     

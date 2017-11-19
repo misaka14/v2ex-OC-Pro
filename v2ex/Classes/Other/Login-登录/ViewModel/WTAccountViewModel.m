@@ -74,7 +74,7 @@ static NSTimer *_timer;
  */
 - (void)startTimer
 {
-    _timer = [NSTimer scheduledTimerWithTimeInterval: 1 target: self selector: @selector(reloadUnread) userInfo: nil repeats: YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval: 60 target: self selector: @selector(reloadUnread) userInfo: nil repeats: YES];
     
     [[NSRunLoop currentRunLoop] addTimer: _timer forMode: NSRunLoopCommonModes];
 }

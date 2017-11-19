@@ -62,37 +62,6 @@ static NSString *const WTItemCellDidClickAppName = @"WTItemCellDidClickAppName";
     self.cellHeight = self.webView.scrollView.contentSize.height;
 }
 
-#pragma mark - UIWebViewDelegate
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
-{
-    NSString *url = request.URL.absoluteString;
-    WTLog(@"url:%@", url)
-    
-    // 第一次加载
-    if (([url containsString: @"about:blank"] || [url isEqualToString: @"https:"] | [url isEqualToString: @"http:/"] || [url isEqualToString: @"https:/"]) && ![url containsString: @"jpg"])
-    {
-        return YES;
-    }
-    
-    // 邮箱
-    if ([NSString isAccordWithRegex: @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.4e-]+\\.[A-Za-z]{2,4}" string: url])
-    {
-        [[UIApplication sharedApplication] openURL: request.URL];
-        return NO;
-    }
-    
-    if ([url containsString: @"www.youtube.com"]) return NO;
-    
-    if ([url containsString: @"itunes.apple.com"]) [[UIApplication sharedApplication] openURL: request.URL];
-    
-    
-    // 网址
-    if ([self.delegate respondsToSelector: @selector(topicDetailContentCell:didClickedWithLinkURL:)])
-        [self.delegate topicDetailContentCell: self didClickedWithLinkURL: request.URL];
-    
-    
-    return NO;
-}
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     
@@ -202,9 +171,43 @@ static NSString *const WTItemCellDidClickAppName = @"WTItemCellDidClickAppName";
 }
 
 
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
+-(void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
-    decisionHandler(WKNavigationActionPolicyAllow);
+    
+    NSString *url = navigationAction.request.URL.absoluteString;
+    WTLog(@"url:%@", url)
+    
+    // 第一次加载
+    if (([url containsString: @"about:blank"] || [url isEqualToString: @"https:"] | [url isEqualToString: @"http:/"] || [url isEqualToString: @"https:/"]) && ![url containsString: @"jpg"])
+    {
+        decisionHandler(WKNavigationActionPolicyAllow);
+        return;
+    }
+    
+    // 邮箱
+    if ([NSString isAccordWithRegex: @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.4e-]+\\.[A-Za-z]{2,4}" string: url])
+    {
+        [[UIApplication sharedApplication] openURL: navigationAction.request.URL];
+        decisionHandler(WKNavigationActionPolicyCancel);
+        return;
+    }
+    
+    if ([url containsString: @"www.youtube.com"])
+    {
+        decisionHandler(WKNavigationActionPolicyCancel);
+        return;
+    }
+    
+    if ([url containsString: @"itunes.apple.com"]) [[UIApplication sharedApplication] openURL: navigationAction.request.URL];
+    
+    
+    // 网址
+    if ([self.delegate respondsToSelector: @selector(topicDetailContentCell:didClickedWithLinkURL:)])
+        [self.delegate topicDetailContentCell: self didClickedWithLinkURL: navigationAction.request.URL];
+    
+    
+    decisionHandler(WKNavigationActionPolicyCancel);
+    
 }
 
 #pragma mark - WKScriptMessageHandler

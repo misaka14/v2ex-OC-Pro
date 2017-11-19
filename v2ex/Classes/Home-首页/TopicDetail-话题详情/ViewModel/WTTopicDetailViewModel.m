@@ -203,6 +203,7 @@
     newContentHTML = [newContentHTML stringByReplacingOccurrencesOfString: @"<script><![CDATA[<![CDATA[<![CDATA[<![CDATA[hljs.initHighlightingOnLoad();]]]]]]]]><![CDATA[><![CDATA[><![CDATA[>]]]]]]><![CDATA[><![CDATA[>]]]]><![CDATA[>]]></script>" withString: @"<script>hljs.initHighlightingOnLoad();</script>"];
     
     
+    
     // 2、加载评论
     NSArray<TFHppleElement *> *commentCellEs;
     NSArray<TFHppleElement *> *commentInnerEs;
