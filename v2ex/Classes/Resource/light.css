@@ -70,8 +70,9 @@ a:hover {
     text-decoration: underline;
 }
 a.dark:link, a.dark:visited, a.dark:active {
-    color: gray;
+    color: #999;
     text-decoration: none;
+    font-weight: normal;
 }
 a.dark:hover {
 /*    color: #385f8a;*/
@@ -111,21 +112,7 @@ a.tab:hover {
     color: #000;
     text-decoration: none;
 }
-a.tab_current:link, a.tab_current:visited, a.tab_current:active {
-    background-color: #334;
-    border-radius: 3px;
-    color: #fff;
-    display: inline-block;
-    font-size: 13px;
-    line-height: 13px;
-    margin-right: 5px;
-    padding: 5px 8px;
-}
-a.tab_current:hover {
-    background-color: #445;
-    color: #fff;
-    text-decoration: none;
-}
+
 a.node:link, a.node:visited, a.node:active {
     background-color: #f5f5f5;
     border-radius: 2px;
@@ -237,27 +224,7 @@ ol {
     margin: 1em 0 0 2em;
     padding: 0;
 }
-#Top {
-    background-color: #fff;
-    background-size: 44px 44px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.22);
-    font-size: 15px;
-    font-weight: 500;
-    height: 44px;
-    text-align: center;
-}
-#Wrapper {
-    background-color: #e2e2e2;
-    background-image: url("/static/img/shadow_light.png");
-    background-repeat: repeat-x;
-    text-align: center;
-}
-#Bottom {
-    background-color: #fff;
-    border-top: 1px solid rgba(0, 0, 0, 0.22);
-    color: #999;
-    text-align: center;
-}
+
 #MySQL {
     background-color: #333;
     border-top: 2px solid #ccc;
@@ -377,11 +344,11 @@ ol {
 /*    border-bottom: 1px solid #EAEAEA;*/
     font-size: 12px;
     line-height: 120%;
-    padding: 10px;
     text-align: left;
 /*    border-bottom-color: RGBA(170,170,170,0.3);*/
     background-color: #F2F3F5;
-    padding: 0 9px 10px 9px;
+    padding-bottom: 10px;
+/*    box-shadow: 2px 2px 10px #ccc;*/
 }
 
 
@@ -617,11 +584,12 @@ div.node:hover .node_compose {
     padding: 2px 5px;
 }
 .reply_content {
-    color: #000;
+    color: #444;
     font-size: 14px;
     line-height: 1.6;
-    word-break: break-all;
-    word-wrap: break-word;
+/*    word-break: break-all;*/
+/*    word-wrap: break-word;*/
+    padding-bottom: 2px;
 }
 
 .gist {
@@ -736,12 +704,7 @@ div.node:hover .node_compose {
     border: 1px solid rgba(128, 128, 160, 0.6);
     outline: medium none;
 }
-:-moz-placeholder {
-    color: #c0c0c0;
-}
-*::-moz-placeholder {
-    color: #c0c0c0;
-}
+
 .msl {
     background-color: #f9f9f9;
     border: medium none;
@@ -1393,7 +1356,8 @@ a.btn_hero:hover {
 
 
 .topic_content {
-    color: #000;
+/*    color: #000;*/
+    color: #44444
     font-size: 15px;
     line-height: 1.6;
     word-wrap: break-word;
@@ -1404,7 +1368,7 @@ a.btn_hero:hover {
 
 .cell:first-child{
     padding: 0;
-    background-color: #fff;
+    background-color: #F2F3F5;
 }
 
 .cell:first-child p{
@@ -1460,6 +1424,11 @@ a.btn_hero:hover {
     -moz-user-select:none;
     -ms-user-select:none;
     user-select:none;
+}
+
+.topic_content{
+    font-size: 16px;
+    color: #444;
 }
 
 </style>

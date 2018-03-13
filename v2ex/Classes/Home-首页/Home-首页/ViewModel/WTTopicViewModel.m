@@ -111,7 +111,7 @@
             WTTopic *topic = [WTTopic new];
             
             // 1、节点
-            topic.node = nodeElement.content;
+            topic.node = [nodeElement.content stringByTrim];
             
             // 2、标题
             topic.title = titleElement.content;

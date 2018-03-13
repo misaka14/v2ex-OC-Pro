@@ -21,13 +21,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+#import <UIKit/UIViewController.h>
+
+@class NSLayoutConstraint;
 
 @interface UIViewController (Additions)
 
 /**
  Top/Bottom Layout constraint which help library to manage keyboardTextField distance
- */
+
+ @message   Library is internally handle Safe Area in iOS11 if `canAdjustAdditionalSafeAreaInsets = YES` and there is no need to do any tweak if you already migrated to use Safe Area
+*/
 @property(nullable, nonatomic, strong) IBOutlet NSLayoutConstraint *IQLayoutGuideConstraint;
 
 @end

@@ -8,9 +8,9 @@ NORMAL   NIGHT
 
 #999999  #8E8E8E   WTNoLoginTipTitleLabelTextColor
 
-#DCDDDE  #18181B   UINavbarLineViewBackgroundColor
+#D9D9D9  #18181B   UINavbarLineViewBackgroundColor
 #3599F7  #3599F7   WTNodeSelectedColor
-#EFEFEF  #2D2D2D   UINavbarBackgroundColor
+#FFFFFF  #2D2D2D   UINavbarBackgroundColor
 #3599F7  #3599F7   WTTabbarTintColor
 #333333  #FFFFFF   WTThemeCellTitleColor
 #000000  #FFFFFF   WTSearchbarTextColor

@@ -8,6 +8,9 @@
 
 #import "WTToolBarView.h"
 #import "WTTopicDetailViewModel.h"
+/** 翻页按钮的圆角宽度  */
+const CGFloat WTTopicBarPageBtnLayerRadius = 4;
+
 @interface WTToolBarView()
 /** 上一页按钮 */
 @property (weak, nonatomic) IBOutlet UIButton           *prevButton;
@@ -15,8 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIButton           *nextButton;
 /** 最大页数 */
 @property (nonatomic, assign) NSInteger                 maxPage;
-/** 页数Label */
-@property (weak, nonatomic) IBOutlet UILabel            *pageLabel;
 /** 加入收藏和取消收藏 */
 @property (weak, nonatomic) IBOutlet UIButton           *collectionButton;
 /** 谢谢　*/
@@ -41,7 +42,7 @@
     
     // 当前页数
     NSUInteger page = [topicDetailVM.floorText integerValue] / 100 + 1;
-    self.pageLabel.text = [NSString stringWithFormat: @"%zd", page];
+    [self.prevButton setTitle: [NSString stringWithFormat: @"第%zd页", page] forState: UIControlStateNormal];
     
     // 记录话题的最大页数
     if (self.maxPage == 0)
@@ -72,16 +73,19 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.backgroundColor = [UIColor blackColor];
+    self.backgroundColor = [UIColor colorWithHexString: @"#ffffff"];
+    
+    self.prevButton.layer.cornerRadius = WTTopicBarPageBtnLayerRadius;
+    self.nextButton.layer.cornerRadius = WTTopicBarPageBtnLayerRadius;
     
     // 1、KVO，监听 self.pageLabel的text属性的值的变化
-    [self.pageLabel addObserver: self forKeyPath: @"text" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context: nil];
+    [self.prevButton addObserver: self forKeyPath: @"titleLabel.text" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context: nil];
 }
 #pragma mark - toolBar上各个按钮的点击事件
 - (IBAction)toolBarBtnClick:(UIButton *)sender
 {
     NSDictionary *userInfo = @{@"buttonType" : @(sender.tag)};
-    [[NSNotificationCenter defaultCenter] postNotificationName: WTToolBarButtonClickNotification object: nil userInfo:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotificationName: WTToolBarButtonClickNotification object: nil userInfo: userInfo];
 }
 
 #pragma mark - KVO
@@ -99,7 +103,7 @@
 - (void)dealloc
 {
     // 移除KVO
-    [self.pageLabel removeObserver: self forKeyPath: @"text"];
+    [self.prevButton removeObserver: self forKeyPath: @"titleLabel.text"];
 }
 
 @end

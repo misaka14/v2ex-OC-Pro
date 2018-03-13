@@ -82,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
     _topic = topic;
     
     // 1、头像
-    [self.iconImageV sd_setImageWithURL: topic.iconURL placeholderImage: WTIconPlaceholderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    [self.iconImageV sd_setImageWithURL: topic.iconURL placeholderImage: WTIconPlaceholderImage  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.iconImageV.image = [image roundImageWithCornerRadius: 3];
     }];
     

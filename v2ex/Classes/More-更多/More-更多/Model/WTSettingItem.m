@@ -30,4 +30,25 @@
     return item;
 }
 
+/**
+ *  快速创建的方法
+ *
+ *  @param title          标题
+ *  @param imageUrl       图片url
+ *  @param operationBlock 点击的操作
+ *
+ *  @return WTSettingItem
+ */
++ (instancetype)settingItemWithTitle:(NSString *)title image:(UIImage *)image imageUrl:(NSURL *)imageUrl operationBlock:(void(^)(void))operationBlock
+{
+    WTSettingItem *item = [WTSettingItem new];
+    
+    item.title = title;
+    item.image = image;
+    item.imageUrl = imageUrl;
+    item.operationBlock = operationBlock;
+    
+    return item;
+}
+
 @end

@@ -68,7 +68,7 @@
     
     UIView *navLineView = [UIView new];
     navLineView.dk_backgroundColorPicker = DKColorPickerWithKey(UINavbarLineViewBackgroundColor);
-    navLineView.alpha = 0.3;
+//    navLineView.alpha = 0.3;
     [navView addSubview: navLineView];
     [navLineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.offset(1);

@@ -31,6 +31,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView            *commentCountImageView;
 /** 回复数 */
 @property (weak, nonatomic) IBOutlet UILabel                *commentCountLabel;
+/** 分隔线的View */
+@property (weak, nonatomic) IBOutlet UIView                 *lineView;
 @end
 @implementation WTTopicCollectionCell
 
@@ -43,8 +45,9 @@
     self.iconImageV.layer.cornerRadius = 5;
     self.iconImageV.layer.masksToBounds = YES;
     
-    self.contentView.dk_backgroundColorPicker =  DKColorPickerWithKey(UITableViewBackgroundColor);
+    self.contentView.dk_backgroundColorPicker =  DKColorPickerWithKey(UITableViewCellBgViewBackgroundColor);
 
+    self.lineView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     
     self.titleLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicTitleColor);
     
@@ -73,15 +76,7 @@
     // 3、节点
     if (topicCollectionItem.node.length > 0)
     {
-        //self.nodeBtn.hidden = NO;
-        NSString *node = topicCollectionItem.node;
-        // 判断是否包含中文字符串
-        if ([NSString isChineseCharactersWithString: node] || node.length > 4)
-        {
-            //NSLog(@"中文:%@", _blog.node);
-            node = [NSString stringWithFormat: @" %@ ", topicCollectionItem.node];
-        }
-        [self.nodeBtn setTitle: node forState: UIControlStateNormal];
+        [self.nodeBtn setTitle: topicCollectionItem.node forState: UIControlStateNormal];
     }
     else
     {

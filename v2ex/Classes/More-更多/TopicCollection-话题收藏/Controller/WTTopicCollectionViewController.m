@@ -7,20 +7,22 @@
 //  话题收藏控制器
 
 #import "WTTopicCollectionViewController.h"
+#import "WTTopicDetailViewController.h"
+
 #import "UIViewController+Extension.h"
 
 #import "WTTopicCollectionCell.h"
-#import "WTTopicCollectionViewModel.h"
-
 #import "WTRefreshNormalHeader.h"
 #import "WTRefreshAutoNormalFooter.h"
+
+#import "WTTopicCollectionViewModel.h"
 
 #import "UITableView+FDTemplateLayoutCell.h"
 #import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 NSString * const WTTopicCollectionCellIdentifier = @"WTTopicCollectionCellIdentifier";
 
-@interface WTTopicCollectionViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface WTTopicCollectionViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) WTTopicCollectionViewModel *topicCollectionVM;
 
@@ -39,14 +41,6 @@ NSString * const WTTopicCollectionCellIdentifier = @"WTTopicCollectionCellIdenti
     // 1、设置View
     [self setupView];
     
-//    self.myFollowingVM = [WTMyFollowingViewModel new];
-//    
-//    // 2、登陆过
-//    if ([[WTAccountViewModel shareInstance] isLogin])
-//    {
-//        // 2、开始下拉刷新
-//        [self.tableView.mj_header beginRefreshing];
-//    }
 }
 
 // 设置View
@@ -73,7 +67,6 @@ NSString * const WTTopicCollectionCellIdentifier = @"WTTopicCollectionCellIdenti
         self.tableView.emptyDataSetSource = self;
         self.tableView.emptyDataSetDelegate = self;
         
-        self.tableView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     }
     
     [self.tableView.mj_header beginRefreshing];
@@ -131,6 +124,20 @@ NSString * const WTTopicCollectionCellIdentifier = @"WTTopicCollectionCellIdenti
     cell.topicCollectionItem = self.topicCollectionVM.topicCollectionItems[indexPath.row];
     
     return cell;
+}
+
+#pragma mark - Table view delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 取消选中的效果
+    [tableView deselectRowAtIndexPath: indexPath animated: YES];
+    
+    // 跳转至话题详情控制器
+    WTTopicCollectionItem *item = self.topicCollectionVM.topicCollectionItems[indexPath.row];
+    WTTopicDetailViewController *detailVC = [WTTopicDetailViewController topicDetailViewController];
+    detailVC.topicDetailUrl = item.detailUrl;
+    detailVC.topicTitle = item.title;
+    [self.navigationController pushViewController: detailVC animated: YES];
 }
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

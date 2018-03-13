@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,31 +24,31 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topic_avatar_normal" translatesAutoresizingMaskIntoConstraints="NO" id="zT5-lE-m4n">
-                        <rect key="frame" x="8" y="10" width="20" height="20"/>
+                        <rect key="frame" x="8" y="10" width="25" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="HnT-6H-rWQ"/>
-                            <constraint firstAttribute="width" constant="20" id="e8b-WD-fKE"/>
+                            <constraint firstAttribute="width" secondItem="zT5-lE-m4n" secondAttribute="height" multiplier="1:1" id="bep-0K-j0L"/>
+                            <constraint firstAttribute="width" constant="25" id="e8b-WD-fKE"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="misakamisakamisa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wy8-ke-U4Q">
-                        <rect key="frame" x="38" y="8" width="89.5" height="12"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <rect key="frame" x="43" y="8" width="97.5" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" red="0.70588235294117641" green="0.70588235294117641" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="59 分钟前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTG-Da-ksk">
-                        <rect key="frame" x="134" y="21.5" width="42" height="11"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
+                        <rect key="frame" x="149" y="24" width="46.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxF-Um-cC8">
-                        <rect key="frame" x="38" y="22" width="86" height="10"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxF-Um-cC8">
+                        <rect key="frame" x="43" y="25" width="96" height="10"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="10" id="Blt-V8-NwJ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <state key="normal" title="Google App Engine ">
                             <color key="titleColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
@@ -74,20 +75,20 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="百度统计已被客户 pass，网站流量分析求助百度统计已被客户 pass，网站流量分析求助网站流量分析求" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkx-CI-hWJ">
-                        <rect key="frame" x="8" y="40" width="359" height="29.5"/>
+                        <rect key="frame" x="8" y="45" width="359" height="24.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <color key="textColor" red="0.28627450980392155" green="0.28627450980392155" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUa-H9-QND">
-                        <rect key="frame" x="28" y="0.0" width="99.5" height="30"/>
+                        <rect key="frame" x="33" y="0.0" width="107.5" height="30"/>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                         <connections>
                             <action selector="memeberDetailBtnClick" destination="KGk-i7-Jjw" eventType="touchUpInside" id="G0O-AU-MiY"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9N-Mj-RVN">
-                        <rect key="frame" x="0.0" y="0.0" width="28" height="30"/>
+                        <rect key="frame" x="0.0" y="0.0" width="33" height="35"/>
                         <connections>
                             <action selector="memeberDetailBtnClick" destination="KGk-i7-Jjw" eventType="touchUpInside" id="P8r-ji-dkV"/>
                         </connections>
@@ -123,7 +124,7 @@
                     <constraint firstAttribute="trailing" secondItem="Vkx-CI-hWJ" secondAttribute="trailing" constant="8" id="ovJ-er-eSi"/>
                     <constraint firstItem="wy8-ke-U4Q" firstAttribute="leading" secondItem="zT5-lE-m4n" secondAttribute="trailing" constant="10" id="pg9-bV-EpZ"/>
                     <constraint firstItem="GUa-H9-QND" firstAttribute="trailing" secondItem="wy8-ke-U4Q" secondAttribute="trailing" id="pqa-7c-bTj"/>
-                    <constraint firstItem="NxF-Um-cC8" firstAttribute="bottom" secondItem="M9N-Mj-RVN" secondAttribute="bottom" constant="2" id="uq9-pj-vBm"/>
+                    <constraint firstItem="NxF-Um-cC8" firstAttribute="bottom" secondItem="M9N-Mj-RVN" secondAttribute="bottom" id="uq9-pj-vBm"/>
                     <constraint firstItem="zId-5v-aW5" firstAttribute="top" secondItem="tsl-cJ-Cnv" secondAttribute="top" id="vy8-ze-NPV"/>
                 </constraints>
                 <variation key="default">

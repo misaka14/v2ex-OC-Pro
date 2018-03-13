@@ -15,7 +15,7 @@ CGFloat const WTTabBarHeight = 49;
 /** 通用边距*/
 CGFloat const WTMargin = 8;
 /** 工具条的高度 */
-CGFloat const WTToolBarHeight = 44;
+CGFloat const WTToolBarHeight = 49;
 /** 导航栏的高度 */
 //CGFloat const WTNavigationBarHeight = 20;
 /** 状态栏的高度 */

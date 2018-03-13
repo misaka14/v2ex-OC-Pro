@@ -12,7 +12,8 @@
 #import "WTNavigationController.h"
 #import "WTHotTopicViewController.h"
 #import "WTNodeViewController.h"
-#import "WTMoreViewController.h"
+//#import "WTMoreViewController.h"
+#import "WTMore1ViewController.h"
 #import "WTNodeViewController.h"
 #import "WTMessageViewController.h"
 #import "WTUserNotificationViewController.h"
@@ -66,7 +67,8 @@
     
     
     // 更多
-    WTMoreViewController *moreVC = [WTMoreViewController new];
+//    WTMoreViewController *moreVC = [WTMoreViewController new];
+    WTMore1ViewController *moreVC = [WTMore1ViewController new];
     [self addOneChildViewController: moreVC title: @"更多" imageName: @"Tabbar_More_Normal" selectedImageName: nil];
     
     

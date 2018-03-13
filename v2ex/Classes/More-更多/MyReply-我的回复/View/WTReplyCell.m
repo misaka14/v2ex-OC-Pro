@@ -28,13 +28,13 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.contentView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
+    self.contentView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewCellBgViewBackgroundColor);
     self.titleLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicTitleColor);
     self.authorLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
     self.replyTimeLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
     self.replyContentLabel.dk_textColorPicker = DKColorPickerWithKey(WTTopicCellLabelColor);
     
-    self.replyContentBgView.dk_backgroundColorPicker = DKColorPickerWithKey(UINavbarBackgroundColor);
+    self.replyContentBgView.dk_backgroundColorPicker = DKColorPickerWithKey(UITableViewBackgroundColor);
     self.replyContentBgView.layer.cornerRadius = 3;
     self.reply_arrowImageV.dk_imagePicker = DKImagePickerWithNames(@"reply_arrow", @"reply_arrow_night");
 //    self.avatarImageV.layer.cornerRadius = self.avatarImageV.width * 0.5;

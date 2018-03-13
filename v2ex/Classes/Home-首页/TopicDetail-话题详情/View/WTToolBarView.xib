@@ -1,143 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WTToolBarView">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6n-AM-3QB">
-                    <rect key="frame" x="296" y="11" width="8" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSV-hh-sFe">
-                    <rect key="frame" x="8" y="9.5" width="25" height="25"/>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSV-hh-sFe" customClass="WTToolBarButton">
+                    <rect key="frame" x="255" y="10" width="24" height="24"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="25" id="N6V-WM-Ezn"/>
-                        <constraint firstAttribute="width" constant="25" id="Zk3-XG-ZRI"/>
+                        <constraint firstAttribute="height" constant="24" id="5Ry-fi-ohC"/>
+                        <constraint firstAttribute="width" constant="24" id="XT5-Ey-iTQ"/>
                     </constraints>
-                    <state key="normal" backgroundImage="love_normal"/>
+                    <state key="normal" title="感谢" image="like"/>
                     <state key="selected" backgroundImage="love_selected"/>
                     <connections>
                         <action selector="toolBarBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="eNJ-gR-zDx"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQo-fn-Wms">
-                    <rect key="frame" x="41" y="9.5" width="25" height="25"/>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQo-fn-Wms" customClass="WTToolBarButton">
+                    <rect key="frame" x="295" y="9.5" width="24" height="24"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="25" id="Sxd-dy-1hB"/>
-                        <constraint firstAttribute="height" constant="25" id="k8X-lY-YAK"/>
+                        <constraint firstAttribute="width" constant="24" id="2ta-Qi-Bnf"/>
+                        <constraint firstAttribute="height" constant="24" id="rI4-9t-D53"/>
                     </constraints>
-                    <state key="normal" backgroundImage="collection_normal"/>
+                    <state key="normal" title="收藏" image="collection"/>
                     <state key="selected" backgroundImage="collection_selected"/>
                     <connections>
                         <action selector="toolBarBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="aGO-BG-zls"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="2" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ig7-Pv-8hJ">
-                    <rect key="frame" x="263" y="9.5" width="25" height="25"/>
+                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BH-f1-nxz" customClass="WTToolBarButton">
+                    <rect key="frame" x="335" y="9" width="24" height="24"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="25" id="Xq0-CN-SHy"/>
-                        <constraint firstAttribute="height" constant="25" id="xYR-5w-3No"/>
+                        <constraint firstAttribute="width" constant="24" id="3ZJ-vh-22K"/>
+                        <constraint firstAttribute="height" constant="24" id="p1u-ZQ-ImO"/>
                     </constraints>
-                    <state key="normal" backgroundImage="prev_normal"/>
-                    <connections>
-                        <action selector="toolBarBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="0jh-z3-8k3"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="3" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMZ-k8-BJC">
-                    <rect key="frame" x="312" y="9.5" width="25" height="25"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="25" id="CIi-rS-xQA"/>
-                        <constraint firstAttribute="width" constant="25" id="e03-VW-xz4"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="next_normal"/>
-                    <state key="selected" backgroundImage="collection_selected"/>
-                    <connections>
-                        <action selector="toolBarBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="cIo-GY-QmQ"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AV-yn-dsp">
-                    <rect key="frame" x="534" y="9.5" width="25" height="25"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="25" id="BeV-Ar-IKz"/>
-                        <constraint firstAttribute="height" constant="25" id="m4M-dZ-OZW"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="refresh_normal"/>
-                    <state key="selected" backgroundImage="collection_selected"/>
-                    <connections>
-                        <action selector="toolBarBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="V8v-cx-rAk"/>
-                    </connections>
-                </button>
-                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BH-f1-nxz">
-                    <rect key="frame" x="567" y="9.5" width="25" height="25"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="25" id="hvt-Ni-101"/>
-                        <constraint firstAttribute="width" constant="25" id="vhh-sg-Tly"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="reply_normal"/>
+                    <state key="normal" title="回复" image="write">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                     <state key="selected" backgroundImage="reply_normal"/>
                     <connections>
                         <action selector="toolBarBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="juV-7V-q0f"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gb-GW-oqc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                    <color key="backgroundColor" red="0.88627450980392153" green="0.88627450980392153" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="pBc-i0-dDa"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Weq-ZI-au5">
+                    <rect key="frame" x="8" y="9" width="90" height="32"/>
+                    <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="ROP-pn-fDk"/>
+                        <constraint firstAttribute="width" constant="90" id="Zto-Ny-kuG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <inset key="titleEdgeInsets" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="第1页" image="arrow-up">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qY-lm-Lmu">
+                    <rect key="frame" x="106" y="9" width="40" height="32"/>
+                    <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="8Cj-vt-7ON"/>
+                        <constraint firstAttribute="height" constant="32" id="Jnc-Cm-g2p"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" image="arrow-down">
+                        <color key="titleColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="0.2901960784" green="0.6705882353" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="4qY-lm-Lmu" firstAttribute="top" secondItem="Weq-ZI-au5" secondAttribute="top" id="0ld-Sw-q6J"/>
                 <constraint firstItem="MQo-fn-Wms" firstAttribute="centerY" secondItem="pSV-hh-sFe" secondAttribute="centerY" id="26Q-Tb-8UK"/>
-                <constraint firstItem="b6n-AM-3QB" firstAttribute="leading" secondItem="ig7-Pv-8hJ" secondAttribute="trailing" constant="8" id="3VZ-5P-ctg"/>
-                <constraint firstItem="OMZ-k8-BJC" firstAttribute="leading" secondItem="b6n-AM-3QB" secondAttribute="trailing" constant="8" id="4m3-nP-bnZ"/>
-                <constraint firstItem="6AV-yn-dsp" firstAttribute="baseline" secondItem="OMZ-k8-BJC" secondAttribute="baseline" id="6dX-Bh-xS7"/>
-                <constraint firstItem="OMZ-k8-BJC" firstAttribute="centerY" secondItem="MQo-fn-Wms" secondAttribute="centerY" id="A73-IX-waX"/>
-                <constraint firstItem="MQo-fn-Wms" firstAttribute="leading" secondItem="pSV-hh-sFe" secondAttribute="trailing" constant="8" id="CIq-UU-Glo"/>
-                <constraint firstItem="pSV-hh-sFe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9.5" id="CXU-F5-72r"/>
-                <constraint firstAttribute="trailing" secondItem="7BH-f1-nxz" secondAttribute="trailing" constant="8" id="El2-Wq-TPV"/>
-                <constraint firstItem="b6n-AM-3QB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="LLW-cA-T71"/>
-                <constraint firstItem="6AV-yn-dsp" firstAttribute="centerY" secondItem="MQo-fn-Wms" secondAttribute="centerY" id="Ota-Bz-o7A"/>
-                <constraint firstItem="7BH-f1-nxz" firstAttribute="baseline" secondItem="OMZ-k8-BJC" secondAttribute="baseline" id="f8d-jI-v1b"/>
-                <constraint firstItem="ig7-Pv-8hJ" firstAttribute="centerY" secondItem="MQo-fn-Wms" secondAttribute="centerY" id="gU0-5V-4T5"/>
+                <constraint firstItem="4qY-lm-Lmu" firstAttribute="leading" secondItem="Weq-ZI-au5" secondAttribute="trailing" constant="8" id="5xE-iS-wVo"/>
+                <constraint firstItem="MQo-fn-Wms" firstAttribute="leading" secondItem="pSV-hh-sFe" secondAttribute="trailing" constant="16" id="CIq-UU-Glo"/>
+                <constraint firstItem="9gb-GW-oqc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Dtg-dp-6xd"/>
+                <constraint firstAttribute="trailing" secondItem="7BH-f1-nxz" secondAttribute="trailing" constant="16" id="El2-Wq-TPV"/>
+                <constraint firstItem="9gb-GW-oqc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Hzr-pK-dPE"/>
+                <constraint firstAttribute="trailing" secondItem="9gb-GW-oqc" secondAttribute="trailing" id="NS0-wA-svx"/>
+                <constraint firstItem="7BH-f1-nxz" firstAttribute="leading" secondItem="MQo-fn-Wms" secondAttribute="trailing" constant="16" id="a2z-xb-sEo"/>
+                <constraint firstItem="Weq-ZI-au5" firstAttribute="top" secondItem="9gb-GW-oqc" secondAttribute="bottom" constant="8" id="cZN-K9-FMa"/>
+                <constraint firstItem="Weq-ZI-au5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="d75-eh-mMb"/>
                 <constraint firstItem="7BH-f1-nxz" firstAttribute="centerY" secondItem="MQo-fn-Wms" secondAttribute="centerY" id="h2v-7i-GBr"/>
-                <constraint firstItem="7BH-f1-nxz" firstAttribute="leading" secondItem="6AV-yn-dsp" secondAttribute="trailing" constant="8" id="ota-Er-RkM"/>
-                <constraint firstItem="b6n-AM-3QB" firstAttribute="centerY" secondItem="MQo-fn-Wms" secondAttribute="centerY" id="sTZ-uC-tJH"/>
-                <constraint firstItem="pSV-hh-sFe" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="tO0-vw-T96"/>
+                <constraint firstItem="pSV-hh-sFe" firstAttribute="top" secondItem="9gb-GW-oqc" secondAttribute="bottom" constant="9" id="zax-QG-C5V"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="6dX-Bh-xS7"/>
-                    <exclude reference="f8d-jI-v1b"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="collectionButton" destination="MQo-fn-Wms" id="Otg-ht-lNx"/>
-                <outlet property="nextButton" destination="OMZ-k8-BJC" id="iNp-Yx-TVb"/>
-                <outlet property="pageLabel" destination="b6n-AM-3QB" id="FHv-m5-lup"/>
-                <outlet property="prevButton" destination="ig7-Pv-8hJ" id="tYK-xm-zNa"/>
+                <outlet property="nextButton" destination="4qY-lm-Lmu" id="S2L-xd-Rlx"/>
+                <outlet property="prevButton" destination="Weq-ZI-au5" id="Qcl-xc-79V"/>
                 <outlet property="thankButton" destination="pSV-hh-sFe" id="1YO-A1-vE8"/>
             </connections>
-            <point key="canvasLocation" x="256" y="-51"/>
+            <point key="canvasLocation" x="255.5" y="-51.5"/>
         </view>
     </objects>
     <resources>
-        <image name="collection_normal" width="64" height="64"/>
+        <image name="arrow-down" width="24" height="24"/>
+        <image name="arrow-up" width="24" height="24"/>
+        <image name="collection" width="24" height="24"/>
         <image name="collection_selected" width="64" height="64"/>
-        <image name="love_normal" width="32" height="32"/>
+        <image name="like" width="24" height="24"/>
         <image name="love_selected" width="32" height="32"/>
-        <image name="next_normal" width="32" height="32"/>
-        <image name="prev_normal" width="32" height="32"/>
-        <image name="refresh_normal" width="32" height="32"/>
         <image name="reply_normal" width="32" height="32"/>
+        <image name="write" width="24" height="24"/>
     </resources>
 </document>

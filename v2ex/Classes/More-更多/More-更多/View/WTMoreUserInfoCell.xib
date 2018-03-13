@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="WTMoreUserInfoCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topic_avatar_normal" translatesAutoresizingMaskIntoConstraints="NO" id="lFD-hc-ynv">
+                        <rect key="frame" x="16" y="15" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="lFD-hc-ynv" secondAttribute="height" multiplier="1:1" id="Cv6-u3-u0l"/>
+                            <constraint firstAttribute="width" constant="50" id="e9N-uy-dXN"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5D-hb-XH0">
+                        <rect key="frame" x="78" y="29.5" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.26666666666666666" green="0.26666666666666666" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="i5D-hb-XH0" firstAttribute="centerY" secondItem="lFD-hc-ynv" secondAttribute="centerY" id="Vwc-jB-7iL"/>
+                    <constraint firstItem="lFD-hc-ynv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ggL-H7-nuA"/>
+                    <constraint firstItem="lFD-hc-ynv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="nc4-AF-vst"/>
+                    <constraint firstItem="i5D-hb-XH0" firstAttribute="leading" secondItem="lFD-hc-ynv" secondAttribute="trailing" constant="12" id="wGD-gl-fxr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="iconImageView" destination="lFD-hc-ynv" id="f9S-iY-R5H"/>
+                <outlet property="title_label" destination="i5D-hb-XH0" id="hLK-U4-06m"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="topic_avatar_normal" width="36" height="36"/>
+    </resources>
+</document>
