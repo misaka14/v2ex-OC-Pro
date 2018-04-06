@@ -14,6 +14,7 @@
 #import "WTLoginRequestItem.h"
 #import "WTAccountViewModel.h"
 
+#import "SVProgressHUD.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+Extension.h"
 
@@ -140,6 +141,11 @@
     self.verificationCodeImageV.userInteractionEnabled = NO;
     
     __weak typeof(self) weakSelf = self;
+    if (!self.loginRequestItem) {
+        [SVProgressHUD showErrorWithStatus:@"拉取验证码失败"];
+        [SVProgressHUD dismissWithDelay:2.0f];
+        return;
+    }
     // 1、设置验证码
     [[NetworkTool shareInstance] GETWithUrlString: self.loginRequestItem.verificationCode success:^(NSData *data) {
         

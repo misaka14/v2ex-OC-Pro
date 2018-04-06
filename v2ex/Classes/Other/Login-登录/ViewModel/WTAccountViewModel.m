@@ -417,6 +417,8 @@ static WTAccountViewModel *_instance;
     
     NSString *once = [[doc peekAtSearchWithXPathQuery: @"//input[@name='once']"] objectForKey: @"value"];
     NSArray *slArray = [doc searchWithXPathQuery: @"//input[@class='sl']"];
+    //登录过多时IP会被锁死,此时返回数组为空
+    if(slArray.count == 0) return nil;
     NSString *usernameKey = [slArray.firstObject objectForKey: @"name"];
     NSString *passwordKey = [slArray[1] objectForKey: @"name"];
     NSString *verificationCodeKey = [slArray.lastObject objectForKey: @"name"];
